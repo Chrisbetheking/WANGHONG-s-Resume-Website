@@ -3,59 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王鸿 | 个人作品集</title>
+    <title>王鸿 | AI Application & Front-end Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* 🎨 全新极客科技风配色 */
         :root {
-            --primary: #3b82f6;
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f1f5f9;
-            --text-dim: #94a3b8;
+            --primary: #06b6d4;       /* 极客青 (Cyan) */
+            --primary-hover: #0891b2;
+            --primary-glow: rgba(6, 182, 212, 0.4);
+            --bg: #09090b;            /* 纯净暗黑背景 */
+            --card: #18181b;          /* 质感深灰卡片 */
+            --card-hover: #27272a;
+            --text: #f4f4f5;
+            --text-dim: #a1a1aa;
         }
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-        /* 1. 第一屏优化 */
-        header { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 0; }
-        .profile-img { width: 140px; height: 140px; border-radius: 50%; border: 3px solid var(--primary); margin-bottom: 25px; object-fit: cover; }
-        h1 { font-size: 2.8rem; margin-bottom: 10px; }
-        .job-title { font-size: 1.3rem; color: var(--primary); font-weight: 600; margin-bottom: 20px; }
-        .intro { max-width: 650px; color: var(--text-dim); margin-bottom: 30px; font-size: 1.05rem; }
-        
-        /* 按钮设计 */
-        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; }
-        .btn-primary { background: var(--primary); color: white; border: 1px solid var(--primary); }
-        .btn-outline { border: 1px solid var(--text-dim); color: var(--text); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); }
+        /* ✨ 动画基类：滚动渐显 */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* 2. 数据亮点 */
+        /* 1. 第一屏 */
+        header { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 60px 0; }
+        
+        /* 头像呼吸灯特效 */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 var(--primary-glow); }
+            70% { box-shadow: 0 0 0 15px rgba(6, 182, 212, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+        }
+        .profile-img { 
+            width: 140px; height: 140px; border-radius: 50%; 
+            border: 3px solid var(--primary); margin-bottom: 25px; object-fit: cover;
+            animation: pulse-glow 2.5s infinite; /* 应用呼吸动画 */
+        }
+        
+        h1 { font-size: 2.8rem; margin-bottom: 10px; letter-spacing: 1px; }
+        .job-title { font-size: 1.3rem; color: var(--primary); font-weight: 600; margin-bottom: 20px; }
+        .intro { max-width: 650px; color: var(--text-dim); margin-bottom: 35px; font-size: 1.05rem; }
+        
+        /* 按钮悬停光效 */
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; }
+        .btn-primary { background: var(--primary); color: #000; border: 1px solid var(--primary); }
+        .btn-primary:hover { background: transparent; color: var(--primary); box-shadow: 0 0 20px var(--primary-glow); }
+        .btn-outline { border: 1px solid var(--text-dim); color: var(--text); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 15px rgba(255,255,255,0.1); transform: translateY(-2px); }
+
+        /* 2. 数据亮点特效 */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin-bottom: 80px; }
-        .stat-card { background: var(--card); padding: 25px 15px; border-radius: 12px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .stat-card { background: var(--card); padding: 25px 15px; border-radius: 12px; text-align: center; border-bottom: 3px solid var(--primary); transition: transform 0.3s ease; }
+        .stat-card:hover { transform: translateY(-5px); }
         .stat-num { display: block; font-size: 2.2rem; font-weight: 700; color: var(--primary); line-height: 1.2; margin-bottom: 5px; }
         .stat-label { font-size: 0.85rem; color: var(--text-dim); }
 
+        /* 通用区块 */
         section { margin-bottom: 70px; }
-        h2 { font-size: 1.6rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
-        h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        h2 { font-size: 1.6rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; color: #fff; }
+        h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(6,182,212,0.3) 0%, transparent 100%); }
 
-        .card { background: var(--card); padding: 30px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); }
+        /* 卡片悬停特效 */
+        .card { background: var(--card); padding: 30px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .card:hover { background: var(--card-hover); border-color: rgba(6, 182, 212, 0.3); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); transform: scaleY(0); transition: transform 0.3s ease; origin: bottom; }
+        .card:hover::before { transform: scaleY(1); }
+
         .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
         .card h3 { color: var(--text); font-size: 1.25rem; }
         .card .company { color: var(--primary); font-weight: 600; margin-bottom: 5px; display: block;}
-        .card .date { font-size: 0.85rem; color: var(--text-dim); }
+        .card .date { font-size: 0.85rem; color: var(--text-dim); background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 20px; }
         .tag-group { margin: 10px 0 15px 0; }
-        .tag { font-size: 0.75rem; background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 4px; margin-right: 8px; display: inline-block;}
+        .tag { font-size: 0.75rem; background: rgba(6, 182, 212, 0.1); color: var(--primary); padding: 5px 12px; border-radius: 6px; margin-right: 8px; display: inline-block; border: 1px solid rgba(6, 182, 212, 0.2);}
         .card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 15px; }
         .card ul { padding-left: 20px; font-size: 0.95rem; color: var(--text-dim); }
         .card ul li { margin-bottom: 8px; }
 
+        /* 技术栈分类 */
         .skill-group { margin-bottom: 25px; }
         .skill-title { color: var(--primary); font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
         .skill-items { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; color: var(--text); }
+        .skill-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; color: var(--text); transition: all 0.2s; }
+        .skill-item:hover { background: rgba(6, 182, 212, 0.1); border-color: var(--primary); color: var(--primary); }
 
         .edu-box { display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--primary); padding-left: 15px; }
 
@@ -67,13 +98,13 @@
 <body>
 
 <div class="container">
-    <header>
+    <header class="fade-in">
         <img src="avatar.jpg" alt="王鸿" class="profile-img">
         <h1>王鸿</h1>
         <div class="job-title">AI Application Developer | Front-end Developer</div>
         <p class="intro">
-            计算机科学本科在读，主要做 AI Agent、前端页面和自动化工具。
-            做过教育行业 AI 智能体项目，参与从 0 到 1 搭建，帮助团队提升销售查询效率 60%+。
+            计算机科学本科在读[cite: 3]，主要做 AI Agent、前端页面和自动化工具[cite: 3]。
+            做过教育行业 AI 智能体项目，参与从 0 到 1 搭建，帮助团队提升销售查询效率 60%+[cite: 3]。
         </p>
         <div class="btn-group">
             <a href="resume.pdf" target="_blank" class="btn btn-primary"><i class="fas fa-file-pdf"></i> 下载简历 PDF</a>
@@ -83,133 +114,150 @@
     </header>
 
     <div class="stats-grid">
-        <div class="stat-card"><span class="stat-num">60%+</span><span class="stat-label">销售查询效率提升</span></div>
-        <div class="stat-card"><span class="stat-num">200h</span><span class="stat-label">节省人工查询时间</span></div>
-        <div class="stat-card"><span class="stat-num">80%</span><span class="stat-label">医疗问答匹配准确率</span></div>
-        <div class="stat-card"><span class="stat-num">95%</span><span class="stat-label">成绩计算准确率</span></div>
+        <div class="stat-card fade-in"><span class="stat-num">60%+</span><span class="stat-label">销售查询效率提升[cite: 3]</span></div>
+        <div class="stat-card fade-in" style="transition-delay: 0.1s;"><span class="stat-num">200h</span><span class="stat-label">节省人工查询时间[cite: 3]</span></div>
+        <div class="stat-card fade-in" style="transition-delay: 0.2s;"><span class="stat-num">80%</span><span class="stat-label">医疗问答匹配准确率[cite: 3]</span></div>
+        <div class="stat-card fade-in" style="transition-delay: 0.3s;"><span class="stat-num">95%</span><span class="stat-label">成绩计算准确率[cite: 3]</span></div>
     </div>
 
     <section>
-        <h2>实习经历</h2>
-        <div class="card">
+        <h2 class="fade-in">实习经历</h2>
+        <div class="card fade-in">
             <div class="card-header">
                 <div>
                     <h3>AI 智能体开发实习生</h3>
-                    <span class="company">成都泓麒教育科技有限公司</span>
+                    <span class="company">成都泓麒教育科技有限公司[cite: 3]</span>
                 </div>
-                <span class="date">2025.01 - 2025.03</span>
+                <span class="date">2025.01 - 2025.03[cite: 3]</span>
             </div>
             <ul>
-                <li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入。系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%。</li>
-                <li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持基于不同产品快速生成推广文案，降低重复撰写成本。</li>
-                <li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等多平台集成，统一内部入口，提升团队协作效率。</li>
+                <li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入[cite: 3]。</li>
+                <li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持基于不同产品快速生成推广文案，降低重复撰写成本[cite: 3]。</li>
+                <li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等多平台集成，统一内部入口，提升团队协作效率[cite: 3]。</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>重点项目</h2>
+        <h2 class="fade-in">重点项目</h2>
         
-        <div class="card">
+        <div class="card fade-in">
             <div class="card-header">
-                <h3>AI 自动化信息检索智能体</h3>
+                <h3>AI 自动化信息检索智能体[cite: 3]</h3>
             </div>
             <div class="tag-group">
                 <span class="tag">LLM 应用</span><span class="tag">流程优化</span><span class="tag">多平台接入</span>
             </div>
-            <p>这个项目是给教育销售团队用的，用来快速查询院校信息、招生简章和申请要求。我主要负责需求整理、查询流程设计、页面展示和多平台接入。项目上线后，查询速度提升约 30%，帮团队节省了大约 200 小时人工查询时间。</p>
+            <p>这个项目是给教育销售团队用的，用来快速查询院校信息、招生简章和申请要求[cite: 3]。我主要负责需求分析、架构设计、查询流程优化和多平台集成[cite: 3]。项目上线后，查询速度提升约 30%，帮团队节省了大约 200 小时人工查询时间[cite: 3]。</p>
         </div>
 
-        <div class="card">
+        <div class="card fade-in">
             <div class="card-header">
-                <h3>AI 智能医疗问答系统</h3>
-                <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 源码链接</a>
+                <h3>AI 智能医疗问答系统[cite: 3]</h3>
+                <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-code-branch"></i> 源码链接[cite: 3]</a>
             </div>
             <div class="tag-group">
                 <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">算法匹配</span>
             </div>
-            <p>参与基于 Python 的 AI 医疗问答系统开发，支持用户输入症状后进行疾病推荐与初步诊断。我负责症状描述识别与匹配功能，通过文本清洗、相似度计算与规则匹配，使系统对用户症状的识别准确率达到 80%。</p>
+            <p>参与基于 Python 的 AI 医疗问答系统开发，支持用户输入症状后进行疾病推荐与初步诊断[cite: 3]。我负责症状描述识别与匹配功能，通过文本清洗、相似度计算与规则匹配，使系统对用户症状的识别准确率达到 80%[cite: 3]。</p>
         </div>
 
-        <div class="card">
+        <div class="card fade-in">
             <div class="card-header">
-                <h3>Java 学生成绩管理系统</h3>
+                <h3>Java 学生成绩管理系统[cite: 3]</h3>
             </div>
             <div class="tag-group">
                 <span class="tag">Java</span><span class="tag">系统设计</span><span class="tag">数据处理</span>
             </div>
-            <p>设计并实现学生成绩管理系统，覆盖成绩统计、补考名单筛选、成绩数据管理等核心功能。负责开发成绩计算模块，完成课程成绩统计、总评计算，计算准确率达到 95%。整体开发时间减少约 10%。</p>
+            <p>设计并实现学生成绩管理系统，覆盖成绩统计、补考名单筛选、成绩数据管理等核心功能[cite: 3]。负责开发成绩计算模块，完成课程成绩统计、总评计算，计算准确率达到 95%[cite: 3]。通过优化系统代码结构，整体开发时间减少约 10%[cite: 3]。</p>
         </div>
 
-        <div class="card">
+        <div class="card fade-in">
             <div class="card-header">
-                <h3>响应式交互网页项目</h3>
-                <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 在线预览</a>
+                <h3>响应式交互网页项目[cite: 3]</h3>
+                <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 在线预览[cite: 3]</a>
             </div>
             <div class="tag-group">
                 <span class="tag">原生前端开发</span><span class="tag">EmailJS 集成</span>
             </div>
-            <p>独立完成网站从视觉设计、页面开发到部署上线的完整流程。使用原生 HTML、CSS、JavaScript 完成响应式页面，实现了打字机效果、实时计时器、弹幕、表单验证和邮件发送（集成 EmailJS）等功能，具备前端项目独立落地能力。</p>
+            <p>独立完成从视觉设计、页面开发到部署上线的全流程[cite: 3]。使用原生 HTML、CSS、JavaScript 完成响应式页面，实现了打字机效果、实时计时器、弹幕、表单验证和邮件发送（集成 EmailJS）等功能[cite: 3]，具备完整的前端落地能力[cite: 3]。</p>
         </div>
     </section>
 
     <section>
-        <h2>技能栈</h2>
-        <div class="card" style="padding: 25px;">
+        <h2 class="fade-in">技能栈</h2>
+        <div class="card fade-in" style="padding: 25px;">
             <div class="skill-group">
-                <div class="skill-title">· 前端开发</div>
+                <div class="skill-title">· 前端开发[cite: 3]</div>
                 <div class="skill-items">
-                    <span class="skill-item">HTML / CSS / JavaScript</span>
-                    <span class="skill-item">响应式布局</span>
-                    <span class="skill-item">DOM 操作</span>
-                    <span class="skill-item">CSS 动画</span>
+                    <span class="skill-item">HTML / CSS / JavaScript[cite: 3]</span>
+                    <span class="skill-item">响应式布局[cite: 3]</span>
+                    <span class="skill-item">DOM 操作[cite: 3]</span>
+                    <span class="skill-item">CSS 动画[cite: 3]</span>
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-title">· AI 与应用开发</div>
+                <div class="skill-title">· AI 与应用开发[cite: 3]</div>
                 <div class="skill-items">
-                    <span class="skill-item">Python</span>
-                    <span class="skill-item">NLP 基础</span>
-                    <span class="skill-item">信息检索</span>
-                    <span class="skill-item">AI Agent</span>
+                    <span class="skill-item">Python[cite: 3]</span>
+                    <span class="skill-item">NLP 基础[cite: 3]</span>
+                    <span class="skill-item">信息检索[cite: 3]</span>
+                    <span class="skill-item">AI Agent[cite: 3]</span>
                     <span class="skill-item">Prompt 调优</span>
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-title">· 数据库与数据处理</div>
+                <div class="skill-title">· 数据库与数据处理[cite: 3]</div>
                 <div class="skill-items">
-                    <span class="skill-item">SQL 基础</span>
-                    <span class="skill-item">数据筛选与统计</span>
+                    <span class="skill-item">SQL 基础[cite: 3]</span>
+                    <span class="skill-item">数据筛选与统计[cite: 3]</span>
                 </div>
             </div>
             <div class="skill-group" style="margin-bottom: 0;">
-                <div class="skill-title">· 开发与协作工具</div>
+                <div class="skill-title">· 开发与协作工具[cite: 3]</div>
                 <div class="skill-items">
-                    <span class="skill-item">Git / GitHub</span>
-                    <span class="skill-item">WSL</span>
-                    <span class="skill-item">VS Code</span>
-                    <span class="skill-item">Google Colab</span>
+                    <span class="skill-item">Git / GitHub[cite: 3]</span>
+                    <span class="skill-item">WSL[cite: 3]</span>
+                    <span class="skill-item">VS Code[cite: 3]</span>
+                    <span class="skill-item">Google Colab[cite: 3]</span>
                 </div>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>教育背景</h2>
-        <div class="edu-box">
+        <h2 class="fade-in">教育背景</h2>
+        <div class="edu-box fade-in">
             <div>
-                <h3 style="color: var(--text); font-size: 1.1rem;">亚太科技大学 (Asia Pacific University)</h3>
-                <p style="color: var(--text-dim); margin-top: 5px;">计算机科学学士学位</p>
+                <h3 style="color: var(--text); font-size: 1.1rem;">亚太科技大学 (Asia Pacific University)[cite: 3]</h3>
+                <p style="color: var(--text-dim); margin-top: 5px;">计算机科学学士学位[cite: 3]</p>
             </div>
-            <span style="color: var(--primary); font-weight: 500;">2024.09 - 2027.09</span>
+            <span style="color: var(--primary); font-weight: 500;">2024.09 - 2027.09[cite: 3]</span>
         </div>
     </section>
 
-    <footer>
-        <p>Email: easymoneysniperchris@gmail.com | Tel: 18081299137 / 0134454019(Malaysia)</p>
-        <p style="margin-top: 10px;">© 2026 王鸿. Built for professional showcasing.</p>
+    <footer class="fade-in">
+        <p>Email: easymoneysniperchris@gmail.com[cite: 3] | Tel: 18081299137[cite: 3] / 0134454019(Malaysia)[cite: 3]</p>
+        <p style="margin-top: 10px;">© 2026 王鸿[cite: 3]. Built for professional showcasing.</p>
     </footer>
 </div>
+
+<!-- ⚙️ 滚动动画触发脚本 -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    });
+</script>
 
 </body>
 </html>
