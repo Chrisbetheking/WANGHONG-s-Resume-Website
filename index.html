@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王鸿 | 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-color: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .bg-glow {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+            z-index: -1;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-img {
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+            object-fit: cover;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .typewriter {
+            font-family: monospace;
+            border-right: 2px solid var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            height: 1.5rem;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
+
+        section { margin-bottom: 80px; }
+        h2 { border-left: 5px solid var(--primary-color); padding-left: 15px; margin-bottom: 30px; }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: var(--primary-color);
+        }
+
+        .project-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+        .tag {
+            font-size: 0.8rem; background: rgba(37, 99, 235, 0.2);
+            padding: 3px 8px; border-radius: 5px; margin-right: 5px;
+        }
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-node {
+            background: var(--card-bg);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-color);
+        }
+
+        footer { text-align: center; padding: 40px; opacity: 0.6; }
+        
+        @media (max-width: 600px) { h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header>
+        <img src="avatar.jpg" alt="王鸿" class="profile-img">
+        <h1>王鸿</h1>
+        <div class="typewriter" id="typewriter"></div>
+        <div style="margin-top: 20px;">
+            <a href="mailto:easymoneysniperchris@gmail.com" style="color: white; margin: 0 15px; font-size: 1.8rem;"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/Chrisbetheking" target="_blank" style="color: white; margin: 0 15px; font-size: 1.8rem;"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>实习经历</h2>
+            <div class="project-card">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <h3>成都泓麒教育科技有限公司</h3>
+                    <span>2025.01 - 2025.03</span>
+                </div>
+                <p style="color: var(--primary-color); margin: 5px 0;">AI 智能体开发实习生</p>
+                <ul style="margin-left: 20px; font-size: 0.95rem; opacity: 0.9;">
+                    <li>参与AI智能体从0到1搭建，销售查询效率提升60%+</li>
+                    <li>搭建销售短视频脚本自动生成模块，提升素材产出效率</li>
+                    <li>完成微信客服、钉钉、飞书等多平台集成</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>项目展示</h2>
+            <div class="project-grid">
+                <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" class="project-card">
+                    <div><span class="tag">原生前端</span><span class="tag">交互设计</span></div>
+                    <h3>响应式情侣交互官网 <i class="fas fa-external-link-alt"></i></h3>
+                    <p>独立完成全流程开发，实现弹幕、打字机、实时计时器等互动效果。</p>
+                </a>
+
+                <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" class="project-card">
+                    <div><span class="tag">Python</span><span class="tag">AI/NLP</span></div>
+                    <h3>AI 智能医疗问答系统 <i class="fas fa-external-link-alt"></i></h3>
+                    <p>基于症状识别的诊断系统，匹配准确率达 80%，支持多轮问答交互。</p>
+                </a>
+
+                <div class="project-card">
+                    <div><span class="tag">LLM</span><span class="tag">架构设计</span></div>
+                    <h3>AI 自动化信息检索系统</h3>
+                    <p>优化匹配算法提升 30% 响应速度，为团队节省约 200 小时人工成本。</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>技术栈</h2>
+            <div class="skills-container">
+                <span class="skill-node">HTML5 / CSS3 / JavaScript</span>
+                <span class="skill-node">Python (AI & Data)</span>
+                <span class="skill-node">Java / C</span>
+                <span class="skill-node">Git / GitHub / WSL</span>
+                <span class="skill-node">LLM Agent 落地实践</span>
+                <span class="skill-node">SQL / 数据处理</span>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 王鸿 | Asia Pacific University</p>
+    </footer>
+
+    <script>
+        const text = "AI Agent Developer | Front-end Enthusiast";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
