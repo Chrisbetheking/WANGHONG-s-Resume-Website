@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="王鸿的个人作品集 | AI Application Developer & Front-end Engineer">
     <meta property="og:title" content="王鸿 | 个人简历与作品集">
-    <meta property="og:description" content="计算机科学本科在读，专注于 AI Agent 开发与前端交互实践。点击查看完整项目经历与在线演示。">
+    <meta property="og:description" content="计算机科学本科在读，专注于 AI Agent 开发与跨端交互实践。点击查看完整项目经历与在线演示。">
     <meta property="og:image" content="avatar.jpg">
     <title>王鸿 | 个人作品集</title>
     <link rel="icon" type="image/jpeg" href="avatar.jpg">
@@ -134,6 +134,9 @@
         .card ul { padding-left: 20px; font-size: 0.95rem; color: var(--text-dim); }
         .card ul li { margin-bottom: 8px; }
 
+        .project-gif { width: 100%; border-radius: 12px; margin-top: 15px; border: 1px solid var(--border); box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .card:hover .project-gif { transform: scale(1.02); }
+
         .skill-group { margin-bottom: 25px; }
         .skill-title { color: var(--primary); font-size: 1.05rem; font-weight: 700; margin-bottom: 15px; }
         .skill-items { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -181,11 +184,11 @@
         </div>
 
         <p class="intro">
-            计算机科学本科在读，主要做 AI Agent、前端页面和自动化工具。
+            计算机科学本科在读，主要做 AI Agent、前端跨端页面和自动化工具。
             做过教育行业 AI 智能体项目，参与从 0 到 1 搭建，帮助团队提升销售查询效率 60%+。
         </p>
         <div class="btn-group">
-            <a href="resume.pdf" download="王鸿_简历.pdf" class="btn btn-primary"><i class="fas fa-file-pdf"></i> 下载简历 PDF</a>
+            <a href="WangHong_Resume.pdf" download="WangHong_Resume.pdf" class="btn btn-primary"><i class="fas fa-file-pdf"></i> 下载简历 PDF</a>
             <a href="tel:18081299137" class="btn btn-outline"><i class="fas fa-phone-alt"></i> 18081299137</a>
             <a href="javascript:void(0)" onclick="copyEmail()" id="emailBtn" class="btn btn-outline"><i class="fas fa-envelope"></i> 联系我</a>
             <a href="https://github.com/Chrisbetheking" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
@@ -219,6 +222,25 @@
 
     <section class="reveal">
         <h2>重点项目</h2>
+
+        <div class="card reveal">
+            <div class="card-header">
+                <div>
+                    <h3>APU 智能校园交通系统</h3>
+                </div>
+                <a href="#" class="btn-outline" style="padding: 6px 15px; font-size: 0.85rem; border-radius: 8px; text-decoration: none; font-weight: 600;"><i class="fas fa-mobile-alt"></i> Flutter 跨端开发</a>
+            </div>
+            <div class="tag-group">
+                <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Custom UI</span><span class="tag">Animation</span>
+            </div>
+            <p>独立设计并开发的一套面向大学校园的综合交通与停车管理系统，支持学生（预订/追踪）、教务人员（状态核销）与管理员（后台管控）多角色协同。</p>
+            <ul>
+                <li><strong>高级 UI 与动画渲染：</strong> 突破常规静态组件限制，深度使用 Flutter CustomPaint 引擎原生绘制 2D 俯视校园路网。结合贝塞尔曲线与 AnimationController，实现了公交车沿真实轨迹平滑行驶、动态车头转向的物理级动画模拟。</li>
+                <li><strong>复杂状态与业务管理：</strong> 搭建了多维度的业务逻辑，包括动态车位预订与扣减、基于定时器的实时 ETA（预计到达时间）倒计时系统、以及防遮挡的全局悬浮组件与底部弹窗交互。</li>
+                <li><strong>现代化界面重构：</strong> 采用目前流行的毛玻璃 (Glassmorphism) 与 Clean Minimal 极简设计语言，实现高优交互体验，并完成跨平台的响应式适配。</li>
+            </ul>
+            <img src="apu_transport.gif" alt="Flutter Animation Demo" class="project-gif" onerror="this.style.display='none'">
+        </div>
         
         <div class="card reveal">
             <div class="card-header">
@@ -275,12 +297,15 @@
         <h2>技能栈</h2>
         <div class="card" style="padding: 35px;">
             <div class="skill-group">
-                <div class="skill-title">· 前端开发</div>
+                <div class="skill-title">· 前端与跨端开发</div>
                 <div class="skill-items">
                     <span class="skill-item">HTML / CSS / JavaScript</span>
+                    <span class="skill-item" style="color: var(--primary); border-color: var(--primary);">TypeScript 基础</span>
                     <span class="skill-item">响应式布局</span>
-                    <span class="skill-item">DOM 操作</span>
-                    <span class="skill-item">CSS 动画</span>
+                    <span class="skill-item" style="color: var(--primary); border-color: var(--primary);">Flutter 跨端技术</span>
+                    <span class="skill-item">Dart</span>
+                    <span class="skill-item">通用组件化开发</span>
+                    <span class="skill-item">CustomPaint 高级动画</span>
                 </div>
             </div>
             <div class="skill-group">
@@ -288,25 +313,28 @@
                 <div class="skill-items">
                     <span class="skill-item">Python</span>
                     <span class="skill-item">NLP 基础</span>
-                    <span class="skill-item">信息检索</span>
+                    <span class="skill-item" style="color: var(--primary); border-color: var(--primary);">大模型应用落地</span>
                     <span class="skill-item">AI Agent</span>
                     <span class="skill-item">Prompt 调优</span>
+                    <span class="skill-item">业务逻辑抽象</span>
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-title">· 数据库与数据处理</div>
+                <div class="skill-title">· 后端协同与数据处理 (全栈方向)</div>
                 <div class="skill-items">
+                    <span class="skill-item" style="color: var(--primary); border-color: var(--primary);">Java (全栈实践)</span>
+                    <span class="skill-item">前后端协同开发</span>
                     <span class="skill-item">SQL 基础</span>
                     <span class="skill-item">数据筛选与统计</span>
                 </div>
             </div>
             <div class="skill-group" style="margin-bottom: 0;">
-                <div class="skill-title">· 开发与协作工具</div>
+                <div class="skill-title">· 开发与 AI 效能工具</div>
                 <div class="skill-items">
                     <span class="skill-item">Git / GitHub</span>
+                    <span class="skill-item" style="color: var(--primary); border-color: var(--primary);">AI 辅助编程 (Cursor/Copilot)</span>
                     <span class="skill-item">WSL</span>
                     <span class="skill-item">VS Code</span>
-                    <span class="skill-item">Google Colab</span>
                 </div>
             </div>
         </div>
@@ -334,7 +362,7 @@
 </div>
 
 <script>
-    const jobTitleText = "AI Application Developer | Front-end Developer";
+    const jobTitleText = "AI Application Developer | Front-end Engineer";
     const typewriterElement = document.getElementById("typewriter");
     let i = 0;
     
@@ -378,7 +406,7 @@
             
             setTimeout(() => {
                 btn.innerHTML = '<i class="fas fa-envelope"></i> 联系我';
-                btn.style.backgroundColor = "transparent";
+                btn.style.backgroundColor = "var(--card)";
                 btn.style.color = "var(--text)";
                 btn.style.borderColor = "var(--border)";
             }, 2000);
