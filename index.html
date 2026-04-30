@@ -37,15 +37,13 @@
         .stat-num { display: block; font-size: 2.2rem; font-weight: 700; color: var(--primary); line-height: 1.2; margin-bottom: 5px; }
         .stat-label { font-size: 0.85rem; color: var(--text-dim); }
 
-        /* 通用区块设置 */
         section { margin-bottom: 70px; }
         h2 { font-size: 1.6rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
         h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        /* 卡片设计 (间距收一点) */
         .card { background: var(--card); padding: 30px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05); }
         .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
-        .card h3 { color: var(--text); font-size: 1.25rem; } /* 标题不再全蓝 */
+        .card h3 { color: var(--text); font-size: 1.25rem; }
         .card .company { color: var(--primary); font-weight: 600; margin-bottom: 5px; display: block;}
         .card .date { font-size: 0.85rem; color: var(--text-dim); }
         .tag-group { margin: 10px 0 15px 0; }
@@ -54,13 +52,11 @@
         .card ul { padding-left: 20px; font-size: 0.95rem; color: var(--text-dim); }
         .card ul li { margin-bottom: 8px; }
 
-        /* 5. 技术栈分组 */
         .skill-group { margin-bottom: 25px; }
         .skill-title { color: var(--primary); font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
         .skill-items { display: flex; flex-wrap: wrap; gap: 10px; }
         .skill-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; color: var(--text); }
 
-        /* 教育经历 */
         .edu-box { display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--primary); padding-left: 15px; }
 
         footer { text-align: center; padding: 40px 0; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); font-size: 0.85rem; }
@@ -71,14 +67,13 @@
 <body>
 
 <div class="container">
-    <!-- 第一部分：个人信息与简介 -->
     <header>
         <img src="avatar.jpg" alt="王鸿" class="profile-img">
         <h1>王鸿</h1>
         <div class="job-title">AI Application Developer | Front-end Developer</div>
         <p class="intro">
-            计算机科学本科在读[cite: 3]，主要做 AI Agent、前端页面和自动化工具[cite: 3]。
-            做过教育行业 AI 智能体项目，参与从 0 到 1 搭建，帮助团队提升销售查询效率 60%+[cite: 3]。
+            计算机科学本科在读，主要做 AI Agent、前端页面和自动化工具。
+            做过教育行业 AI 智能体项目，参与从 0 到 1 搭建，帮助团队提升销售查询效率 60%+。
         </p>
         <div class="btn-group">
             <a href="resume.pdf" target="_blank" class="btn btn-primary"><i class="fas fa-file-pdf"></i> 下载简历 PDF</a>
@@ -87,151 +82,132 @@
         </div>
     </header>
 
-    <!-- 第二部分：数据亮点 -->
     <div class="stats-grid">
-        <div class="stat-card">
-            <span class="stat-num">60%+</span>
-            <span class="stat-label">销售查询效率提升[cite: 3]</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-num">200h</span>
-            <span class="stat-label">节省人工查询时间[cite: 3]</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-num">80%</span>
-            <span class="stat-label">医疗问答匹配准确率[cite: 3]</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-num">95%</span>
-            <span class="stat-label">成绩计算准确率[cite: 3]</span>
-        </div>
+        <div class="stat-card"><span class="stat-num">60%+</span><span class="stat-label">销售查询效率提升</span></div>
+        <div class="stat-card"><span class="stat-num">200h</span><span class="stat-label">节省人工查询时间</span></div>
+        <div class="stat-card"><span class="stat-num">80%</span><span class="stat-label">医疗问答匹配准确率</span></div>
+        <div class="stat-card"><span class="stat-num">95%</span><span class="stat-label">成绩计算准确率</span></div>
     </div>
 
-    <!-- 第三部分：实习经历 -->
     <section>
         <h2>实习经历</h2>
         <div class="card">
             <div class="card-header">
                 <div>
                     <h3>AI 智能体开发实习生</h3>
-                    <span class="company">成都泓麒教育科技有限公司[cite: 3]</span>
+                    <span class="company">成都泓麒教育科技有限公司</span>
                 </div>
-                <span class="date">2025.01 - 2025.03[cite: 3]</span>
+                <span class="date">2025.01 - 2025.03</span>
             </div>
             <ul>
-                <li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入[cite: 3]。</li>
-                <li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持基于不同产品快速生成推广文案，降低重复撰写成本[cite: 3]。</li>
-                <li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等多平台集成，统一内部入口，提升团队协作效率[cite: 3]。</li>
+                <li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入。系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%。</li>
+                <li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持基于不同产品快速生成推广文案，降低重复撰写成本。</li>
+                <li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等多平台集成，统一内部入口，提升团队协作效率。</li>
             </ul>
         </div>
     </section>
 
-    <!-- 第四部分：项目展示 -->
     <section>
         <h2>重点项目</h2>
         
-        <!-- AI 项目放前面 -->
         <div class="card">
             <div class="card-header">
-                <h3>AI 自动化信息检索智能体[cite: 3]</h3>
+                <h3>AI 自动化信息检索智能体</h3>
             </div>
             <div class="tag-group">
                 <span class="tag">LLM 应用</span><span class="tag">流程优化</span><span class="tag">多平台接入</span>
             </div>
-            <p>这个项目是给教育销售团队用的，用来快速查询院校信息、招生简章和申请要求[cite: 3]。我主要负责需求分析、架构设计、查询流程优化和多平台集成[cite: 3]。项目上线后，查询速度提升约 30%，帮团队节省了大约 200 小时人工查询时间[cite: 3]。</p>
+            <p>这个项目是给教育销售团队用的，用来快速查询院校信息、招生简章和申请要求。我主要负责需求整理、查询流程设计、页面展示和多平台接入。项目上线后，查询速度提升约 30%，帮团队节省了大约 200 小时人工查询时间。</p>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <h3>AI 智能医疗问答系统[cite: 3]</h3>
-                <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 源码链接[cite: 3]</a>
+                <h3>AI 智能医疗问答系统</h3>
+                <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 源码链接</a>
             </div>
             <div class="tag-group">
                 <span class="tag">Python</span><span class="tag">NLP</span><span class="tag">算法匹配</span>
             </div>
-            <p>参与基于 Python 的 AI 医疗问答系统开发，支持用户输入症状后进行疾病推荐与初步诊断[cite: 3]。我负责症状描述识别与匹配功能，通过文本清洗、相似度计算与规则匹配，使系统对用户症状的识别准确率达到 80%[cite: 3]。</p>
+            <p>参与基于 Python 的 AI 医疗问答系统开发，支持用户输入症状后进行疾病推荐与初步诊断。我负责症状描述识别与匹配功能，通过文本清洗、相似度计算与规则匹配，使系统对用户症状的识别准确率达到 80%。</p>
         </div>
 
         <div class="card">
             <div class="card-header">
-                <h3>Java 学生成绩管理系统[cite: 3]</h3>
+                <h3>Java 学生成绩管理系统</h3>
             </div>
             <div class="tag-group">
                 <span class="tag">Java</span><span class="tag">系统设计</span><span class="tag">数据处理</span>
             </div>
-            <p>设计并实现学生成绩管理系统，覆盖成绩统计、补考名单筛选、成绩数据管理等核心功能[cite: 3]。负责开发成绩计算模块，完成课程成绩统计、总评计算，计算准确率达到 95%[cite: 3]。通过优化系统代码结构，整体开发时间减少约 10%[cite: 3]。</p>
+            <p>设计并实现学生成绩管理系统，覆盖成绩统计、补考名单筛选、成绩数据管理等核心功能。负责开发成绩计算模块，完成课程成绩统计、总评计算，计算准确率达到 95%。整体开发时间减少约 10%。</p>
         </div>
 
-        <!-- 情侣官网重新包装，放最后 -->
         <div class="card">
             <div class="card-header">
-                <h3>响应式交互网页项目[cite: 3]</h3>
-                <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 在线预览[cite: 3]</a>
+                <h3>响应式交互网页项目</h3>
+                <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.9rem;"><i class="fas fa-external-link-alt"></i> 在线预览</a>
             </div>
             <div class="tag-group">
                 <span class="tag">原生前端开发</span><span class="tag">EmailJS 集成</span>
             </div>
-            <p>独立完成从视觉设计、页面开发到部署上线的全流程[cite: 3]。使用原生 HTML、CSS、JavaScript 完成响应式页面，实现了打字机效果、实时计时器、弹幕、表单验证和邮件发送（集成 EmailJS）等功能[cite: 3]，具备完整的前端落地能力[cite: 3]。</p>
+            <p>独立完成网站从视觉设计、页面开发到部署上线的完整流程。使用原生 HTML、CSS、JavaScript 完成响应式页面，实现了打字机效果、实时计时器、弹幕、表单验证和邮件发送（集成 EmailJS）等功能，具备前端项目独立落地能力。</p>
         </div>
     </section>
 
-    <!-- 第五部分：技术栈 -->
     <section>
         <h2>技能栈</h2>
         <div class="card" style="padding: 25px;">
             <div class="skill-group">
-                <div class="skill-title">· 前端开发[cite: 3]</div>
+                <div class="skill-title">· 前端开发</div>
                 <div class="skill-items">
-                    <span class="skill-item">HTML / CSS / JavaScript[cite: 3]</span>
-                    <span class="skill-item">响应式布局[cite: 3]</span>
-                    <span class="skill-item">DOM 操作[cite: 3]</span>
-                    <span class="skill-item">CSS 动画[cite: 3]</span>
+                    <span class="skill-item">HTML / CSS / JavaScript</span>
+                    <span class="skill-item">响应式布局</span>
+                    <span class="skill-item">DOM 操作</span>
+                    <span class="skill-item">CSS 动画</span>
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-title">· AI 与应用开发[cite: 3]</div>
+                <div class="skill-title">· AI 与应用开发</div>
                 <div class="skill-items">
-                    <span class="skill-item">Python[cite: 3]</span>
-                    <span class="skill-item">NLP 基础[cite: 3]</span>
-                    <span class="skill-item">信息检索[cite: 3]</span>
-                    <span class="skill-item">AI Agent[cite: 3]</span>
+                    <span class="skill-item">Python</span>
+                    <span class="skill-item">NLP 基础</span>
+                    <span class="skill-item">信息检索</span>
+                    <span class="skill-item">AI Agent</span>
                     <span class="skill-item">Prompt 调优</span>
                 </div>
             </div>
             <div class="skill-group">
-                <div class="skill-title">· 数据库与数据处理[cite: 3]</div>
+                <div class="skill-title">· 数据库与数据处理</div>
                 <div class="skill-items">
-                    <span class="skill-item">SQL 基础[cite: 3]</span>
-                    <span class="skill-item">数据筛选与统计[cite: 3]</span>
+                    <span class="skill-item">SQL 基础</span>
+                    <span class="skill-item">数据筛选与统计</span>
                 </div>
             </div>
             <div class="skill-group" style="margin-bottom: 0;">
-                <div class="skill-title">· 开发与协作工具[cite: 3]</div>
+                <div class="skill-title">· 开发与协作工具</div>
                 <div class="skill-items">
-                    <span class="skill-item">Git / GitHub[cite: 3]</span>
-                    <span class="skill-item">WSL[cite: 3]</span>
-                    <span class="skill-item">VS Code[cite: 3]</span>
-                    <span class="skill-item">Google Colab[cite: 3]</span>
+                    <span class="skill-item">Git / GitHub</span>
+                    <span class="skill-item">WSL</span>
+                    <span class="skill-item">VS Code</span>
+                    <span class="skill-item">Google Colab</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 第六部分：教育经历与联系方式 -->
     <section>
         <h2>教育背景</h2>
         <div class="edu-box">
             <div>
-                <h3 style="color: var(--text); font-size: 1.1rem;">亚太科技大学 (Asia Pacific University)[cite: 3]</h3>
-                <p style="color: var(--text-dim); margin-top: 5px;">计算机科学学士学位[cite: 3]</p>
+                <h3 style="color: var(--text); font-size: 1.1rem;">亚太科技大学 (Asia Pacific University)</h3>
+                <p style="color: var(--text-dim); margin-top: 5px;">计算机科学学士学位</p>
             </div>
-            <span style="color: var(--primary); font-weight: 500;">2024.09 - 2027.09[cite: 3]</span>
+            <span style="color: var(--primary); font-weight: 500;">2024.09 - 2027.09</span>
         </div>
     </section>
 
     <footer>
-        <p>Email: easymoneysniperchris@gmail.com[cite: 3] | Tel: 18081299137[cite: 3] / 0134454019(Malaysia)[cite: 3]</p>
-        <p style="margin-top: 10px;">© 2026 王鸿[cite: 3]. Built for professional showcasing.</p>
+        <p>Email: easymoneysniperchris@gmail.com | Tel: 18081299137 / 0134454019(Malaysia)</p>
+        <p style="margin-top: 10px;">© 2026 王鸿. Built for professional showcasing.</p>
     </footer>
 </div>
 
