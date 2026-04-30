@@ -3,188 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王鸿 | 个人简历</title>
+    <title>王鸿 | 个人作品集</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --bg-color: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
-            --text-color: #f8fafc;
+            --primary: #3b82f6;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
 
-        .bg-glow {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
-            z-index: -1;
-        }
+        /* 第一屏优化 */
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .profile-img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--primary); margin-bottom: 20px; object-fit: cover; }
+        h1 { font-size: 2.5rem; margin-bottom: 8px; }
+        .job-title { font-size: 1.2rem; color: var(--primary); font-weight: 600; margin-bottom: 15px; }
+        .intro { max-width: 600px; color: var(--text-dim); margin-bottom: 25px; font-size: 1rem; }
+        
+        .btn-group { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-outline { border: 1px solid var(--text-dim); color: var(--text); }
+        .btn:hover { transform: translateY(-2px); opacity: 0.9; }
 
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .profile-img {
-            width: 150px; height: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
-            object-fit: cover;
-        }
-
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        .typewriter {
-            font-family: monospace;
-            border-right: 2px solid var(--primary-color);
-            white-space: nowrap;
-            overflow: hidden;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            height: 1.5rem;
-        }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 50px 20px; }
+        /* 数据亮点模块 */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 40px 0 80px; }
+        .stat-card { background: var(--card); padding: 20px; border-radius: 12px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .stat-num { display: block; font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.85rem; color: var(--text-dim); }
 
         section { margin-bottom: 80px; }
-        h2 { border-left: 5px solid var(--primary-color); padding-left: 15px; margin-bottom: 30px; }
+        h2 { font-size: 1.5rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
+        h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
 
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
+        /* 经历与项目卡片 */
+        .card { background: var(--card); padding: 30px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+        .card h3 { color: var(--primary); }
+        .tag { font-size: 0.75rem; background: rgba(59, 130, 246, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 4px; margin-right: 8px; }
+        .card p { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 15px; }
+        .card ul { padding-left: 20px; font-size: 0.9rem; color: var(--text-dim); }
+        .card ul li { margin-bottom: 8px; }
 
-        .project-card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.3s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
+        /* 技术栈分类 */
+        .skill-group { margin-bottom: 20px; }
+        .skill-label { color: var(--primary); font-weight: 600; margin-bottom: 10px; display: block; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag { background: rgba(255,255,255,0.05); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border-color: var(--primary-color);
-        }
-
-        .project-card h3 { color: var(--primary-color); margin-bottom: 10px; }
-        .tag {
-            font-size: 0.8rem; background: rgba(37, 99, 235, 0.2);
-            padding: 3px 8px; border-radius: 5px; margin-right: 5px;
-        }
-
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill-node {
-            background: var(--card-bg);
-            padding: 8px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--primary-color);
-        }
-
-        footer { text-align: center; padding: 40px; opacity: 0.6; }
-        
         @media (max-width: 600px) { h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
-    <div class="bg-glow"></div>
 
+<div class="container">
     <header>
         <img src="avatar.jpg" alt="王鸿" class="profile-img">
         <h1>王鸿</h1>
-        <div class="typewriter" id="typewriter"></div>
-        <div style="margin-top: 20px;">
-            <a href="mailto:easymoneysniperchris@gmail.com" style="color: white; margin: 0 15px; font-size: 1.8rem;"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/Chrisbetheking" target="_blank" style="color: white; margin: 0 15px; font-size: 1.8rem;"><i class="fab fa-github"></i></a>
+        <div class="job-title">AI Agent Developer | AI 应用开发工程师</div>
+        <p class="intro">
+            亚太科技大学计算机科学本科在读。专注 AI Agent、自动化工具及前端工程实践。
+            具备从 0 到 1 搭建教育行业 AI 智能体经验，曾帮助团队提升销售查询效率 60%+。
+        </p>
+        <div class="btn-group">
+            <a href="mailto:easymoneysniperchris@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> 联系我</a>
+            <a href="https://github.com/Chrisbetheking" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#" class="btn btn-outline"><i class="fas fa-file-download"></i> 下载 PDF 简历</a>
         </div>
     </header>
 
-    <div class="container">
-        <section>
-            <h2>实习经历</h2>
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                    <h3>成都泓麒教育科技有限公司</h3>
-                    <span>2025.01 - 2025.03</span>
-                </div>
-                <p style="color: var(--primary-color); margin: 5px 0;">AI 智能体开发实习生</p>
-                <ul style="margin-left: 20px; font-size: 0.95rem; opacity: 0.9;">
-                    <li>参与AI智能体从0到1搭建，销售查询效率提升60%+</li>
-                    <li>搭建销售短视频脚本自动生成模块，提升素材产出效率</li>
-                    <li>完成微信客服、钉钉、飞书等多平台集成</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>项目展示</h2>
-            <div class="project-grid">
-                <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" class="project-card">
-                    <div><span class="tag">原生前端</span><span class="tag">交互设计</span></div>
-                    <h3>响应式情侣交互官网 <i class="fas fa-external-link-alt"></i></h3>
-                    <p>独立完成全流程开发，实现弹幕、打字机、实时计时器等互动效果。</p>
-                </a>
-
-                <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" class="project-card">
-                    <div><span class="tag">Python</span><span class="tag">AI/NLP</span></div>
-                    <h3>AI 智能医疗问答系统 <i class="fas fa-external-link-alt"></i></h3>
-                    <p>基于症状识别的诊断系统，匹配准确率达 80%，支持多轮问答交互。</p>
-                </a>
-
-                <div class="project-card">
-                    <div><span class="tag">LLM</span><span class="tag">架构设计</span></div>
-                    <h3>AI 自动化信息检索系统</h3>
-                    <p>优化匹配算法提升 30% 响应速度，为团队节省约 200 小时人工成本。</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>技术栈</h2>
-            <div class="skills-container">
-                <span class="skill-node">HTML5 / CSS3 / JavaScript</span>
-                <span class="skill-node">Python (AI & Data)</span>
-                <span class="skill-node">Java / C</span>
-                <span class="skill-node">Git / GitHub / WSL</span>
-                <span class="skill-node">LLM Agent 落地实践</span>
-                <span class="skill-node">SQL / 数据处理</span>
-            </div>
-        </section>
+    <!-- 数据亮点 -->
+    <div class="stats-grid">
+        <div class="stat-card"><span class="stat-num">60%+</span><span class="stat-label">销售查询效率提升</span></div>
+        <div class="stat-card"><span class="stat-num">200h+</span><span class="stat-label">人工查询时间节省</span></div>
+        <div class="stat-card"><span class="stat-num">80%</span><span class="stat-label">医疗问答匹配准确率</span></div>
+        <div class="stat-card"><span class="stat-num">70%</span><span class="stat-label">教师端重复工作减少</span></div>
     </div>
 
-    <footer>
-        <p>© 2026 王鸿 | Asia Pacific University</p>
-    </footer>
+    <!-- 实习经历 -->
+    <section>
+        <h2>实习经历</h2>
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3>成都泓麒教育科技有限公司</h3>
+                    <p style="color: var(--primary); margin: 4px 0;">AI 智能体开发实习生</p>
+                </div>
+                <span style="font-size: 0.85rem; opacity: 0.7;">2025.01 - 2025.03</span>
+            </div>
+            <ul>
+                <li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入（微信/钉钉/飞书）。</li>
+                <li><strong>成果：</strong>系统上线后，销售查询效率提升 60%+，教师端重复工作量减少 70%。</li>
+                <li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，降低重复撰写成本，提升素材产出效率。</li>
+            </ul>
+        </div>
+    </section>
 
-    <script>
-        const text = "AI Agent Developer | Front-end Enthusiast";
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        window.onload = typeWriter;
-    </script>
+    <!-- 项目展示 -->
+    <section>
+        <h2>重点项目</h2>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3>AI 自动化信息检索智能体</h3>
+                <span class="tag">LLM / 自动化</span>
+            </div>
+            <p>为教育销售团队开发，解决院校信息、招生简章查询慢的痛点。我负责需求分析、查询流程设计、页面展示和多平台集成。项目上线后查询速度提升 30%，累计节省人工约 200 小时。</p>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>AI 智能医疗问答系统</h3>
+                <div><span class="tag">Python</span><span class="tag">NLP</span></div>
+            </div>
+            <p>基于 Python 开发的诊断辅助系统，支持症状识别与初步诊断。负责症状识别算法优化及多轮问答逻辑设计，系统匹配准确率达 80%，提升了医疗信息获取效率。</p>
+            <a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" style="color: var(--primary); font-size: 0.85rem; text-decoration: none;">查看 Google Colab 源码 →</a>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>响应式交互网页项目</h3>
+                <div><span class="tag">原生 JS</span><span class="tag">响应式</span></div>
+            </div>
+            <p>使用原生 HTML、CSS、JavaScript 完成。实现了打字机动态效果、弹幕交互、实时计时器及表单验证功能。集成 EmailJS 服务实现留言邮件自动发送，完整适配移动端与 PC 端。</p>
+            <a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" style="color: var(--primary); font-size: 0.85rem; text-decoration: none;">在线预览项目 →</a>
+        </div>
+    </section>
+
+    <!-- 技术栈分类 -->
+    <section>
+        <h2>技术栈</h2>
+        <div class="skill-group">
+            <span class="skill-label">· AI 应用开发</span>
+            <div class="skill-tags">
+                <span class="skill-tag">Python</span><span class="skill-tag">NLP 基础</span><span class="skill-tag">AI Agent</span><span class="skill-tag">Prompt Engineering</span><span class="skill-tag">信息检索</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <span class="skill-label">· 前端工程</span>
+            <div class="skill-tags">
+                <span class="skill-tag">HTML5 / CSS3</span><span class="skill-tag">JavaScript (ES6+)</span><span class="skill-tag">DOM 操作</span><span class="skill-tag">响应式设计</span><span class="skill-tag">CSS 动画</span>
+            </div>
+        </div>
+        <div class="skill-group">
+            <span class="skill-label">· 数据与工具</span>
+            <div class="skill-tags">
+                <span class="skill-tag">SQL</span><span class="skill-tag">Git / GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">WSL</span><span class="skill-tag">Excel 数据分析</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育经历 -->
+    <section>
+        <h2>教育背景</h2>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <p style="font-weight: 600;">亚太科技大学 (Asia Pacific University)</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">计算机科学学士学位 | 2024.09 - 2027.09</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px 0; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05);">
+        © 2026 王鸿 | Built with Love & Code
+    </footer>
+</div>
+
 </body>
 </html>
