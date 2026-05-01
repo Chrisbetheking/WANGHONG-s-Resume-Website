@@ -23,8 +23,6 @@
 --text-2:#334155;
 --text-dim:#64748b;
 --border:#e2e8f0;
---success:#16a34a;
---warning:#f59e0b;
 --shadow:0 24px 80px rgba(15,23,42,.08);
 --radius:22px;
 }
@@ -597,12 +595,31 @@ transform:translateY(-2px);
 box-shadow:0 14px 30px rgba(37,99,235,.12);
 }
 
-.project-gif{
+.project-img{
 width:100%;
 border-radius:18px;
 margin-top:18px;
 border:1px solid var(--border);
 box-shadow:0 18px 45px rgba(15,23,42,.08);
+background:#fff;
+}
+
+.project-note{
+margin-top:16px;
+padding:12px 14px;
+border-radius:14px;
+background:rgba(37,99,235,.08);
+border:1px solid rgba(37,99,235,.16);
+color:var(--text-2);
+font-size:.9rem;
+font-weight:700;
+display:flex;
+align-items:center;
+gap:9px;
+}
+
+.project-note i{
+color:var(--primary);
 }
 
 .highlight-grid{
@@ -893,7 +910,7 @@ h1{letter-spacing:-2px}
 </div>
 
 <p class="intro">
-计算机科学本科在读，专注 AI Agent、前端工程与自动化工具落地。具备从需求分析、交互设计、业务流程拆解到系统上线的完整实践经验，曾在真实教育业务场景中完成 AI 智能体从 0 到 1 搭建，将销售查询效率提升 60%+，累计节省人工查询时间 200+ 小时。
+计算机科学本科在读，专注 AI Agent、前端工程与自动化工具落地。具备从需求分析、交互设计、业务流程拆解到系统上线的完整实践经验，曾在真实教育业务场景中完成企业级 AI 智能体从 0 到 1 搭建，将销售查询效率提升 60%+，累计节省人工查询时间 200+ 小时。
 </p>
 
 <div class="hero-highlight">
@@ -933,7 +950,7 @@ h1{letter-spacing:-2px}
 <div class="focus-icon"><i class="fa-solid fa-robot"></i></div>
 <div>
 <strong>AI Agent 工程落地</strong>
-<span>流程设计、Prompt 设计、多平台接入、业务提效工具开发</span>
+<span>流程设计、Prompt 设计、多平台接入、企业内部业务提效</span>
 </div>
 </div>
 <div class="focus-item">
@@ -966,12 +983,12 @@ h1{letter-spacing:-2px}
 <div class="stat-label">教师重复工作减少</div>
 </div>
 <div class="stat-card">
-<div class="stat-num">95%</div>
-<div class="stat-label">成绩计算准确率</div>
+<div class="stat-num">80%</div>
+<div class="stat-label">医疗问答匹配准确率</div>
 </div>
 <div class="stat-card">
-<div class="stat-num">20%</div>
-<div class="stat-label">系统故障率降低</div>
+<div class="stat-num">95%</div>
+<div class="stat-label">成绩计算准确率</div>
 </div>
 </div>
 </section>
@@ -982,14 +999,14 @@ h1{letter-spacing:-2px}
 <div class="kicker">Core Strengths</div>
 <h2>技术亮点</h2>
 </div>
-<p class="section-desc">面向字节、华为这类工程导向岗位，重点展示可落地、可量化、可解释的项目能力。</p>
+<p class="section-desc">面向字节、华为等工程导向岗位，重点展示可落地、可量化、可解释的项目能力。</p>
 </div>
 
 <div class="highlight-grid">
 <div class="highlight-card">
 <i class="fa-solid fa-diagram-project"></i>
-<h3>AI Agent 从 0 到 1 落地</h3>
-<p>能够拆解业务流程，设计查询路径、交互入口与自动化输出，把大模型能力转化为真实业务工具。</p>
+<h3>企业级 AI Agent 落地</h3>
+<p>能够拆解运营、销售、文书等多角色业务流程，设计统一入口、任务分发与结构化结果输出。</p>
 </div>
 <div class="highlight-card">
 <i class="fa-solid fa-gauge-high"></i>
@@ -1032,9 +1049,10 @@ h1{letter-spacing:-2px}
 <span class="tag">多平台接入</span>
 </div>
 <ul>
-<li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入，系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%。</li>
-<li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持基于不同产品快速生成推广文案，降低重复撰写与人工检索成本。</li>
-<li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等平台接入，统一内部查询入口，提升销售、教师与运营之间的信息协作效率。</li>
+<li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入，围绕销售查询、教师匹配、内容生成等高频场景优化流程，系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%。</li>
+<li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持销售基于不同产品和学生需求快速生成基础推广文案，降低重复撰写成本，提升销售素材产出效率。</li>
+<li><strong>查询与推荐：</strong>开发信息实时查询、条件检索、数据展示与快捷复制功能，并实现 CGPA 自动换算与院校专业智能推荐，辅助后端老师更快完成院校初筛和专业匹配。</li>
+<li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等平台接入，统一内部查询入口，减少跨工具切换和信息分散带来的沟通成本。</li>
 </ul>
 </div>
 </section>
@@ -1052,22 +1070,69 @@ h1{letter-spacing:-2px}
 <div class="card">
 <div class="project-top">
 <div>
-<h3>AI 自动化信息检索智能体</h3>
-<div class="meta">面向教育销售团队的信息检索与业务提效工具</div>
+<h3>企业级 AI 智能体工作流系统</h3>
+<div class="meta">面向教育企业内部运营、销售与文书团队的 AI 提效工具</div>
 </div>
 </div>
 <div class="tag-group">
-<span class="tag">LLM</span>
 <span class="tag">AI Agent</span>
+<span class="tag">LLM 应用</span>
 <span class="tag">Prompt Engineering</span>
-<span class="tag">流程自动化</span>
+<span class="tag">业务流程自动化</span>
+<span class="tag">多部门协同</span>
+<span class="tag">多平台接入</span>
 </div>
-<p>基于真实业务场景，为教育销售团队开发院校信息与招生要求检索系统，减少人工查询时间并提升信息响应效率。</p>
+<p>
+该项目为企业内部真实业务系统，涉及公司数据、业务流程与内部工具，因此无法公开源码与线上 Demo。网站仅展示脱敏后的系统流程图与项目架构说明。
+</p>
 <ul>
-<li><strong>业务问题：</strong>销售团队依赖人工查询院校信息，查询路径分散、响应慢且容易遗漏关键信息。</li>
-<li><strong>技术方案：</strong>基于 LLM 构建信息检索 Agent，设计结构化查询流程，并完成微信、钉钉、飞书多平台接入，实现统一查询入口。</li>
-<li><strong>项目结果：</strong>系统上线后查询效率提升 30%+，累计节省人工查询时间 200+ 小时，为销售和教师端提供稳定的信息支持。</li>
+<li><strong>业务背景：</strong>企业内部存在运营传媒、销售部门、文书老师等多角色协同场景，信息查询、内容生成、院校匹配和申请材料处理流程分散，人工沟通成本较高。</li>
+<li><strong>前端场景：</strong>面向运营传媒团队，支持销售短视频脚本、推广文案和基础内容素材生成，减少重复撰写成本，提高内容产出效率。</li>
+<li><strong>中端场景：</strong>面向销售部门，支持招生简章、院校信息、申请要求、CGPA 换算与专业推荐查询，提升客户咨询响应速度。</li>
+<li><strong>后端场景：</strong>面向文书老师，辅助完成学生背景信息整理、院校初筛、专业匹配与申请条件核对，减少重复查询和跨平台沟通成本。</li>
+<li><strong>系统集成：</strong>将 AI 智能体接入微信客服、钉钉、飞书等平台，统一内部入口，降低跨工具切换成本。</li>
+<li><strong>项目结果：</strong>系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%，累计节省人工查询时间 200+ 小时。</li>
 </ul>
+<div class="project-note">
+<i class="fa-solid fa-lock"></i>
+企业内部项目，源码与真实业务数据不公开，仅展示脱敏流程图。
+</div>
+<img src="ai-agent-enterprise-architecture.png" alt="企业级 AI 智能体工作流系统架构图" class="project-img" onerror="this.style.display='none'">
+</div>
+
+<div class="card">
+<div class="project-top">
+<div>
+<h3>AI 智能医疗问答系统</h3>
+<div class="meta">基于 Python 的症状识别、疾病匹配与多轮问答系统</div>
+</div>
+<a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" class="project-link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i> Colab 演示
+</a>
+</div>
+<div class="tag-group">
+<span class="tag">Python</span>
+<span class="tag">NLP</span>
+<span class="tag">文本清洗</span>
+<span class="tag">相似度计算</span>
+<span class="tag">规则匹配</span>
+<span class="tag">多轮问答</span>
+</div>
+<p>
+基于 Python 开发的 AI 医疗问答系统，支持用户输入症状描述后进行疾病推荐、初步诊断与治疗建议展示。
+</p>
+<ul>
+<li><strong>问题背景：</strong>用户输入的症状描述通常较为口语化、非结构化，系统需要从自由文本中提取有效症状信息。</li>
+<li><strong>文本处理：</strong>通过文本清洗、关键词提取、症状归一化等方式，将用户描述转换为可匹配的结构化信息。</li>
+<li><strong>匹配算法：</strong>结合相似度计算与规则匹配，对症状与疾病进行关联分析，提高系统对用户症状的识别准确性。</li>
+<li><strong>多轮问答：</strong>支持用户在自由描述与结构化问答之间切换，通过补充问题完善症状信息，减少信息缺失带来的误判。</li>
+<li><strong>结果输出：</strong>系统输出疾病概率、治疗建议与注意事项，匹配准确率达到 80%。</li>
+</ul>
+<div class="project-note">
+<i class="fa-solid fa-comments"></i>
+可讲重点：NLP 文本处理、多轮问答设计、症状匹配算法、结果结构化展示。
+</div>
+<img src="medical-ai-workflow.png" alt="AI 智能医疗问答系统流程图" class="project-img" onerror="this.style.display='none'">
 </div>
 
 <div class="card">
@@ -1091,7 +1156,7 @@ h1{letter-spacing:-2px}
 <li><strong>状态管理：</strong>设计多状态流转机制，实现动态车位预约、ETA 倒计时、实时更新与全局悬浮交互。</li>
 <li><strong>工程优化：</strong>采用组件化拆分与响应式布局，提升页面可维护性，并保证复杂动画场景下的交互流畅度。</li>
 </ul>
-<img src="apu_transport.gif" alt="APU Transport Demo" class="project-gif" onerror="this.style.display='none'">
+<img src="apu_transport.gif" alt="APU Transport Demo" class="project-img" onerror="this.style.display='none'">
 </div>
 
 <div class="card">
