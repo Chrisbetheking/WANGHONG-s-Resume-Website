@@ -11,14 +11,14 @@
 <style>
 :root{
   --primary:#2563eb;
-  --border:#e2e8f0;
   --bg:#f5f7fb;
   --text:#0f172a;
+  --border:#e2e8f0;
 }
 
 body{
   margin:0;
-  font-family:system-ui;
+  font-family:Inter,system-ui;
   background:var(--bg);
   color:var(--text);
 }
@@ -40,33 +40,40 @@ body{
   padding:12px 20px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.nav-links a{
-  margin:0 8px;
+.nav a{
   text-decoration:none;
-  font-size:.9rem;
+  margin-left:10px;
 }
 
 /* HERO */
 .hero{
-  padding-top:120px;
-  padding-bottom:80px;
+  padding:140px 0 80px;
   text-align:center;
+}
+
+h1{
+  font-size:40px;
+  margin-bottom:10px;
 }
 
 /* CARD */
 .card{
   background:white;
-  padding:26px;
-  border-radius:20px;
+  padding:28px;
+  border-radius:18px;
   margin-top:20px;
   box-shadow:0 10px 30px rgba(0,0,0,.05);
+  transition:.2s;
 }
 
-/* PROJECT */
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* BUTTON */
 .project-link{
   display:inline-flex;
   align-items:center;
@@ -74,19 +81,13 @@ body{
   padding:10px 14px;
   border-radius:10px;
   background:#eef2ff;
-  text-decoration:none;
   margin-right:10px;
-}
-
-.project-img{
-  width:100%;
-  border-radius:12px;
-  margin-top:14px;
+  text-decoration:none;
 }
 
 /* FLOW */
 .flow-toggle{
-  margin-top:14px;
+  margin-top:16px;
   width:100%;
   padding:12px;
   border-radius:12px;
@@ -94,7 +95,6 @@ body{
   cursor:pointer;
   display:flex;
   justify-content:space-between;
-  align-items:center;
 }
 
 .flow-panel{
@@ -106,11 +106,16 @@ body{
   display:block;
 }
 
+.project-img{
+  width:100%;
+  border-radius:12px;
+}
+
 /* MOBILE */
 @media(max-width:720px){
-  .nav{top:10px;}
-  .hero{padding-top:100px;}
-  .project-link{width:100%;justify-content:center;margin-top:10px;}
+  h1{font-size:28px;}
+  .hero{padding-top:120px;}
+  .project-link{width:100%;margin-top:10px;justify-content:center;}
 }
 </style>
 </head>
@@ -119,7 +124,7 @@ body{
 
 <div class="nav">
   <strong>WANG HONG</strong>
-  <div class="nav-links">
+  <div>
     <a href="#projects">项目</a>
   </div>
 </div>
@@ -133,24 +138,22 @@ body{
 
 <section id="projects" class="container">
 
-<!-- ================= JAVA ================= -->
+<!-- JAVA -->
 <div class="card">
   <h2>Java Student Management System</h2>
 
-  <div>
-    <a href="https://chrisbetheking.github.io/java-student-management-system/" target="_blank" class="project-link">
-      🚀 Web Demo
-    </a>
+  <a href="https://chrisbetheking.github.io/java-student-management-system/" target="_blank" class="project-link">
+    🚀 Web Demo
+  </a>
 
-    <a href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" class="project-link">
-      💻 Source Code
-    </a>
-  </div>
+  <a href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" class="project-link">
+    💻 Source Code
+  </a>
 
   <p>Java Swing + Web Demo 可运行项目</p>
 </div>
 
-<!-- ================= AI PROJECT 1 ================= -->
+<!-- AI 1 -->
 <div class="card">
   <h2>AI Agent 企业系统</h2>
 
@@ -166,7 +169,7 @@ body{
   <p>企业级 AI Agent 系统设计</p>
 </div>
 
-<!-- ================= AI PROJECT 2 ================= -->
+<!-- AI 2 -->
 <div class="card">
   <h2>AI 医疗问答系统</h2>
 
