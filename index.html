@@ -1,201 +1,1454 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>WANG HONG | Portfolio</title>
-
+<meta name="description" content="王鸿的个人作品集 | AI Application Developer & Front-end Engineer">
+<meta property="og:title" content="王鸿 | AI 应用开发与前端工程作品集">
+<meta property="og:description" content="计算机科学本科在读，专注 AI Agent、前端工程与业务效率工具落地。">
+<meta property="og:image" content="avatar.jpg">
+<title>王鸿 | AI 应用开发与前端工程作品集</title>
+<link rel="icon" type="image/jpeg" href="avatar.jpg">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-  --primary:#2563eb;
-  --bg:#f5f7fb;
-  --text:#0f172a;
-  --border:#e2e8f0;
+--primary:#2563eb;
+--primary-dark:#1d4ed8;
+--primary-soft:rgba(37,99,235,.12);
+--primary-glow:rgba(37,99,235,.22);
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#0f172a;
+--text-2:#334155;
+--text-dim:#64748b;
+--border:#e2e8f0;
+--shadow:0 24px 80px rgba(15,23,42,.08);
+--radius:22px;
 }
 
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:Inter,system-ui;
-  background:var(--bg);
-  color:var(--text);
+font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+background:
+radial-gradient(circle at 15% 5%,rgba(37,99,235,.16),transparent 32%),
+radial-gradient(circle at 85% 10%,rgba(14,165,233,.14),transparent 32%),
+linear-gradient(180deg,#f8fafc 0%,#eef4ff 48%,#f8fafc 100%);
+color:var(--text);
+line-height:1.75;
+overflow-x:hidden;
 }
 
-.container{
-  width:min(1100px,90%);
-  margin:auto;
+body::before{
+content:"";
+position:fixed;
+inset:0;
+z-index:-3;
+background-image:
+linear-gradient(rgba(15,23,42,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(15,23,42,.035) 1px,transparent 1px);
+background-size:34px 34px;
+mask-image:radial-gradient(circle at center,black 35%,transparent 82%);
+-webkit-mask-image:radial-gradient(circle at center,black 35%,transparent 82%);
 }
 
-/* NAV */
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1100px,calc(100% - 40px));margin:0 auto;position:relative}
+
+#progress-bar{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+width:0;
+background:linear-gradient(90deg,var(--primary),#06b6d4);
+z-index:9999;
+box-shadow:0 0 18px var(--primary-glow);
+}
+
 .nav{
-  position:fixed;
-  top:20px;
-  left:50%;
-  transform:translateX(-50%);
-  width:90%;
-  background:white;
-  border-radius:999px;
-  padding:12px 20px;
-  display:flex;
-  justify-content:space-between;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
+position:fixed;
+top:18px;
+left:50%;
+transform:translateX(-50%);
+width:min(980px,calc(100% - 32px));
+z-index:100;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:12px 16px;
+border:1px solid rgba(226,232,240,.75);
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-radius:999px;
+box-shadow:0 18px 50px rgba(15,23,42,.08);
 }
 
-.nav a{
-  text-decoration:none;
-  margin-left:10px;
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:800;
+letter-spacing:.3px;
+color:var(--text);
 }
 
-/* HERO */
+.logo-dot{
+width:34px;
+height:34px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--primary),#06b6d4);
+display:grid;
+place-items:center;
+color:#fff;
+box-shadow:0 10px 24px var(--primary-glow);
+}
+
+.nav-links{
+display:flex;
+gap:6px;
+align-items:center;
+}
+
+.nav-links a{
+font-size:.9rem;
+font-weight:650;
+color:var(--text-2);
+padding:8px 13px;
+border-radius:999px;
+transition:.25s ease;
+}
+
+.nav-links a:hover{
+background:var(--primary-soft);
+color:var(--primary);
+}
+
 .hero{
-  padding:140px 0 80px;
-  text-align:center;
+min-height:100vh;
+display:grid;
+grid-template-columns:1.05fr .95fr;
+align-items:center;
+gap:44px;
+padding:120px 0 72px;
+}
+
+.hero-copy{
+animation:fadeUp .8s ease both;
+}
+
+.badge-row{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:22px;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 13px;
+border-radius:999px;
+font-size:.88rem;
+font-weight:700;
+border:1px solid rgba(37,99,235,.18);
+background:rgba(255,255,255,.72);
+color:var(--primary);
+box-shadow:0 10px 30px rgba(37,99,235,.07);
 }
 
 h1{
-  font-size:40px;
-  margin-bottom:10px;
+font-size:clamp(2.7rem,7vw,5.8rem);
+line-height:1.02;
+letter-spacing:-4px;
+margin-bottom:22px;
 }
 
-/* CARD */
+.gradient-text{
+background:linear-gradient(135deg,var(--primary),#0891b2 65%,#0f172a);
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+
+.job-line{
+font-size:clamp(1.1rem,2.2vw,1.45rem);
+font-weight:800;
+color:var(--text-2);
+margin-bottom:18px;
+min-height:34px;
+}
+
+.typewriter{
+color:var(--primary);
+}
+
+.cursor{
+display:inline-block;
+width:9px;
+height:1.15em;
+background:var(--primary);
+margin-left:5px;
+vertical-align:-2px;
+animation:blink 1s steps(2,start) infinite;
+}
+
+.intro{
+font-size:1.06rem;
+color:var(--text-dim);
+max-width:650px;
+margin-bottom:30px;
+}
+
+.hero-highlight{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin:28px 0 32px;
+}
+
+.mini-stat{
+padding:15px 16px;
+border:1px solid rgba(226,232,240,.85);
+background:rgba(255,255,255,.78);
+border-radius:18px;
+box-shadow:0 14px 40px rgba(15,23,42,.05);
+}
+
+.mini-stat strong{
+display:block;
+font-size:1.55rem;
+line-height:1.1;
+color:var(--primary);
+}
+
+.mini-stat span{
+font-size:.82rem;
+font-weight:650;
+color:var(--text-dim);
+}
+
+.btn-group{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+align-items:center;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+padding:12px 19px;
+border-radius:14px;
+font-weight:800;
+font-size:.95rem;
+transition:.25s ease;
+border:1px solid transparent;
+cursor:pointer;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,var(--primary),#0284c7);
+color:#fff;
+box-shadow:0 16px 36px var(--primary-glow);
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 24px 50px rgba(37,99,235,.3);
+}
+
+.btn-outline{
+background:rgba(255,255,255,.82);
+border-color:rgba(226,232,240,.95);
+color:var(--text-2);
+box-shadow:0 10px 28px rgba(15,23,42,.04);
+}
+
+.btn-outline:hover{
+transform:translateY(-3px);
+border-color:rgba(37,99,235,.25);
+color:var(--primary);
+background:#fff;
+}
+
+.hero-card{
+position:relative;
+animation:floatIn .9s ease both .1s;
+}
+
+.profile-panel{
+position:relative;
+padding:28px;
+border-radius:34px;
+border:1px solid rgba(226,232,240,.88);
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(24px);
+-webkit-backdrop-filter:blur(24px);
+box-shadow:var(--shadow);
+overflow:hidden;
+}
+
+.profile-panel::before{
+content:"";
+position:absolute;
+inset:-2px;
+background:
+radial-gradient(circle at 25% 10%,rgba(37,99,235,.18),transparent 28%),
+radial-gradient(circle at 90% 90%,rgba(6,182,212,.14),transparent 32%);
+z-index:-1;
+}
+
+.avatar-wrap{
+width:170px;
+height:170px;
+margin:6px auto 24px;
+border-radius:50%;
+padding:5px;
+background:linear-gradient(135deg,var(--primary),#06b6d4,#fff);
+box-shadow:0 24px 60px rgba(37,99,235,.2);
+}
+
+.avatar{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #fff;
+}
+
+.panel-title{
+text-align:center;
+margin-bottom:20px;
+}
+
+.panel-title h2{
+font-size:1.4rem;
+letter-spacing:-.5px;
+}
+
+.panel-title p{
+color:var(--text-dim);
+font-weight:650;
+font-size:.92rem;
+}
+
+.focus-list{
+display:grid;
+gap:12px;
+}
+
+.focus-item{
+display:flex;
+align-items:flex-start;
+gap:13px;
+padding:14px;
+border-radius:18px;
+background:rgba(248,250,252,.82);
+border:1px solid rgba(226,232,240,.85);
+}
+
+.focus-icon{
+width:38px;
+height:38px;
+border-radius:14px;
+display:grid;
+place-items:center;
+background:var(--primary-soft);
+color:var(--primary);
+flex:0 0 auto;
+}
+
+.focus-item strong{
+display:block;
+font-size:.95rem;
+}
+
+.focus-item span{
+display:block;
+font-size:.84rem;
+color:var(--text-dim);
+line-height:1.55;
+}
+
+.section{
+margin-bottom:76px;
+}
+
+.section-head{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:20px;
+margin-bottom:24px;
+}
+
+.kicker{
+font-size:.82rem;
+font-weight:900;
+letter-spacing:.16em;
+text-transform:uppercase;
+color:var(--primary);
+margin-bottom:6px;
+}
+
+.section h2{
+font-size:clamp(1.7rem,3vw,2.25rem);
+letter-spacing:-1.2px;
+line-height:1.15;
+}
+
+.section-desc{
+max-width:550px;
+color:var(--text-dim);
+font-size:.96rem;
+}
+
+.grid-4{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+}
+
+.stat-card{
+background:rgba(255,255,255,.83);
+border:1px solid rgba(226,232,240,.9);
+border-radius:22px;
+padding:22px 18px;
+box-shadow:0 14px 42px rgba(15,23,42,.045);
+transition:.28s ease;
+position:relative;
+overflow:hidden;
+}
+
+.stat-card::after{
+content:"";
+position:absolute;
+left:0;
+right:0;
+bottom:0;
+height:4px;
+background:linear-gradient(90deg,var(--primary),#06b6d4);
+}
+
+.stat-card:hover{
+transform:translateY(-6px);
+box-shadow:0 24px 60px rgba(37,99,235,.12);
+}
+
+.stat-num{
+font-size:2rem;
+font-weight:900;
+color:var(--primary);
+letter-spacing:-1px;
+line-height:1;
+margin-bottom:9px;
+}
+
+.stat-label{
+font-weight:750;
+color:var(--text-2);
+font-size:.9rem;
+}
+
 .card{
-  background:white;
-  padding:28px;
-  border-radius:18px;
-  margin-top:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-  transition:.2s;
+background:rgba(255,255,255,.86);
+border:1px solid rgba(226,232,240,.9);
+border-radius:var(--radius);
+padding:28px;
+box-shadow:0 16px 45px rgba(15,23,42,.05);
+transition:.28s ease;
+position:relative;
+overflow:hidden;
 }
 
 .card:hover{
-  transform:translateY(-5px);
+transform:translateY(-5px);
+box-shadow:0 28px 75px rgba(37,99,235,.12);
+border-color:rgba(37,99,235,.25);
 }
 
-/* BUTTON */
+.card-header{
+display:flex;
+align-items:flex-start;
+justify-content:space-between;
+gap:20px;
+margin-bottom:16px;
+}
+
+.card h3{
+font-size:1.25rem;
+letter-spacing:-.4px;
+margin-bottom:5px;
+}
+
+.meta{
+color:var(--text-dim);
+font-weight:650;
+font-size:.93rem;
+}
+
+.date{
+display:inline-flex;
+align-items:center;
+gap:7px;
+padding:7px 12px;
+border-radius:999px;
+background:#f1f5f9;
+color:var(--text-dim);
+font-weight:800;
+font-size:.82rem;
+white-space:nowrap;
+}
+
+.tag-group{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin:13px 0 16px;
+}
+
+.tag{
+display:inline-flex;
+align-items:center;
+gap:6px;
+padding:5px 10px;
+border-radius:999px;
+background:var(--primary-soft);
+color:var(--primary);
+font-size:.78rem;
+font-weight:850;
+}
+  .card p{
+color:var(--text-dim);
+font-size:.97rem;
+margin-bottom:15px;
+}
+
+.card ul{
+padding-left:0;
+list-style:none;
+display:grid;
+gap:10px;
+}
+
+.card li{
+position:relative;
+padding-left:25px;
+color:var(--text-dim);
+font-size:.96rem;
+}
+
+.card li::before{
+content:"";
+position:absolute;
+left:0;
+top:.72em;
+width:8px;
+height:8px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--primary),#06b6d4);
+box-shadow:0 0 0 5px var(--primary-soft);
+}
+
+.card li strong{
+color:var(--text-2);
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.project-top{
+display:flex;
+align-items:flex-start;
+justify-content:space-between;
+gap:20px;
+}
+
 .project-link{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:10px 14px;
-  border-radius:10px;
-  background:#eef2ff;
-  margin-right:10px;
-  text-decoration:none;
+display:inline-flex;
+align-items:center;
+gap:7px;
+padding:8px 12px;
+border-radius:12px;
+border:1px solid rgba(226,232,240,.95);
+background:#fff;
+color:var(--primary);
+font-size:.84rem;
+font-weight:850;
+white-space:nowrap;
+transition:.25s ease;
 }
 
-/* FLOW */
-.flow-toggle{
-  margin-top:16px;
-  width:100%;
-  padding:12px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-}
-
-.flow-panel{
-  display:none;
-  margin-top:10px;
-}
-
-.flow-panel.show{
-  display:block;
+.project-link:hover{
+transform:translateY(-2px);
+box-shadow:0 14px 30px rgba(37,99,235,.12);
 }
 
 .project-img{
-  width:100%;
-  border-radius:12px;
+width:100%;
+border-radius:18px;
+margin-top:18px;
+border:1px solid var(--border);
+box-shadow:0 18px 45px rgba(15,23,42,.08);
+background:#fff;
 }
 
-/* MOBILE */
-@media(max-width:720px){
-  h1{font-size:28px;}
-  .hero{padding-top:120px;}
-  .project-link{width:100%;margin-top:10px;justify-content:center;}
+.flow-toggle{
+margin-top:18px;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+padding:14px 16px;
+border-radius:16px;
+border:1px solid rgba(37,99,235,.18);
+background:linear-gradient(135deg,rgba(37,99,235,.10),rgba(6,182,212,.08));
+color:var(--primary);
+font-size:.95rem;
+font-weight:850;
+cursor:pointer;
+transition:.25s ease;
+font-family:inherit;
+}
+
+.flow-toggle:hover{
+transform:translateY(-2px);
+box-shadow:0 14px 34px rgba(37,99,235,.12);
+}
+
+.flow-toggle span{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.flow-toggle i.fa-chevron-down{
+transition:.25s ease;
+}
+
+.flow-toggle.active i.fa-chevron-down{
+transform:rotate(180deg);
+}
+
+.flow-panel{
+display:none;
+margin-top:14px;
+padding:12px;
+border-radius:20px;
+border:1px solid var(--border);
+background:#fff;
+box-shadow:0 18px 45px rgba(15,23,42,.08);
+}
+
+.flow-panel.show{
+display:block;
+animation:fadeUp .28s ease both;
+}
+
+.flow-panel .project-img{
+margin-top:0;
+box-shadow:none;
+border-radius:14px;
+}
+
+.project-note{
+margin-top:16px;
+padding:12px 14px;
+border-radius:14px;
+background:rgba(37,99,235,.08);
+border:1px solid rgba(37,99,235,.16);
+color:var(--text-2);
+font-size:.9rem;
+font-weight:700;
+display:flex;
+align-items:center;
+gap:9px;
+}
+
+.project-note i{
+color:var(--primary);
+}
+
+.highlight-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+}
+
+.highlight-card{
+padding:22px;
+border-radius:22px;
+background:rgba(255,255,255,.86);
+border:1px solid rgba(226,232,240,.9);
+box-shadow:0 16px 44px rgba(15,23,42,.045);
+transition:.28s ease;
+}
+
+.highlight-card:hover{
+transform:translateY(-5px);
+border-color:rgba(37,99,235,.25);
+box-shadow:0 26px 65px rgba(37,99,235,.1);
+}
+
+.highlight-card i{
+width:44px;
+height:44px;
+border-radius:16px;
+display:grid;
+place-items:center;
+background:var(--primary-soft);
+color:var(--primary);
+font-size:1.05rem;
+margin-bottom:14px;
+}
+
+.highlight-card h3{
+font-size:1.08rem;
+margin-bottom:8px;
+}
+
+.highlight-card p{
+color:var(--text-dim);
+font-size:.94rem;
+}
+
+.skill-board{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
+
+.skill-group{
+background:rgba(255,255,255,.86);
+border:1px solid rgba(226,232,240,.9);
+border-radius:22px;
+padding:24px;
+box-shadow:0 16px 45px rgba(15,23,42,.045);
+}
+
+.skill-title{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:1.05rem;
+font-weight:900;
+margin-bottom:9px;
+}
+
+.skill-title i{
+color:var(--primary);
+}
+
+.skill-desc{
+color:var(--text-dim);
+font-size:.94rem;
+margin-bottom:14px;
+}
+
+.skill-items{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+}
+
+.skill-item{
+padding:7px 11px;
+border-radius:11px;
+background:#f8fafc;
+border:1px solid var(--border);
+font-size:.83rem;
+font-weight:750;
+color:var(--text-2);
+}
+
+.edu-box{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:24px;
+padding:28px;
+border-radius:var(--radius);
+background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(239,246,255,.86));
+border:1px solid rgba(226,232,240,.9);
+box-shadow:0 18px 50px rgba(15,23,42,.055);
+}
+
+.edu-box h3{
+font-size:1.18rem;
+margin-bottom:5px;
+}
+
+.edu-box p{
+color:var(--text-dim);
+font-weight:650;
+}
+
+.edu-time{
+padding:8px 13px;
+border-radius:13px;
+background:var(--primary-soft);
+color:var(--primary);
+font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+font-weight:900;
+white-space:nowrap;
+}
+
+.contact-card{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:18px;
+align-items:center;
+padding:30px;
+border-radius:28px;
+background:linear-gradient(135deg,var(--primary),#0284c7);
+color:#fff;
+box-shadow:0 30px 80px rgba(37,99,235,.28);
+overflow:hidden;
+position:relative;
+}
+
+.contact-card::after{
+content:"";
+position:absolute;
+right:-90px;
+top:-90px;
+width:240px;
+height:240px;
+border-radius:50%;
+background:rgba(255,255,255,.13);
+}
+
+.contact-card h2{
+font-size:1.8rem;
+letter-spacing:-.8px;
+margin-bottom:8px;
+}
+
+.contact-card p{
+color:rgba(255,255,255,.82);
+}
+
+.contact-actions{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+justify-content:flex-end;
+position:relative;
+z-index:1;
+}
+
+.contact-actions .btn{
+background:#fff;
+color:var(--primary);
+}
+
+.contact-actions .btn.secondary{
+background:rgba(255,255,255,.14);
+border-color:rgba(255,255,255,.25);
+color:#fff;
+}
+
+footer{
+padding:36px 0 48px;
+text-align:center;
+color:var(--text-dim);
+font-size:.92rem;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin-bottom:12px;
+}
+
+.footer-links a{
+font-weight:750;
+transition:.25s ease;
+}
+
+.footer-links a:hover{
+color:var(--primary);
+}
+
+.reveal{
+opacity:0;
+transform:translateY(26px);
+transition:.75s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(28px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes floatIn{
+from{opacity:0;transform:translateY(32px) scale(.98)}
+to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@keyframes blink{
+50%{opacity:0}
+}
+
+@media(max-width:920px){
+.nav-links{display:none}
+.hero{grid-template-columns:1fr;padding-top:110px;gap:28px}
+.hero-card{order:-1}
+.profile-panel{max-width:520px;margin:0 auto}
+.grid-4{grid-template-columns:repeat(2,1fr)}
+.highlight-grid,.skill-board,.contact-card{grid-template-columns:1fr}
+.contact-actions{justify-content:flex-start}
+}
+
+@media(max-width:640px){
+.container{width:min(100% - 28px,1100px)}
+.nav{top:12px;width:calc(100% - 20px)}
+.hero{padding-top:96px}
+h1{letter-spacing:-2px}
+.hero-highlight{grid-template-columns:1fr}
+.card,.profile-panel,.contact-card{padding:22px}
+.card-header,.project-top,.edu-box{flex-direction:column;align-items:flex-start}
+.grid-4{grid-template-columns:1fr}
+.btn-group,.btn{width:100%}
+.btn{justify-content:center}
+.project-link{width:100%;justify-content:center}
+.flow-toggle{font-size:.88rem;padding:13px 14px}
+.flow-panel{padding:8px;border-radius:16px}
+.avatar-wrap{width:140px;height:140px}
+.section{margin-bottom:58px}
 }
 </style>
 </head>
 
 <body>
+<div id="progress-bar"></div>
 
-<div class="nav">
-  <strong>WANG HONG</strong>
-  <div>
-    <a href="#projects">项目</a>
-  </div>
+<nav class="nav">
+<a href="#" class="logo">
+<span class="logo-dot"><i class="fa-solid fa-code"></i></span>
+<span>WANG HONG</span>
+</a>
+<div class="nav-links">
+<a href="#highlights">亮点</a>
+<a href="#experience">实习</a>
+<a href="#projects">项目</a>
+<a href="#skills">技能</a>
+<a href="#contact">联系</a>
 </div>
+</nav>
 
+<main class="container">
 <section class="hero">
-  <div class="container">
-    <h1>AI + Software Developer</h1>
-    <p>Java / AI Agent / Web Demo</p>
-  </div>
+<div class="hero-copy">
+<div class="badge-row">
+<span class="badge"><i class="fa-solid fa-bolt"></i> AI Agent 落地</span>
+<span class="badge"><i class="fa-solid fa-laptop-code"></i> 前端工程</span>
+<span class="badge"><i class="fa-solid fa-briefcase"></i> 2026 可实习</span>
+</div>
+
+<h1>王鸿<br><span class="gradient-text">AI 应用开发</span></h1>
+
+<div class="job-line">
+<span id="typewriter" class="typewriter"></span><span class="cursor"></span>
+</div>
+
+<p class="intro">
+计算机科学本科在读，专注 AI Agent、前端工程与自动化工具落地。具备从需求分析、交互设计、业务流程拆解到系统上线的完整实践经验，曾在真实教育业务场景中完成企业级 AI 智能体从 0 到 1 搭建，将销售查询效率提升 60%+，累计节省人工查询时间 200+ 小时。
+</p>
+
+<div class="hero-highlight">
+<div class="mini-stat">
+<strong>60%+</strong>
+<span>销售查询效率提升</span>
+</div>
+<div class="mini-stat">
+<strong>200h+</strong>
+<span>节省人工查询时间</span>
+</div>
+<div class="mini-stat">
+<strong>0→1</strong>
+<span>AI 智能体落地经验</span>
+</div>
+</div>
+<div class="btn-group">
+<a href="resume.pdf" class="btn btn-primary" download><i class="fa-solid fa-file-arrow-down"></i> 下载简历 PDF</a>
+<a href="https://github.com/Chrisbetheking" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+<a href="javascript:void(0)" onclick="copyEmail()" id="emailBtn" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> 复制邮箱</a>
+<a href="tel:18081299137" class="btn btn-outline"><i class="fa-solid fa-phone"></i> 电话联系</a>
+</div>
+</div>
+
+<div class="hero-card">
+<div class="profile-panel">
+<div class="avatar-wrap">
+<img src="avatar.jpg" alt="王鸿" class="avatar">
+</div>
+<div class="panel-title">
+<h2>AI Application Developer</h2>
+<p>Front-end Engineer · CS Undergraduate</p>
+</div>
+<div class="focus-list">
+<div class="focus-item">
+<div class="focus-icon"><i class="fa-solid fa-robot"></i></div>
+<div>
+<strong>AI Agent 工程落地</strong>
+<span>流程设计、Prompt 设计、多平台接入、企业内部业务提效</span>
+</div>
+</div>
+<div class="focus-item">
+<div class="focus-icon"><i class="fa-solid fa-layer-group"></i></div>
+<div>
+<strong>前端与跨端交互</strong>
+<span>响应式网页、Flutter UI、复杂动画与高质量作品集展示</span>
+</div>
+</div>
+<div class="focus-item">
+<div class="focus-icon"><i class="fa-solid fa-chart-line"></i></div>
+<div>
+<strong>结果导向</strong>
+<span>重视真实业务指标，用技术解决效率、准确率与协作问题</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 
-<section id="projects" class="container">
-
-<!-- JAVA -->
-<div class="card">
-  <h2>Java Student Management System</h2>
-
-  <a href="https://chrisbetheking.github.io/java-student-management-system/" target="_blank" class="project-link">
-    🚀 Web Demo
-  </a>
-
-  <a href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" class="project-link">
-    💻 Source Code
-  </a>
-
-  <p>Java Swing + Web Demo 可运行项目</p>
+<section class="section reveal">
+<div class="grid-4">
+<div class="stat-card">
+<div class="stat-num">60%+</div>
+<div class="stat-label">销售查询效率提升</div>
 </div>
-
-<!-- AI 1 -->
-<div class="card">
-  <h2>AI Agent 企业系统</h2>
-
-  <button class="flow-toggle" onclick="toggleFlow(this)">
-    <span>展开流程图</span>
-    <i class="fa-solid fa-chevron-down"></i>
-  </button>
-
-  <div class="flow-panel">
-    <img src="ai-agent-enterprise-architecture.png" class="project-img">
-  </div>
-
-  <p>企业级 AI Agent 系统设计</p>
+<div class="stat-card">
+<div class="stat-num">70%</div>
+<div class="stat-label">教师重复工作减少</div>
 </div>
-
-<!-- AI 2 -->
-<div class="card">
-  <h2>AI 医疗问答系统</h2>
-
-  <button class="flow-toggle" onclick="toggleFlow(this)">
-    <span>展开流程图</span>
-    <i class="fa-solid fa-chevron-down"></i>
-  </button>
-
-  <div class="flow-panel">
-    <img src="medical-ai-workflow.png" class="project-img">
-  </div>
-
-  <p>RAG + 医疗问答流程系统</p>
+<div class="stat-card">
+<div class="stat-num">80%</div>
+<div class="stat-label">医疗问答匹配准确率</div>
 </div>
-
+<div class="stat-card">
+<div class="stat-num">95%</div>
+<div class="stat-label">成绩计算准确率</div>
+</div>
+</div>
 </section>
+
+<section id="highlights" class="section reveal">
+<div class="section-head">
+<div>
+<div class="kicker">Core Strengths</div>
+<h2>技术亮点</h2>
+</div>
+<p class="section-desc">面向字节、华为等工程导向岗位，重点展示可落地、可量化、可解释的项目能力。</p>
+</div>
+
+<div class="highlight-grid">
+<div class="highlight-card">
+<i class="fa-solid fa-diagram-project"></i>
+<h3>企业级 AI Agent 落地</h3>
+<p>能够拆解运营、销售、文书等多角色业务流程，设计统一入口、任务分发与结构化结果输出。</p>
+</div>
+<div class="highlight-card">
+<i class="fa-solid fa-gauge-high"></i>
+<h3>结果导向与数据意识</h3>
+<p>项目表达以效率提升、人工节省、准确率、稳定性为核心，避免只停留在“使用技术栈”。</p>
+</div>
+<div class="highlight-card">
+<i class="fa-solid fa-display"></i>
+<h3>前端工程与交互实现</h3>
+<p>具备原生 HTML/CSS/JS 与 Flutter 跨端开发能力，能独立完成响应式页面和复杂交互体验。</p>
+</div>
+<div class="highlight-card">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+<h3>工程化与快速迭代</h3>
+<p>熟悉 GitHub Pages、Git 版本管理和 AI 辅助编程，能快速构建 Demo、上线验证与持续优化。</p>
+</div>
+</div>
+</section>
+
+<section id="experience" class="section reveal">
+<div class="section-head">
+<div>
+<div class="kicker">Experience</div>
+<h2>实习经历</h2>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header">
+<div>
+<h3>AI 智能体开发实习生</h3>
+<div class="meta">成都泓麒教育科技有限公司</div>
+</div>
+<span class="date"><i class="fa-regular fa-calendar"></i> 2025.01 - 2025.03</span>
+</div>
+<div class="tag-group">
+<span class="tag">AI Agent</span>
+<span class="tag">LLM 应用</span>
+<span class="tag">业务流程优化</span>
+<span class="tag">多平台接入</span>
+</div>
+<ul>
+<li><strong>业务提效：</strong>参与 AI 智能体从 0 到 1 搭建，覆盖前端界面、业务逻辑、数据处理及多平台接入，围绕销售查询、教师匹配、内容生成等高频场景优化流程，系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%。</li>
+<li><strong>内容自动化：</strong>搭建销售短视频脚本自动生成模块，支持销售基于不同产品和学生需求快速生成基础推广文案，降低重复撰写成本，提升销售素材产出效率。</li>
+<li><strong>查询与推荐：</strong>开发信息实时查询、条件检索、数据展示与快捷复制功能，并实现 CGPA 自动换算与院校专业智能推荐，辅助后端老师更快完成院校初筛和专业匹配。</li>
+<li><strong>多端集成：</strong>完成微信客服、钉钉、飞书等平台接入，统一内部查询入口，减少跨工具切换和信息分散带来的沟通成本。</li>
+</ul>
+</div>
+</section>
+
+<section id="projects" class="section reveal">
+<div class="section-head">
+<div>
+<div class="kicker">Projects</div>
+<h2>重点项目</h2>
+</div>
+<p class="section-desc">项目按“业务问题 → 技术方案 → 结果产出”组织，更适合放进简历和面试讲解。</p>
+</div>
+
+<div class="project-grid">
+<div class="card">
+<div class="project-top">
+<div>
+<h3>企业级 AI 智能体工作流系统</h3>
+<div class="meta">面向教育企业内部运营、销售与文书团队的 AI 提效工具</div>
+</div>
+</div>
+<div class="tag-group">
+<span class="tag">AI Agent</span>
+<span class="tag">LLM 应用</span>
+<span class="tag">Prompt Engineering</span>
+<span class="tag">业务流程自动化</span>
+<span class="tag">多部门协同</span>
+<span class="tag">多平台接入</span>
+</div>
+<p>
+该项目为企业内部真实业务系统，涉及公司数据、业务流程与内部工具，因此无法公开源码与线上 Demo。网站仅展示脱敏后的系统流程图与项目架构说明。
+</p>
+<ul>
+<li><strong>业务背景：</strong>企业内部存在运营传媒、销售部门、文书老师等多角色协同场景，信息查询、内容生成、院校匹配和申请材料处理流程分散，人工沟通成本较高。</li>
+<li><strong>前端场景：</strong>面向运营传媒团队，支持销售短视频脚本、推广文案和基础内容素材生成，减少重复撰写成本，提高内容产出效率。</li>
+<li><strong>中端场景：</strong>面向销售部门，支持招生简章、院校信息、申请要求、CGPA 换算与专业推荐查询，提升客户咨询响应速度。</li>
+<li><strong>后端场景：</strong>面向文书老师，辅助完成学生背景信息整理、院校初筛、专业匹配与申请条件核对，减少重复查询和跨平台沟通成本。</li>
+<li><strong>系统集成：</strong>将 AI 智能体接入微信客服、钉钉、飞书等平台，统一内部入口，降低跨工具切换成本。</li>
+<li><strong>项目结果：</strong>系统上线后销售查询效率提升 60%+，教师端重复工作量减少 70%，累计节省人工查询时间 200+ 小时。</li>
+</ul>
+<div class="project-note">
+<i class="fa-solid fa-lock"></i>
+企业内部项目，源码与真实业务数据不公开，仅展示脱敏流程图。
+</div>
+<button class="flow-toggle" type="button" onclick="toggleFlow(this)">
+<span><i class="fa-solid fa-diagram-project"></i> 展开脱敏系统流程图</span>
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+
+<div class="flow-panel">
+<img src="ai-agent-enterprise-architecture.png" alt="企业级 AI 智能体工作流系统架构图" class="project-img" onerror="this.parentElement.style.display='none'">
+</div>
+</div>
+
+<div class="card">
+<div class="project-top">
+<div>
+<h3>AI 智能医疗问答系统</h3>
+<div class="meta">基于 Python 的症状识别、疾病匹配与多轮问答系统</div>
+</div>
+<a href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=sharing" target="_blank" class="project-link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i> Colab 演示
+</a>
+</div>
+<div class="tag-group">
+<span class="tag">Python</span>
+<span class="tag">NLP</span>
+<span class="tag">文本清洗</span>
+<span class="tag">相似度计算</span>
+<span class="tag">规则匹配</span>
+<span class="tag">多轮问答</span>
+</div>
+<p>
+基于 Python 开发的 AI 医疗问答系统，支持用户输入症状描述后进行疾病推荐、初步诊断与治疗建议展示。
+</p>
+<ul>
+<li><strong>问题背景：</strong>用户输入的症状描述通常较为口语化、非结构化，系统需要从自由文本中提取有效症状信息。</li>
+<li><strong>文本处理：</strong>通过文本清洗、关键词提取、症状归一化等方式，将用户描述转换为可匹配的结构化信息。</li>
+<li><strong>匹配算法：</strong>结合相似度计算与规则匹配，对症状与疾病进行关联分析，提高系统对用户症状的识别准确性。</li>
+<li><strong>多轮问答：</strong>支持用户在自由描述与结构化问答之间切换，通过补充问题完善症状信息，减少信息缺失带来的误判。</li>
+<li><strong>结果输出：</strong>系统输出疾病概率、治疗建议与注意事项，匹配准确率达到 80%。</li>
+</ul>
+<div class="project-note">
+<i class="fa-solid fa-comments"></i>
+可讲重点：NLP 文本处理、多轮问答设计、症状匹配算法、结果结构化展示。
+</div>
+<button class="flow-toggle" type="button" onclick="toggleFlow(this)">
+<span><i class="fa-solid fa-diagram-project"></i> 展开医疗问答流程图</span>
+<i class="fa-solid fa-chevron-down"></i>
+</button>
+
+<div class="flow-panel">
+<img src="medical-ai-workflow.png" alt="AI 智能医疗问答系统流程图" class="project-img" onerror="this.parentElement.style.display='none'">
+</div>
+</div>
+<div class="card">
+<div class="project-top">
+<div>
+<h3>APU 智能校园交通系统</h3>
+<div class="meta">校园交通、停车管理与实时状态可视化系统</div>
+</div>
+<a href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 在线演示</a>
+</div>
+<div class="tag-group">
+<span class="tag">Flutter</span>
+<span class="tag">Dart</span>
+<span class="tag">CustomPaint</span>
+<span class="tag">Animation</span>
+<span class="tag">Responsive UI</span>
+</div>
+<p>面向校园交通调度复杂场景，设计并实现多角色协同的智能交通系统，重点解决动态路径展示、车位预约与实时状态同步问题。</p>
+<ul>
+<li><strong>复杂渲染：</strong>基于 Flutter CustomPaint 实现校园路网建模，结合贝塞尔曲线与 AnimationController 模拟公交运行轨迹。</li>
+<li><strong>状态管理：</strong>设计多状态流转机制，实现动态车位预约、ETA 倒计时、实时更新与全局悬浮交互。</li>
+<li><strong>工程优化：</strong>采用组件化拆分与响应式布局，提升页面可维护性，并保证复杂动画场景下的交互流畅度。</li>
+</ul>
+<img src="apu_transport.gif" alt="APU Transport Demo" class="project-img" onerror="this.style.display='none'">
+</div>
+
+<div class="card">
+<div class="project-top">
+<div>
+<h3>响应式交互网页开发实践</h3>
+<div class="meta">原生前端交互、移动端适配与自动化部署</div>
+</div>
+<a href="https://chrisbetheking.github.io/whwithyn/" target="_blank" class="project-link"><i class="fa-solid fa-arrow-up-right-from-square"></i> 在线预览</a>
+</div>
+<div class="tag-group">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">EmailJS</span>
+<span class="tag">GitHub Pages</span>
+</div>
+<p>独立完成响应式网站的视觉设计与前端开发，验证页面交互、移动端适配与无后端服务集成能力。</p>
+<ul>
+<li><strong>交互实现：</strong>使用原生 HTML、CSS、JavaScript 实现打字机效果、实时计时器、弹幕与动态交互。</li>
+<li><strong>服务集成：</strong>接入 EmailJS 实现无后端邮件发送，降低部署复杂度并提升页面可用性。</li>
+<li><strong>部署上线：</strong>基于 GitHub Pages 完成自动化部署，持续优化移动端展示效果与访问体验。</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="project-top">
+<div>
+<h3>Java 学生成绩管理系统</h3>
+<div class="meta">面向对象设计、成绩计算、系统重构与 Web Demo 展示</div>
+</div>
+<div class="btn-group">
+<a href="https://chrisbetheking.github.io/java-student-management-system/" target="_blank" class="project-link">
+<i class="fa-solid fa-arrow-up-right-from-square"></i> Web Demo
+</a>
+<a href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" class="project-link">
+<i class="fa-brands fa-github"></i> Source Code
+</a>
+</div>
+</div>
+<div class="tag-group">
+<span class="tag">Java</span>
+<span class="tag">OOP</span>
+<span class="tag">Data Processing</span>
+<span class="tag">System Design</span>
+<span class="tag">Web Demo</span>
+</div>
+<p>独立设计与开发的成绩管理系统，完成从业务逻辑建模、数据处理到测试修复的软件工程流程，并额外制作 Web Demo，方便招聘方直接在线体验核心计算逻辑。</p>
+<ul>
+<li><strong>核心逻辑：</strong>开发成绩统计、补考名单自动筛选与总评计算模块，数据处理准确率达 95%。</li>
+<li><strong>系统重构：</strong>优化类结构与模块边界，提升代码可读性和可维护性，减少重复开发成本。</li>
+<li><strong>质量提升：</strong>通过测试与异常场景修复，降低系统故障率 20%，提升成绩计算流程稳定性。</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="skills" class="section reveal">
+<div class="section-head">
+<div>
+<div class="kicker">Skills</div>
+<h2>技能储备</h2>
+</div>
+</div>
+
+<div class="skill-board">
+<div class="skill-group">
+<div class="skill-title"><i class="fa-solid fa-code"></i> 前端与跨端开发</div>
+<p class="skill-desc">具备原生前端与 Flutter 独立落地能力，能完成响应式网站、移动端适配和交互动画开发。</p>
+<div class="skill-items">
+<span class="skill-item">HTML</span>
+<span class="skill-item">CSS</span>
+<span class="skill-item">JavaScript</span>
+<span class="skill-item">TypeScript 基础</span>
+<span class="skill-item">Flutter</span>
+<span class="skill-item">Dart</span>
+</div>
+</div>
+
+<div class="skill-group">
+<div class="skill-title"><i class="fa-solid fa-robot"></i> AI 应用开发</div>
+<p class="skill-desc">熟悉大模型应用落地链路，能进行 Prompt 设计、业务流程抽象、多平台接入与自动化工具开发。</p>
+<div class="skill-items">
+<span class="skill-item">LLM 应用</span>
+<span class="skill-item">AI Agent</span>
+<span class="skill-item">Prompt Engineering</span>
+<span class="skill-item">Python</span>
+<span class="skill-item">NLP 基础</span>
+</div>
+</div>
+
+<div class="skill-group">
+<div class="skill-title"><i class="fa-solid fa-server"></i> 后端与数据处理</div>
+<p class="skill-desc">具备 Java 面向对象设计、业务逻辑建模和 SQL 数据筛选统计能力，能完成基础系统开发。</p>
+<div class="skill-items">
+<span class="skill-item">Java</span>
+<span class="skill-item">OOP</span>
+<span class="skill-item">SQL</span>
+<span class="skill-item">数据统计</span>
+<span class="skill-item">系统设计基础</span>
+</div>
+</div>
+
+<div class="skill-group">
+<div class="skill-title"><i class="fa-solid fa-toolbox"></i> 工程工具</div>
+<p class="skill-desc">熟悉 Git/GitHub、GitHub Pages、WSL/Linux 基础与 AI 辅助编程工具，能快速迭代和上线 Demo。</p>
+<div class="skill-items">
+<span class="skill-item">Git</span>
+<span class="skill-item">GitHub</span>
+<span class="skill-item">GitHub Pages</span>
+<span class="skill-item">Cursor</span>
+<span class="skill-item">WSL/Linux 基础</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section reveal">
+<div class="section-head">
+<div>
+<div class="kicker">Education</div>
+<h2>教育背景</h2>
+</div>
+</div>
+
+<div class="edu-box">
+<div>
+<h3>亚太科技大学 Asia Pacific University</h3>
+<p>计算机科学学士学位 · Bachelor of Computer Science</p>
+</div>
+<div class="edu-time">2024.09 - 2027.09</div>
+</div>
+</section>
+
+<section id="contact" class="section reveal">
+<div class="contact-card">
+<div>
+<h2>欢迎联系我</h2>
+<p>目标岗位：AI 应用开发、前端开发、AI Agent 实习、软件开发实习。可实习时间：2026 年 7 月 - 12 月。</p>
+</div>
+<div class="contact-actions">
+<a href="javascript:void(0)" onclick="copyEmail()" class="btn"><i class="fa-solid fa-envelope"></i> 复制邮箱</a>
+<a href="tel:18081299137" class="btn secondary"><i class="fa-solid fa-phone"></i> 电话</a>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="footer-links">
+<a href="mailto:easymoneysniperchris@gmail.com"><i class="fa-solid fa-envelope"></i> easymoneysniperchris@gmail.com</a>
+<a href="tel:18081299137"><i class="fa-solid fa-phone"></i> +86 18081299137</a>
+<a href="https://github.com/Chrisbetheking" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+</div>
+<p>© 2026 王鸿 · Built with HTML / CSS / JavaScript</p>
+</footer>
 
 <script>
-function toggleFlow(btn){
-  const panel = btn.nextElementSibling;
-  panel.classList.toggle("show");
+const titleText="AI Application Developer | Front-end Engineer";
+const typewriter=document.getElementById("typewriter");
+let idx=0;
 
-  const text = btn.querySelector("span");
-  text.textContent = panel.classList.contains("show") ? "收起流程图" : "展开流程图";
+function type(){
+if(idx<titleText.length){
+typewriter.textContent+=titleText.charAt(idx);
+idx++;
+setTimeout(type,45);
+}
+}
+setTimeout(type,450);
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("active");
+}
+});
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+window.addEventListener("scroll",()=>{
+const scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+const progress=height>0?scrollTop/height*100:0;
+document.getElementById("progress-bar").style.width=progress+"%";
+});
+
+function copyEmail(){
+navigator.clipboard.writeText("easymoneysniperchris@gmail.com").then(()=>{
+const btn=document.getElementById("emailBtn");
+if(btn){
+const old=btn.innerHTML;
+btn.innerHTML='<i class="fa-solid fa-check"></i> 邮箱已复制';
+btn.style.background="var(--primary)";
+btn.style.color="#fff";
+btn.style.borderColor="var(--primary)";
+setTimeout(()=>{
+btn.innerHTML=old;
+btn.style.background="";
+btn.style.color="";
+btn.style.borderColor="";
+},1800);
+}
+});
+}
+
+function toggleFlow(button){
+const panel=button.nextElementSibling;
+const isOpen=panel.classList.contains("show");
+panel.classList.toggle("show");
+button.classList.toggle("active");
+const text=button.querySelector("span");
+if(isOpen){
+text.innerHTML=text.innerHTML.replace("收起","展开");
+}else{
+text.innerHTML=text.innerHTML.replace("展开","收起");
+}
 }
 </script>
-
 </body>
 </html>
