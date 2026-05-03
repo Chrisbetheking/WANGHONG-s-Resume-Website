@@ -7,18 +7,25 @@
   <title>王鸿 | AI 应用与前端工程作品集</title>
   <meta
     name="description"
-    content="王鸿的个人作品集，展示 AI Agent、前端工程、业务工具、医疗健康信息检索、Flutter 校园交通系统和 Java 成绩管理系统。"
+    content="王鸿的个人作品集，展示 AI Agent、前端工程、业务工具、医疗健康信息检索、Flutter 校园交通系统、响应式网页和 Java 成绩管理系统。"
   />
 
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
+  <div class="bg-orb orb-one"></div>
+  <div class="bg-orb orb-two"></div>
+  <div class="bg-orb orb-three"></div>
+
   <div class="page">
     <nav class="nav">
       <a class="brand" href="#top">
         <span class="brand-mark">WH</span>
-        <span>WANG HONG</span>
+        <span>
+          WANG HONG
+          <small>AI Application · Front-end · Software</small>
+        </span>
       </a>
 
       <div class="nav-links">
@@ -33,7 +40,7 @@
     </nav>
 
     <header class="hero" id="top">
-      <div class="hero-content">
+      <div class="hero-left">
         <div class="hero-profile">
           <img class="hero-avatar" src="./avatar.jpg" alt="王鸿头像" />
 
@@ -56,30 +63,58 @@
 
         <div class="actions">
           <a class="btn btn-primary" href="#projects">查看项目</a>
-          <a class="btn btn-primary" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">GitHub</a>
-          <button class="btn btn-primary" type="button" onclick="copyEmail()">复制邮箱</button>
-        </div>
-
-        <div class="metrics">
-          <div class="metric">
-            <strong>60%+</strong>
-            <span>销售查询效率提升</span>
-          </div>
-          <div class="metric">
-            <strong>200h+</strong>
-            <span>累计节省人工查询时间</span>
-          </div>
-          <div class="metric">
-            <strong>0→1</strong>
-            <span>AI 智能体落地经验</span>
-          </div>
-          <div class="metric">
-            <strong>95%</strong>
-            <span>成绩计算测试准确率</span>
-          </div>
+          <a class="btn btn-ghost" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">GitHub</a>
+          <button class="btn btn-ghost" type="button" onclick="copyEmail()">复制邮箱</button>
         </div>
       </div>
+
+      <aside class="hero-panel">
+        <div class="panel-label">Portfolio Focus</div>
+
+        <div class="panel-item">
+          <span class="panel-index">01</span>
+          <div>
+            <strong>AI Agent 工作流</strong>
+            <p>真实教育咨询业务场景，覆盖销售、文书、运营等多角色提效。</p>
+          </div>
+        </div>
+
+        <div class="panel-item">
+          <span class="panel-index">02</span>
+          <div>
+            <strong>前端产品化能力</strong>
+            <p>动态表单、规则匹配、结构化结果、在线 Demo 和 GitHub Pages 部署。</p>
+          </div>
+        </div>
+
+        <div class="panel-item">
+          <span class="panel-index">03</span>
+          <div>
+            <strong>多类型项目展示</strong>
+            <p>AI 留学、医疗检索、Flutter 交通、响应式网页、Java 系统。</p>
+          </div>
+        </div>
+      </aside>
     </header>
+
+    <section class="metrics-grid">
+      <div class="metric">
+        <strong>60%+</strong>
+        <span>销售查询效率提升</span>
+      </div>
+      <div class="metric">
+        <strong>200h+</strong>
+        <span>累计节省人工查询时间</span>
+      </div>
+      <div class="metric">
+        <strong>0→1</strong>
+        <span>AI 智能体落地经验</span>
+      </div>
+      <div class="metric">
+        <strong>95%</strong>
+        <span>成绩计算测试准确率</span>
+      </div>
+    </section>
 
     <section class="section" id="strengths">
       <div class="section-head">
@@ -92,23 +127,27 @@
         </p>
       </div>
 
-      <div class="grid-4">
+      <div class="strength-grid">
         <div class="mini-card">
+          <span class="mini-icon">⚙️</span>
           <h3>AI Agent 工程落地</h3>
           <p>能拆解运营、销售、文书等多角色业务流程，设计统一入口、任务分发与结构化结果输出。</p>
         </div>
 
         <div class="mini-card">
+          <span class="mini-icon">📈</span>
           <h3>结果导向</h3>
           <p>项目表达以效率提升、人工节省、准确率和稳定性为核心，避免只停留在技术栈罗列。</p>
         </div>
 
         <div class="mini-card">
+          <span class="mini-icon">🧩</span>
           <h3>前端交互实现</h3>
           <p>具备原生 HTML / CSS / JavaScript 与 Flutter 开发能力，能独立完成响应式页面和复杂交互。</p>
         </div>
 
         <div class="mini-card">
+          <span class="mini-icon">🚀</span>
           <h3>快速迭代上线</h3>
           <p>熟悉 GitHub Pages、Git 版本管理和 AI 辅助编程，能快速构建 Demo、上线验证与持续优化。</p>
         </div>
@@ -123,9 +162,12 @@
         </div>
       </div>
 
-      <div class="experience">
+      <div class="experience-card">
+        <div class="experience-line"></div>
+
         <div class="top-row">
           <div>
+            <span class="project-number">Internship</span>
             <h3>AI 智能体开发实习生</h3>
             <p class="sub">成都泓麒教育科技有限公司</p>
           </div>
@@ -155,13 +197,16 @@
           <h2>重点项目</h2>
         </div>
         <p class="section-note">
-          项目按“业务问题 → 技术方案 → 结果产出”组织，更适合放进简历和面试讲解。
+          项目按“业务问题 → 技术方案 → 结果产出”组织，突出真实业务场景、可解释流程和可在线体验的 Demo。
         </p>
       </div>
 
-      <article class="project featured">
+      <article class="project project-main">
+        <div class="project-glow"></div>
+
         <div class="top-row">
           <div>
+            <span class="project-number">Project 01</span>
             <h3>企业级 AI 智能体工作流系统</h3>
             <p class="sub">面向教育企业内部运营、销售与文书团队的 AI 提效工具</p>
           </div>
@@ -197,7 +242,7 @@
 
         <div class="project-image">
           <details>
-            <summary>展开脱敏流程图</summary>
+            <summary>展开企业 AI 脱敏流程图</summary>
             <img src="./ai-agent-enterprise-architecture.png" alt="企业级 AI 智能体工作流脱敏流程图" />
           </details>
         </div>
@@ -206,6 +251,7 @@
       <article class="project">
         <div class="top-row">
           <div>
+            <span class="project-number">Project 02</span>
             <h3>医疗健康信息检索 Demo</h3>
             <p class="sub">症状描述输入、关键词匹配、健康知识检索与风险信号提示</p>
           </div>
@@ -233,11 +279,19 @@
           <li><strong>安全边界：</strong>将“疾病概率 / 治疗建议”降级为“健康信息匹配度 / 就医建议提醒”，避免输出诊断或处方性质内容。</li>
           <li><strong>结果口径：</strong>在自建症状测试样例中，关键词匹配准确率约 80%。</li>
         </ul>
+
+        <div class="project-image">
+          <details>
+            <summary>展开医疗健康信息检索流程图</summary>
+            <img src="./medical-ai-workflow.png" alt="医疗健康信息检索流程图" />
+          </details>
+        </div>
       </article>
 
       <article class="project">
         <div class="top-row">
           <div>
+            <span class="project-number">Project 03</span>
             <h3>APU 智能校园交通系统</h3>
             <p class="sub">校园交通、停车管理与实时状态可视化系统</p>
           </div>
@@ -268,6 +322,7 @@
       <article class="project">
         <div class="top-row">
           <div>
+            <span class="project-number">Project 04</span>
             <h3>响应式交互网页开发实践</h3>
             <p class="sub">原生前端交互、移动端适配与自动化部署</p>
           </div>
@@ -298,6 +353,7 @@
       <article class="project">
         <div class="top-row">
           <div>
+            <span class="project-number">Project 05</span>
             <h3>Java 学生成绩管理系统</h3>
             <p class="sub">面向对象设计、成绩计算、系统重构与 Web Demo 展示</p>
           </div>
@@ -341,6 +397,7 @@
 
       <div class="skills">
         <div class="mini-card">
+          <span class="mini-icon">💻</span>
           <h3>前端与跨端开发</h3>
           <p>具备原生前端与 Flutter 独立落地能力，能完成响应式网站、移动端适配和交互动画开发。</p>
           <div class="chips">
@@ -354,6 +411,7 @@
         </div>
 
         <div class="mini-card">
+          <span class="mini-icon">🤖</span>
           <h3>AI 应用开发</h3>
           <p>熟悉大模型应用落地链路，能进行 Prompt 设计、业务流程抽象、多平台接入与自动化工具开发。</p>
           <div class="chips">
@@ -366,6 +424,7 @@
         </div>
 
         <div class="mini-card">
+          <span class="mini-icon">🗄️</span>
           <h3>后端与数据处理</h3>
           <p>具备 Java 面向对象设计、业务逻辑建模和 SQL 数据筛选统计能力，能完成基础系统开发。</p>
           <div class="chips">
@@ -378,6 +437,7 @@
         </div>
 
         <div class="mini-card">
+          <span class="mini-icon">🛠️</span>
           <h3>工程工具</h3>
           <p>熟悉 Git/GitHub、GitHub Pages、WSL/Linux 基础与 AI 辅助编程工具，能快速迭代和上线 Demo。</p>
           <div class="chips">
@@ -401,15 +461,16 @@
 
       <div class="edu-card">
         <div>
+          <span class="project-number">2024.09 - 2027.09</span>
           <h3>Asia Pacific University of Technology & Innovation</h3>
           <p>计算机科学学士学位 · Bachelor of Computer Science</p>
         </div>
-        <span class="date">2024.09 - 2027.09</span>
       </div>
     </section>
 
     <section class="contact-grid" id="contact">
-      <div class="contact-box">
+      <div class="contact-box contact-main">
+        <p class="kicker">Contact</p>
         <h2>欢迎联系我</h2>
         <p>
           目标岗位：AI 应用开发、前端开发、AI Agent 实习、软件开发实习。可实习时间：2026 年 7 月 - 12 月。
