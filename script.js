@@ -1,23 +1,32 @@
-function getCurrentEmail() {
+function getPageConfig() {
   const pageLang = document.documentElement.lang;
 
   if (pageLang === "en") {
-    return "easymoneysniperchris@gmail.com";
+    return {
+      email: "easymoneysniperchris@gmail.com",
+      copiedMessage: "Email copied: ",
+      fallbackMessage: "Email: "
+    };
   }
 
-  return "chriswangjob@163.com";
+  return {
+    email: "chriswangjob@163.com",
+    copiedMessage: "邮箱已复制：",
+    fallbackMessage: "邮箱："
+  };
 }
 
 function copyEmail() {
-  const email = getCurrentEmail();
+  const config = getPageConfig();
+  const email = config.email;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(email).then(function () {
-      alert("Email copied: " + email);
+      alert(config.copiedMessage + email);
     }).catch(function () {
-      alert("Email: " + email);
+      alert(config.fallbackMessage + email);
     });
   } else {
-    alert("Email: " + email);
+    alert(config.fallbackMessage + email);
   }
 }
