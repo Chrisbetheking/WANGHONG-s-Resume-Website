@@ -75,6 +75,13 @@ a {
   color: #2563eb;
 }
 
+.lang-link {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #2563eb !important;
+}
+
 .hero {
   margin-top: 22px;
   padding: 38px;
@@ -376,6 +383,30 @@ ul {
   gap: 10px;
   justify-content: flex-end;
   min-width: 170px;
+}
+
+.project-image {
+  margin-top: 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.project-image summary {
+  cursor: pointer;
+  padding: 14px 16px;
+  color: #2563eb;
+  font-weight: 900;
+  user-select: none;
+}
+
+.project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #e2e8f0;
+  background: #0f172a;
 }
 
 .data-note {
