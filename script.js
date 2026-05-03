@@ -3,11 +3,11 @@ function copyEmail() {
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(email).then(function () {
-      alert("国内邮箱已复制：" + email);
+      alert("邮箱已复制：" + email);
     }).catch(function () {
-      alert("国内邮箱：" + email);
+      alert("邮箱：" + email);
     });
   } else {
-    alert("国内邮箱：" + email);
+    alert("邮箱：" + email);
   }
 }
