@@ -3,499 +3,551 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Wang Hong | AI Application & Front-end Portfolio</title>
-  <meta
-    name="description"
-    content="Wang Hong's portfolio showcasing AI Agent workflows, front-end engineering, business tools, healthcare information retrieval, Flutter campus transport system, responsive web development and Java student management system."
-  />
-
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="description" content="Wang Hong's portfolio for AI applications, AI Agent workflows, front-end engineering, and software development projects." />
+  <meta name="keywords" content="Wang Hong, AI Agent, Front-end Engineer, Software Developer Intern, Portfolio, Java, Flutter, JavaScript" />
+  <meta name="author" content="Wang Hong" />
+  <meta property="og:title" content="Wang Hong | AI Application & Front-end Engineering Portfolio" />
+  <meta property="og:description" content="A portfolio focused on AI Agent workflows, front-end engineering, business automation, and verifiable project demos." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="avatar.jpg" />
+  <title>Wang Hong | AI Application & Front-end Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <div class="bg-orb orb-one"></div>
-  <div class="bg-orb orb-two"></div>
-  <div class="bg-orb orb-three"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <span class="brand-mark">WH</span>
+      <span>Wang Hong · Portfolio</span>
+    </a>
 
-  <div class="page">
-    <nav class="nav">
-      <a class="brand" href="#top">
-        <span class="brand-mark">WH</span>
-        <span>
-          WANG HONG
-          <small>AI Application · Front-end · Software</small>
-        </span>
-      </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <div class="nav-links">
-        <a href="#strengths">Highlights</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-        <a class="lang-link" href="./index.html">中文</a>
-      </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#highlights">Highlights</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a class="language-link" href="index.html">中文</a>
     </nav>
+  </header>
 
-    <header class="hero" id="top">
-      <div class="hero-left">
-        <div class="hero-profile">
-          <img class="hero-avatar" src="./avatar.jpg" alt="Wang Hong profile photo" />
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow-row">
+            <span>AI Agent Delivery</span>
+            <span>Front-end Engineering</span>
+            <span>Business Workflow Tools</span>
+            <span>Available in 2026</span>
+          </div>
 
-          <div>
-            <div class="hero-tags">
-              <span class="pill">AI Agent Delivery</span>
-              <span class="pill">Front-end Engineering</span>
-              <span class="pill">Software Internship</span>
-              <span class="pill">Business Tool Productization</span>
+          <h1>Wang Hong</h1>
+          <h2>AI Application Developer / Front-end Engineer / Software Developer Intern</h2>
+          <p class="hero-intro">
+            Computer Science undergraduate focused on AI Agent workflows, front-end interaction, and practical business tools. I participated in building an education-focused AI Agent from 0 to 1, covering information retrieval, content generation, CGPA conversion, school/program recommendation, and multi-platform integration, saving 200+ hours of manual query work.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume PDF</a>
+            <a class="btn ghost" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <button class="btn ghost copy-email" type="button" data-email="chriswangjob@163.com">Copy Email</button>
+          </div>
+
+          <div class="stats-grid" aria-label="Key project metrics">
+            <div>
+              <strong>60%+</strong>
+              <span>Sales query efficiency improved</span>
             </div>
-
-            <h1>Wang Hong</h1>
-            <h2>AI Application Development / Front-end Engineering / Software Internship</h2>
+            <div>
+              <strong>200h+</strong>
+              <span>Manual query time saved</span>
+            </div>
+            <div>
+              <strong>0→1</strong>
+              <span>AI Agent delivery experience</span>
+            </div>
+            <div>
+              <strong>95%</strong>
+              <span>Grade calculation test accuracy</span>
+            </div>
           </div>
         </div>
 
-        <p class="hero-desc">
-          Computer Science undergraduate focused on AI Agent applications, front-end engineering and business tool delivery. Experienced in turning real business workflows into usable web-based tools, covering requirement analysis, interaction design, workflow decomposition, front-end implementation and online deployment.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-ghost" href="./resume-en.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a class="btn btn-ghost" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">GitHub</a>
-          <button class="btn btn-ghost" type="button" onclick="copyEmail()">Copy Email</button>
-        </div>
-      </div>
-
-      <aside class="hero-panel">
-        <div class="panel-label">Portfolio Focus</div>
-
-        <div class="panel-item">
-          <span class="panel-index">01</span>
-          <div>
-            <strong>AI Agent Workflow</strong>
-            <p>Real education consulting scenarios covering sales, writing support, operations and internal productivity.</p>
+        <aside class="hero-card reveal" aria-label="Profile card">
+          <div class="avatar-frame">
+            <img src="avatar.jpg" alt="Portrait of Wang Hong" />
           </div>
-        </div>
-
-        <div class="panel-item">
-          <span class="panel-index">02</span>
-          <div>
-            <strong>Front-end Productization</strong>
-            <p>Dynamic forms, rule-based matching, structured output, online demos and GitHub Pages deployment.</p>
-          </div>
-        </div>
-
-        <div class="panel-item">
-          <span class="panel-index">03</span>
-          <div>
-            <strong>Multi-domain Projects</strong>
-            <p>AI study application, healthcare retrieval, Flutter transport, responsive web and Java system projects.</p>
-          </div>
-        </div>
-      </aside>
-    </header>
-
-    <section class="metrics-grid">
-      <div class="metric">
-        <strong>60%+</strong>
-        <span>Sales query efficiency improvement</span>
-      </div>
-      <div class="metric">
-        <strong>200h+</strong>
-        <span>Estimated manual query time saved</span>
-      </div>
-      <div class="metric">
-        <strong>0→1</strong>
-        <span>AI Agent delivery experience</span>
-      </div>
-      <div class="metric">
-        <strong>95%</strong>
-        <span>Grade calculation test accuracy</span>
+          <h3>AI Application Developer</h3>
+          <p>Front-end Engineer · CS Undergraduate</p>
+          <ul class="hero-points">
+            <li>AI Agent: workflow breakdown, prompt design, multi-platform integration, business efficiency improvement</li>
+            <li>Front-end: responsive websites, interactive UI, online demos, GitHub Pages deployment</li>
+            <li>Result-oriented: project value supported by efficiency gains, accuracy, stability, and explainable workflows</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <section class="section" id="strengths">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Core Strengths</p>
+    <section class="quick-links section-pad compact" aria-labelledby="quick-title">
+      <div class="container reveal">
+        <div class="section-heading inline-heading">
+          <div>
+            <span class="section-kicker">For Interviewers</span>
+            <h2 id="quick-title">Quick Access</h2>
+          </div>
+          <p>Key links for fast review: live demos, architecture diagrams, resume, and source code.</p>
+        </div>
+
+        <div class="quick-grid">
+          <a href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">AI Agent Public Demo</a>
+          <a href="ai-agent-enterprise-architecture.png" target="_blank" rel="noopener noreferrer">Enterprise AI Agent Diagram</a>
+          <a href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">Healthcare Info Retrieval Demo</a>
+          <a href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener noreferrer">Java Grade Demo</a>
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume PDF</a>
+          <a href="https://github.com/Chrisbetheking/WANGHONG-s-Resume-Website" target="_blank" rel="noopener noreferrer">Website Source Code</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="section-pad">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Core Strengths</span>
           <h2>Technical Highlights</h2>
-        </div>
-        <p class="section-note">
-          Focused on AI Agent applications, front-end interaction and business tool delivery, with emphasis on workflow understanding, implementation and measurable outcomes.
-        </p>
-      </div>
-
-      <div class="strength-grid">
-        <div class="mini-card">
-          <span class="mini-icon">⚙️</span>
-          <h3>AI Agent Delivery</h3>
-          <p>Able to break down multi-role workflows and design unified entry points, task routing and structured results.</p>
+          <p>
+            My portfolio focuses on AI Agent workflows, front-end interaction, and practical business tool delivery, showing the full process from requirement breakdown and workflow design to implementation, deployment, and validation.
+          </p>
         </div>
 
-        <div class="mini-card">
-          <span class="mini-icon">📈</span>
-          <h3>Outcome-oriented</h3>
-          <p>Project descriptions focus on efficiency improvement, time saving, accuracy and reliability instead of only listing tech stacks.</p>
-        </div>
-
-        <div class="mini-card">
-          <span class="mini-icon">🧩</span>
-          <h3>Front-end Implementation</h3>
-          <p>Hands-on experience with HTML, CSS, JavaScript and Flutter, including responsive pages and interactive UI components.</p>
-        </div>
-
-        <div class="mini-card">
-          <span class="mini-icon">🚀</span>
-          <h3>Fast Iteration</h3>
-          <p>Familiar with GitHub Pages, Git version control and AI-assisted development for quick demo building and deployment.</p>
+        <div class="cards four-cols">
+          <article class="info-card reveal">
+            <span class="card-icon">⚙️</span>
+            <h3>AI Agent Delivery</h3>
+            <p>Break down workflows for operations, sales, and content teams, then turn them into unified AI-assisted task flows.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">📈</span>
+            <h3>Result-oriented Thinking</h3>
+            <p>Present projects through efficiency gains, saved manual work, accuracy, stability, and verifiable demos instead of only listing tech stacks.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">🧩</span>
+            <h3>Front-end Interaction</h3>
+            <p>Build responsive pages, interactive demos, visual workflows, and complex UI behavior with HTML, CSS, JavaScript, and Flutter.</p>
+          </article>
+          <article class="info-card reveal">
+            <span class="card-icon">🚀</span>
+            <h3>Fast Iteration</h3>
+            <p>Use GitHub Pages, Git, and AI-assisted development tools to quickly build, deploy, test, and improve working demos.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Experience</p>
+    <section id="experience" class="section-pad alt-bg">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Experience</span>
           <h2>Internship Experience</h2>
         </div>
-      </div>
 
-      <div class="experience-card">
-        <div class="experience-line"></div>
-
-        <div class="top-row">
-          <div>
-            <span class="project-number">Internship</span>
+        <article class="timeline-card reveal">
+          <div class="timeline-meta">
+            <span>Jan 2025 - Mar 2025</span>
+            <span>AI Agent · LLM Application · Business Workflow Optimization</span>
+          </div>
+          <div class="timeline-content">
             <h3>AI Agent Development Intern</h3>
-            <p class="sub">Chengdu Hongqi Education Technology Co., Ltd.</p>
+            <p class="company">Chengdu Hongqi Education Technology Co., Ltd.</p>
+            <ul class="bullet-list">
+              <li>Participated in building an AI Agent system from 0 to 1, covering front-end interfaces, business logic, data processing, and multi-platform integration for sales queries, writing support, and content generation.</li>
+              <li>Built a sales short-video script generation module to help sales staff quickly generate basic promotional copy based on product type and student needs.</li>
+              <li>Developed real-time information search, conditional filtering, structured data display, quick-copy features, CGPA conversion, and school/program recommendation workflows.</li>
+              <li>Integrated the internal query system with WeChat customer service, DingTalk, and Feishu, reducing tool switching and improving information access efficiency.</li>
+            </ul>
           </div>
-          <span class="date">2025.01 - 2025.03</span>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">AI Agent</span>
-          <span class="tag">LLM Application</span>
-          <span class="tag">Workflow Optimization</span>
-          <span class="tag">Multi-platform Integration</span>
-        </div>
-
-        <ul>
-          <li><strong>Business efficiency:</strong> Participated in building an AI Agent system from 0 to 1, covering front-end interface, business logic, data processing and multi-platform integration. The system improved sales query efficiency by about 60% and reduced repetitive query work for consultants and writing teams by about 70%.</li>
-          <li><strong>Content automation:</strong> Built a script generation module for sales short videos, enabling sales staff to quickly generate basic promotional copy based on different products and student needs.</li>
-          <li><strong>Search and recommendation:</strong> Developed real-time information query, conditional search, data display and quick-copy features, and implemented CGPA conversion and university/program recommendation functions.</li>
-          <li><strong>Integration:</strong> Integrated the tool with WeChat customer service, DingTalk and Feishu to provide a more unified internal query entry point.</li>
-        </ul>
+        </article>
       </div>
     </section>
 
-    <section class="section" id="projects">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Projects</p>
-          <h2>Selected Projects</h2>
-        </div>
-        <p class="section-note">
-          Projects are organized around business problems, technical solutions and measurable results, with online demos where possible.
-        </p>
-      </div>
-
-      <article class="project project-main">
-        <div class="project-glow"></div>
-
-        <div class="top-row">
-          <div>
-            <span class="project-number">Project 01</span>
-            <h3>Enterprise AI Agent Workflow System</h3>
-            <p class="sub">AI productivity tool for internal education consulting operations, sales and writing teams</p>
-          </div>
-
-          <div class="project-actions">
-            <a class="btn btn-blue" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener">Public Demo</a>
-            <span class="btn btn-light">Internal Project</span>
-          </div>
+    <section id="projects" class="section-pad">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Selected Projects</span>
+          <h2>Featured Projects</h2>
+          <p>
+            Projects are organized by business problem, my contribution, technical solution, and measurable output. The focus is on real scenarios, explainable workflows, and live demos.
+          </p>
         </div>
 
-        <div class="tag-list">
-          <span class="tag">AI Agent</span>
-          <span class="tag">LLM Application</span>
-          <span class="tag">Prompt Engineering</span>
-          <span class="tag">Workflow Automation</span>
-          <span class="tag">Dynamic Forms</span>
-          <span class="tag">Rule-based Matching</span>
-          <span class="tag">Multi-platform Integration</span>
+        <div class="project-stack">
+          <article class="project-card featured reveal">
+            <div class="project-topline">
+              <span>Project 01</span>
+              <div class="tag-row">
+                <span>AI Agent</span>
+                <span>LLM Application</span>
+                <span>Prompt Engineering</span>
+                <span>Dynamic Forms</span>
+                <span>Rule Matching</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <div>
+                <h3>Enterprise AI Agent Workflow System</h3>
+                <p class="project-subtitle">An AI productivity tool for education operations, sales, and writing-support teams</p>
+                <p>
+                  This project came from a real education consulting workflow. The internal version involves company data and business rules, so the source code is not public. The public demo uses a desensitized study-abroad application workflow to demonstrate school recommendation, application copy generation, and GPA conversion.
+                </p>
+              </div>
+
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>My Contribution</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Participated in requirement breakdown and transformed high-frequency sales, operations, and writing-support tasks into a unified workflow.</li>
+                    <li>Worked on front-end pages and interactions, including dynamic forms, task switching, structured output display, history records, and quick-copy actions.</li>
+                    <li>Contributed to prompt workflow design, information query logic, multi-platform integration testing, and pre-launch validation.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <h4>Output & Impact</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Turned multi-role queries, content generation, school matching, and application support into a unified front-end workflow.</li>
+                    <li>Improved sales query efficiency by about 60% and saved 200+ hours of manual query work based on typical task-time comparison.</li>
+                    <li>The public demo preserves the core workflow while removing internal data and sensitive business rules.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn small primary" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">View Public Demo</a>
+                <button class="btn small secondary diagram-toggle" type="button" data-target="ai-flow-en">Show System Diagram</button>
+                <span class="status-pill">Internal project · Source not public</span>
+              </div>
+
+              <div class="diagram-panel" id="ai-flow-en">
+                <img src="ai-agent-enterprise-architecture.png" alt="Enterprise AI Agent workflow architecture diagram" />
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span>Project 02</span>
+              <div class="tag-row">
+                <span>Python</span>
+                <span>JavaScript</span>
+                <span>Basic NLP</span>
+                <span>Keyword Matching</span>
+                <span>Safety Notice</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Healthcare Information Retrieval Demo</h3>
+              <p class="project-subtitle">Symptom input, keyword matching, health information retrieval, and risk-signal reminders</p>
+              <p>
+                A front-end information retrieval prototype for health-related questions. It supports symptom-description matching, health knowledge retrieval, and risk-signal reminders. This project only demonstrates information retrieval and structured result display. It does not provide medical diagnosis, prescriptions, or treatment plans.
+              </p>
+
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>My Contribution</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Designed the input form, task switching, result cards, and risk reminder section to make the retrieval process explainable.</li>
+                    <li>Used text cleaning, keyword extraction, and symptom normalization to convert free-text input into matchable information.</li>
+                    <li>Reframed unsafe claims such as “diagnosis” and “treatment advice” into “health information matching” and “medical attention reminders”.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <h4>Output & Impact</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Matches symptom keywords against a local health knowledge base and returns structured information, matching evidence, and risk reminders.</li>
+                    <li>Reached about 80% keyword-matching accuracy on self-built symptom test cases.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn small primary" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a class="btn small secondary" href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=drive_link" target="_blank" rel="noopener noreferrer">Source Colab</a>
+                <button class="btn small secondary diagram-toggle" type="button" data-target="medical-flow-en">Show Workflow Diagram</button>
+              </div>
+
+              <div class="diagram-panel" id="medical-flow-en">
+                <img src="medical-ai-workflow.png" alt="Healthcare information retrieval workflow diagram" />
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span>Project 03</span>
+              <div class="tag-row">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>CustomPaint</span>
+                <span>Animation</span>
+                <span>Responsive UI</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>APU Smart Campus Transport System</h3>
+              <p class="project-subtitle">Campus traffic, parking management, and real-time status visualization</p>
+              <p>
+                A smart campus transport prototype designed for complex campus traffic scenarios. It focuses on dynamic route display, parking reservation, bus status visualization, ETA countdown, and responsive multi-role interaction.
+              </p>
+
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>My Contribution</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Designed core campus transport flows, including parking reservation, shuttle status display, ETA countdown, and multi-role entry points.</li>
+                    <li>Used Flutter CustomPaint to draw the campus road network and AnimationController to simulate bus movement.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <h4>Output & Impact</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Implemented dynamic parking reservation, real-time status updates, floating interaction controls, and responsive UI.</li>
+                    <li>Improved maintainability through componentized page structure while keeping complex animation interactions smooth.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn small primary" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a class="btn small secondary" href="https://github.com/Chrisbetheking/apu-smart-transport-flutter" target="_blank" rel="noopener noreferrer">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span>Project 04</span>
+              <div class="tag-row">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>EmailJS</span>
+                <span>Responsive UI</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Interactive Campaign Landing Page Demo</h3>
+              <p class="project-subtitle">Native front-end interaction, form validation, serverless email sending, and mobile adaptation</p>
+              <p>
+                This item is refactored from a personal interactive webpage into a more professional and neutral landing page case. It highlights animated UI, form flow, EmailJS-based serverless email sending, distance visualization, and GitHub Pages deployment. The original private page is no longer used as a main recruiting showcase.
+              </p>
+
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>My Contribution</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Implemented real-time counters, typewriter effects, modals, floating animations, mood selection, and an interactive message form.</li>
+                    <li>Integrated EmailJS so a static website can send emails without a self-hosted backend.</li>
+                    <li>Completed mobile layout adaptation and GitHub Pages deployment.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <h4>Next Improvement</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Replace private content with a fictional brand campaign while keeping the interaction features.</li>
+                    <li>Add README, screenshots, and feature documentation before using it as an official public portfolio item.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <span class="status-pill warning">Neutral demo in progress</span>
+                <span class="status-pill">Private content not used for recruitment</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span>Project 05</span>
+              <div class="tag-row">
+                <span>Java</span>
+                <span>Java Swing</span>
+                <span>OOP</span>
+                <span>CSV Storage</span>
+                <span>SHA-256</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>Java Student Grade Management System</h3>
+              <p class="project-subtitle">Object-oriented design, grade calculation, system refactoring, and web demo showcase</p>
+              <p>
+                An independently designed and developed grade management system that covers business logic modeling, data processing, testing, bug fixing, and a web demo for recruiters to directly verify the core calculation logic.
+              </p>
+
+              <div class="project-detail-grid">
+                <div class="detail-block">
+                  <h4>My Contribution</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Developed login authentication, user management, grade statistics, resit filtering, final-score calculation, and report export modules.</li>
+                    <li>Optimized class structure and module boundaries to improve readability and maintainability.</li>
+                  </ul>
+                </div>
+                <div class="detail-block">
+                  <h4>Output & Impact</h4>
+                  <ul class="bullet-list compact-list">
+                    <li>Reached about 95% grade-calculation accuracy based on a test dataset.</li>
+                    <li>Reduced system failure cases and improved calculation workflow stability by fixing exception scenarios.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn small primary" href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener noreferrer">Web Demo</a>
+                <a class="btn small secondary" href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" rel="noopener noreferrer">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-topline">
+              <span>Project 06</span>
+              <div class="tag-row">
+                <span>Portfolio</span>
+                <span>Responsive Design</span>
+                <span>UI Writing</span>
+                <span>GitHub Pages</span>
+                <span>SEO Basics</span>
+              </div>
+            </div>
+            <div class="project-body">
+              <h3>AI Application & Front-end Engineering Portfolio Website</h3>
+              <p class="project-subtitle">Personal branding, project packaging, resume conversion, and responsive portfolio design</p>
+              <p>
+                A portfolio website rebuilt around job-search conversion. It organizes projects into business problem, my contribution, technical solution, measurable result, and verifiable demo.
+              </p>
+
+              <ul class="bullet-list compact-list">
+                <li>Unified project card structure to highlight role, tech stack, key features, result metrics, and live demo links.</li>
+                <li>Added resume PDF, GitHub, email copy, bilingual pages, and quick access links for interviewers.</li>
+                <li>Used a professional dark visual style, responsive layout, and clear CTAs to improve recruiter browsing efficiency.</li>
+              </ul>
+
+              <div class="project-actions">
+                <a class="btn small primary" href="https://chrisbetheking.github.io/WANGHONG-s-Resume-Website/index-en.html" target="_blank" rel="noopener noreferrer">Live Portfolio</a>
+                <a class="btn small secondary" href="https://github.com/Chrisbetheking/WANGHONG-s-Resume-Website" target="_blank" rel="noopener noreferrer">Source Code</a>
+              </div>
+            </div>
+          </article>
         </div>
 
-        <p class="desc">
-          This project comes from a real education consulting business scenario. The internal version involves company data, business workflows and internal tools, so the source code cannot be publicly released. The public demo is a sanitized AI study application workflow platform that simulates university recommendation, application copy generation and GPA conversion.
-        </p>
-
-        <ul>
-          <li><strong>Business background:</strong> The company had multiple roles such as operations, sales and writing teams, with fragmented processes for information lookup, content generation, university matching and application support.</li>
-          <li><strong>Front-end scenario:</strong> Supported the operations team in generating sales video scripts, promotional copy and basic content materials.</li>
-          <li><strong>Middle-office scenario:</strong> Supported sales teams in querying university information, application requirements, CGPA conversion and program recommendations.</li>
-          <li><strong>Back-office scenario:</strong> Assisted writing teams with student background organization, preliminary university filtering, program matching and requirement checks.</li>
-          <li><strong>Public demo:</strong> Built an AI study application workflow platform with HTML, CSS and JavaScript, including dynamic forms, task switching, rule-based matching, structured result rendering and history records.</li>
-          <li><strong>Results:</strong> Based on typical query task comparisons, sales query efficiency improved by about 60%, repetitive query work was reduced by about 70%, and 200+ hours of manual query time were estimated to be saved.</li>
-        </ul>
-
-        <div class="project-image">
-          <details>
-            <summary>View sanitized enterprise AI workflow diagram</summary>
-            <img src="./ai-agent-enterprise-architecture-en.svg" alt="Sanitized enterprise AI Agent workflow diagram" />
-          </details>
+        <div class="data-note reveal">
+          <strong>Data note:</strong> Project results are based on typical task-time comparisons, internal feedback, and self-built test cases. Enterprise internal projects only show desensitized workflows and public demos. The healthcare demo is for information retrieval only and does not provide medical diagnosis, treatment advice, or prescriptions.
         </div>
-      </article>
-
-      <article class="project">
-        <div class="top-row">
-          <div>
-            <span class="project-number">Project 02</span>
-            <h3>Healthcare Information Retrieval Demo</h3>
-            <p class="sub">Symptom description input, keyword matching, health information retrieval and risk-signal reminders</p>
-          </div>
-          <div class="project-actions">
-            <a class="btn btn-blue" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener">Live Demo</a>
-          </div>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">Python</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Basic NLP</span>
-          <span class="tag">Keyword Matching</span>
-          <span class="tag">Safety Notice</span>
-        </div>
-
-        <p class="desc">
-          Developed a healthcare information retrieval demo with Python and JavaScript. The system supports symptom description input, keyword extraction, health knowledge matching and risk-signal reminders. The output is positioned as information retrieval rather than medical diagnosis.
-        </p>
-
-        <ul>
-          <li><strong>Problem:</strong> User symptom descriptions are often informal and unstructured, so the system needs to extract useful health-related keywords from free text.</li>
-          <li><strong>Text processing:</strong> Used text cleaning, keyword extraction and symptom normalization to convert user descriptions into matchable information.</li>
-          <li><strong>Matching logic:</strong> Combined keyword matching with a local health knowledge base to present related health information.</li>
-          <li><strong>Safety boundary:</strong> Reframed “disease probability / treatment advice” into “health information match / medical attention reminder” to avoid diagnosis-like output.</li>
-          <li><strong>Result:</strong> In self-built symptom test cases, keyword matching accuracy reached about 80%.</li>
-        </ul>
-
-        <div class="project-image">
-          <details>
-            <summary>View healthcare information retrieval workflow diagram</summary>
-            <img src="./medical-ai-workflow-en.svg" alt="Healthcare information retrieval workflow diagram" />
-          </details>
-        </div>
-      </article>
-
-      <article class="project">
-        <div class="top-row">
-          <div>
-            <span class="project-number">Project 03</span>
-            <h3>APU Smart Campus Transport System</h3>
-            <p class="sub">Campus transport, parking management and real-time status visualization system</p>
-          </div>
-          <div class="project-actions">
-            <a class="btn btn-blue" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener">Live Demo</a>
-          </div>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">Flutter</span>
-          <span class="tag">Dart</span>
-          <span class="tag">CustomPaint</span>
-          <span class="tag">Animation</span>
-          <span class="tag">Responsive UI</span>
-        </div>
-
-        <p class="desc">
-          Designed and implemented a smart transport system for a complex campus transport scenario, focusing on route visualization, parking reservation and real-time status synchronization.
-        </p>
-
-        <ul>
-          <li><strong>Rendering:</strong> Used Flutter CustomPaint to model the campus road network and simulated bus movement with Bézier curves and AnimationController.</li>
-          <li><strong>State management:</strong> Designed multi-state flows for parking reservation, ETA countdown, real-time updates and floating interactions.</li>
-          <li><strong>Engineering:</strong> Improved maintainability through component-based structure and responsive layout while keeping interactions smooth in animated scenes.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <div class="top-row">
-          <div>
-            <span class="project-number">Project 04</span>
-            <h3>Responsive Interactive Website Practice</h3>
-            <p class="sub">Native front-end interaction, mobile adaptation and automated deployment</p>
-          </div>
-          <div class="project-actions">
-            <a class="btn btn-blue" href="https://chrisbetheking.github.io/whwithyn/" target="_blank" rel="noopener">Live Demo</a>
-          </div>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">EmailJS</span>
-          <span class="tag">GitHub Pages</span>
-        </div>
-
-        <p class="desc">
-          Independently completed the visual design and front-end development of a responsive interactive website. The project validates page interaction, mobile adaptation and integration with a no-backend email service. It will later be refactored into a more general interactive campaign or landing page demo.
-        </p>
-
-        <ul>
-          <li><strong>Interaction:</strong> Implemented typewriter effects, real-time timer, floating messages and dynamic interactions with native HTML, CSS and JavaScript.</li>
-          <li><strong>Service integration:</strong> Integrated EmailJS to support email sending without a custom backend.</li>
-          <li><strong>Deployment:</strong> Deployed the project with GitHub Pages and continuously optimized the mobile viewing experience.</li>
-        </ul>
-      </article>
-
-      <article class="project">
-        <div class="top-row">
-          <div>
-            <span class="project-number">Project 05</span>
-            <h3>Java Student Grade Management System</h3>
-            <p class="sub">Object-oriented design, grade calculation, refactoring and web demo presentation</p>
-          </div>
-          <div class="project-actions">
-            <a class="btn btn-blue" href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener">Web Demo</a>
-            <a class="btn btn-light" href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" rel="noopener">Source Code</a>
-          </div>
-        </div>
-
-        <div class="tag-list">
-          <span class="tag">Java</span>
-          <span class="tag">OOP</span>
-          <span class="tag">Data Processing</span>
-          <span class="tag">System Design</span>
-          <span class="tag">Web Demo</span>
-        </div>
-
-        <p class="desc">
-          Independently designed and developed a student grade management system, covering business logic modeling, data processing, testing and bug fixing. A web demo was also built to make the core calculation logic easier to experience online.
-        </p>
-
-        <ul>
-          <li><strong>Core logic:</strong> Developed grade statistics, resit-list filtering and final score calculation modules, achieving about 95% accuracy on test datasets.</li>
-          <li><strong>Refactoring:</strong> Optimized class structure and module boundaries to improve readability and maintainability.</li>
-          <li><strong>Quality improvement:</strong> Fixed testing and edge-case issues, reducing system failure cases and improving the stability of the grade calculation workflow.</li>
-        </ul>
-      </article>
-
-      <div class="data-note">
-        Data note: Project outcome figures are based on comparisons of typical task time, internal feedback and self-built test cases. The healthcare demo is for information retrieval only and does not provide medical diagnosis, treatment advice or prescription guidance.
       </div>
     </section>
 
-    <section class="section" id="skills">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Skills</p>
+    <section id="skills" class="section-pad alt-bg">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Skills</span>
           <h2>Technical Skills</h2>
         </div>
-      </div>
 
-      <div class="skills">
-        <div class="mini-card">
-          <span class="mini-icon">💻</span>
-          <h3>Front-end & Cross-platform</h3>
-          <p>Capable of building responsive web pages, mobile-friendly UI and interactive animations with native front-end and Flutter.</p>
-          <div class="chips">
-            <span class="chip">HTML</span>
-            <span class="chip">CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">TypeScript Basics</span>
-            <span class="chip">Flutter</span>
-            <span class="chip">Dart</span>
-          </div>
-        </div>
-
-        <div class="mini-card">
-          <span class="mini-icon">🤖</span>
-          <h3>AI Application Development</h3>
-          <p>Familiar with LLM application workflows, prompt design, business workflow abstraction and automation tools.</p>
-          <div class="chips">
-            <span class="chip">LLM Application</span>
-            <span class="chip">AI Agent</span>
-            <span class="chip">Prompt Engineering</span>
-            <span class="chip">Python</span>
-            <span class="chip">Basic NLP</span>
-          </div>
-        </div>
-
-        <div class="mini-card">
-          <span class="mini-icon">🗄️</span>
-          <h3>Backend & Data Processing</h3>
-          <p>Basic experience in Java object-oriented design, business logic modeling and SQL-based data filtering and statistics.</p>
-          <div class="chips">
-            <span class="chip">Java OOP</span>
-            <span class="chip">SQL Basics</span>
-            <span class="chip">Data Statistics</span>
-            <span class="chip">System Design Basics</span>
-            <span class="chip">REST API Learning</span>
-          </div>
-        </div>
-
-        <div class="mini-card">
-          <span class="mini-icon">🛠️</span>
-          <h3>Engineering Tools</h3>
-          <p>Familiar with Git, GitHub, GitHub Pages, basic WSL/Linux operations and AI-assisted development tools.</p>
-          <div class="chips">
-            <span class="chip">Git</span>
-            <span class="chip">GitHub</span>
-            <span class="chip">GitHub Pages</span>
-            <span class="chip">Cursor</span>
-            <span class="chip">WSL/Linux Basics</span>
-          </div>
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>Front-end & Cross-platform</h3>
+            <p>HTML · CSS · JavaScript · TypeScript Basics · Flutter · Dart · Responsive UI</p>
+          </article>
+          <article class="skill-card reveal">
+            <h3>AI Application Development</h3>
+            <p>LLM Applications · AI Agent · Prompt Engineering · Python · Basic NLP · Workflow Design</p>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Backend & Data Processing</h3>
+            <p>Java · Java Swing · OOP · SQL Basics · CSV Storage · Data Statistics · REST API Learning</p>
+          </article>
+          <article class="skill-card reveal">
+            <h3>Engineering Tools</h3>
+            <p>Git · GitHub · GitHub Pages · Cursor · WSL/Linux Basics · AI-assisted Development</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="education">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Education</p>
+    <section id="education" class="section-pad">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Education</span>
           <h2>Education</h2>
         </div>
-      </div>
 
-      <div class="edu-card">
-        <div>
-          <span class="project-number">2024.09 - 2027.09</span>
-          <h3>Asia Pacific University of Technology & Innovation</h3>
-          <p>Bachelor of Computer Science</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-grid" id="contact">
-      <div class="contact-box contact-main">
-        <p class="kicker">Contact</p>
-        <h2>Let’s Connect</h2>
-        <p>
-          Target roles: AI application development, front-end development, AI Agent internship and software development internship. Available for internship from July to December 2026.
-        </p>
-
-        <div class="actions">
-          <a class="btn btn-blue" href="mailto:easymoneysniperchris@gmail.com">Send Email</a>
-          <button class="btn btn-light" type="button" onclick="copyEmail()">Copy Email</button>
-          <a class="btn btn-light" href="tel:+6013445019">Call</a>
-        </div>
-      </div>
-
-      <div class="contact-box">
-        <a class="contact-row" href="mailto:easymoneysniperchris@gmail.com">Email: easymoneysniperchris@gmail.com</a>
-        <a class="contact-row" href="tel:+6013445019">Phone: +6013445019</a>
-        <a class="contact-row" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">GitHub: github.com/Chrisbetheking</a>
+        <article class="education-card reveal">
+          <div>
+            <h3>Asia Pacific University of Technology & Innovation</h3>
+            <p>Bachelor of Computer Science</p>
+          </div>
+          <span>Sep 2024 - Sep 2027</span>
+        </article>
       </div>
     </section>
 
-    <footer>
-      © 2026 Wang Hong · Built with HTML / CSS / JavaScript
-    </footer>
-  </div>
+    <section id="contact" class="section-pad contact-section">
+      <div class="container contact-grid">
+        <div class="section-heading reveal">
+          <span class="section-kicker">Contact</span>
+          <h2>Let’s Connect</h2>
+          <p>
+            Target roles: AI Application Developer Intern, Front-end Developer Intern, AI Agent Intern, and Software Developer Intern. Available for internship from July to December 2026.
+          </p>
+        </div>
 
-  <script src="./script.js"></script>
+        <div class="contact-card reveal">
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:chriswangjob@163.com">Send Email</a>
+            <button class="btn secondary copy-email" type="button" data-email="chriswangjob@163.com">Copy Email</button>
+            <a class="btn ghost" href="tel:+8618081299137">Call</a>
+          </div>
+
+          <dl class="contact-list">
+            <div>
+              <dt>Email</dt>
+              <dd>chriswangjob@163.com</dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>+86 18081299137</dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd><a href="https://github.com/Chrisbetheking" target="_blank" rel="noopener noreferrer">github.com/Chrisbetheking</a></dd>
+            </div>
+            <div>
+              <dt>Resume</dt>
+              <dd><a href="resume.pdf" target="_blank" rel="noopener noreferrer">View PDF</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="current-year">2026</span> Wang Hong · Built with HTML / CSS / JavaScript</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite">Email copied</div>
+  <script src="script.js"></script>
 </body>
 </html>
