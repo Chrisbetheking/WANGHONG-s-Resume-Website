@@ -5,1205 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>王鸿 | AI 应用与前端开发作品集</title>
-  <meta name="description" content="王鸿的个人作品集，展示 AI Agent、前端交互、Flutter、Java、医疗信息检索和情侣互动官网等项目。" />
-  <meta name="keywords" content="王鸿, AI Agent, 前端开发, 软件开发实习, JavaScript, Flutter, Java" />
-  <meta name="author" content="Wang Hong" />
 
-  <style>
-    :root {
-      --bg: #07111f;
-      --panel: rgba(255, 255, 255, 0.075);
-      --panel-strong: rgba(255, 255, 255, 0.11);
-      --line: rgba(255, 255, 255, 0.14);
-      --text: #eef6ff;
-      --muted: #aab9cd;
-      --muted2: #7e90a7;
-      --cyan: #5eead4;
-      --blue: #38bdf8;
-      --pink: #fb7185;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
-      --radius: 24px;
-      --header: 72px;
-      --max: 1120px;
-    }
+  <meta
+    name="description"
+    content="王鸿的个人作品集网站，展示 AI Agent 工作流、前端交互、Java 成绩管理系统、Flutter 校园交通系统和医疗信息检索 Demo。"
+  />
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 96px;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 5%, rgba(56, 189, 248, 0.2), transparent 30%),
-        radial-gradient(circle at 88% 8%, rgba(129, 140, 248, 0.16), transparent 34%),
-        linear-gradient(180deg, #06101d 0%, #081321 100%);
-      line-height: 1.65;
-      overflow-x: hidden;
-    }
-
-    body.nav-open {
-      overflow: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: var(--header);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 max(22px, calc((100vw - var(--max)) / 2));
-      background: rgba(7, 17, 31, 0.84);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(18px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      color: #ffffff;
-      white-space: nowrap;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 15px;
-      color: #06111e;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
-      box-shadow: 0 16px 36px rgba(56, 189, 248, 0.24);
-    }
-
-    .site-nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .site-nav a {
-      padding: 9px 13px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 0.94rem;
-      font-weight: 800;
-      transition: 0.2s ease;
-    }
-
-    .site-nav a:hover,
-    .site-nav a.active {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.09);
-    }
-
-    .site-nav .language-link {
-      margin-left: 6px;
-      color: #04111f;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 44px;
-      height: 44px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 20px;
-      height: 2px;
-      margin: 5px auto;
-      background: #ffffff;
-      border-radius: 999px;
-      transition: 0.2s ease;
-    }
-
-    .nav-toggle.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    .side-toc {
-      position: fixed;
-      left: 22px;
-      top: 50%;
-      z-index: 50;
-      transform: translateY(-50%);
-      display: grid;
-      gap: 8px;
-      width: 140px;
-      padding: 14px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(7, 17, 31, 0.76);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    .side-toc-title {
-      margin-bottom: 4px;
-      color: var(--cyan);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .side-toc a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 9px;
-      border-radius: 12px;
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 800;
-      transition: 0.2s ease;
-    }
-
-    .side-toc a::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.28);
-    }
-
-    .side-toc a:hover,
-    .side-toc a.active {
-      color: #ffffff;
-      background: rgba(94, 234, 212, 0.1);
-    }
-
-    .side-toc a.active::before {
-      background: var(--cyan);
-    }
-
-    .mobile-toc {
-      display: none;
-      position: sticky;
-      top: var(--header);
-      z-index: 80;
-      padding: 10px 14px;
-      overflow-x: auto;
-      background: rgba(7, 17, 31, 0.92);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(14px);
-    }
-
-    .mobile-toc-inner {
-      display: flex;
-      gap: 8px;
-      min-width: max-content;
-    }
-
-    .mobile-toc a {
-      padding: 7px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 800;
-      background: rgba(255, 255, 255, 0.055);
-    }
-
-    section {
-      padding: 86px 0;
-    }
-
-    .hero {
-      padding: 82px 0 74px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-      gap: 42px;
-      align-items: center;
-    }
-
-    .eyebrow-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-
-    .eyebrow-row span,
-    .tag-row span {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 11px;
-      border: 1px solid rgba(94, 234, 212, 0.24);
-      border-radius: 999px;
-      color: #c9fff7;
-      background: rgba(94, 234, 212, 0.08);
-      font-size: 0.8rem;
-      font-weight: 900;
-      line-height: 1.2;
-    }
-
-    .hero h1 {
-      margin: 0;
-      color: #ffffff;
-      font-size: clamp(3.7rem, 8vw, 7rem);
-      line-height: 0.95;
-      letter-spacing: -0.065em;
-    }
-
-    .hero h2 {
-      margin: 20px 0 0;
-      max-width: 960px;
-      color: #edf8ff;
-      font-size: clamp(1.45rem, 3vw, 2.45rem);
-      line-height: 1.18;
-      letter-spacing: -0.04em;
-    }
-
-    .hero-intro {
-      max-width: 870px;
-      margin: 22px 0 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-        .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      margin-top: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      min-height: 46px;
-      align-items: center;
-      justify-content: center;
-      padding: 0 18px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      font-weight: 900;
-      transition: 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn.primary {
-      color: #04111f;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
-      box-shadow: 0 16px 36px rgba(56, 189, 248, 0.22);
-    }
-
-    .btn.secondary {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.095);
-      border-color: rgba(255, 255, 255, 0.16);
-    }
-
-    .btn.ghost {
-      color: var(--text);
-      background: transparent;
-      border-color: rgba(255, 255, 255, 0.18);
-    }
-
-    .btn.small {
-      min-height: 40px;
-      padding: 0 15px;
-      font-size: 0.9rem;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 32px;
-    }
-
-    .stat {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .stat strong {
-      display: block;
-      margin-bottom: 4px;
-      color: #ffffff;
-      font-size: 1.48rem;
-      line-height: 1;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .hero-card {
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06)),
-        rgba(255, 255, 255, 0.045);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .avatar-frame {
-      width: 156px;
-      height: 156px;
-      padding: 5px;
-      margin: 0 auto 20px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--cyan), var(--blue), #818cf8);
-    }
-
-    .avatar-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border: 5px solid rgba(7, 17, 31, 0.9);
-      border-radius: 999px;
-    }
-
-    .hero-card h3 {
-      margin: 0;
-      text-align: center;
-      color: #ffffff;
-      font-size: 1.25rem;
-    }
-
-    .hero-card p {
-      margin: 7px 0 18px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .hero-points {
-      display: grid;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .hero-points li {
-      padding: 12px 13px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 14px;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.055);
-      font-size: 0.92rem;
-    }
-
-    .alt {
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
-        rgba(255, 255, 255, 0.015);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .section-heading {
-      max-width: 850px;
-      margin-bottom: 34px;
-    }
-
-    .kicker {
-      display: inline-block;
-      margin-bottom: 10px;
-      color: var(--cyan);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      color: #ffffff;
-      font-size: clamp(2.05rem, 4.2vw, 3.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.052em;
-    }
-
-    .section-heading p {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .cards-4,
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .info-card,
-    .skill-card,
-    .timeline-card,
-    .project-card,
-    .education-card,
-    .contact-card,
-    .data-note,
-    .demo-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.082), rgba(255, 255, 255, 0.045)),
-        rgba(255, 255, 255, 0.035);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
-      overflow: hidden;
-    }
-
-    .info-card,
-    .skill-card {
-      padding: 22px;
-    }
-
-    .card-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      border: 1px solid rgba(94, 234, 212, 0.2);
-      border-radius: 16px;
-      background: rgba(94, 234, 212, 0.12);
-      font-size: 1.35rem;
-    }
-
-    .info-card h3,
-    .skill-card h3,
-    .timeline-card h3,
-    .project-card h3,
-    .education-card h3,
-    .demo-card h3 {
-      margin: 0;
-      color: #ffffff;
-      line-height: 1.22;
-    }
-
-    .info-card h3,
-    .skill-card h3 {
-      font-size: 1.12rem;
-    }
-
-    .info-card p,
-    .skill-card p,
-    .demo-card p {
-      margin: 10px 0 0;
-      color: var(--muted);
-    }
-
-    .timeline-card {
-      display: grid;
-      grid-template-columns: 250px minmax(0, 1fr);
-      gap: 28px;
-      padding: 28px;
-    }
-
-    .timeline-meta {
-      display: grid;
-      align-content: start;
-      gap: 10px;
-    }
-
-    .timeline-meta span {
-      width: fit-content;
-      padding: 8px 12px;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 999px;
-      color: #d8fbff;
-      background: rgba(56, 189, 248, 0.1);
-      font-size: 0.86rem;
-      font-weight: 900;
-    }
-
-    .company {
-      margin: 7px 0 14px;
-      color: var(--cyan);
-      font-weight: 900;
-    }
-
-    .bullet-list {
-      display: grid;
-      gap: 9px;
-      margin: 0;
-      padding-left: 1.1rem;
-      color: var(--muted);
-    }
-
-    .bullet-list li::marker {
-      color: var(--cyan);
-    }
-
-    .compact-list {
-      gap: 7px;
-      font-size: 0.94rem;
-    }
-
-    .demo-preview {
-      margin-bottom: 28px;
-      padding: 24px;
-      border: 1px solid rgba(94, 234, 212, 0.2);
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(94, 234, 212, 0.08), transparent 38%),
-        rgba(255, 255, 255, 0.045);
-    }
-
-    .demo-preview h3 {
-      margin: 0;
-      color: #ffffff;
-      font-size: 1.35rem;
-    }
-
-    .demo-preview p {
-      margin: 8px 0 20px;
-      color: var(--muted);
-    }
-
-    .demo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .demo-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 164px;
-      padding: 18px;
-      transition: 0.2s ease;
-    }
-
-    .demo-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(94, 234, 212, 0.38);
-      background:
-        linear-gradient(180deg, rgba(94, 234, 212, 0.1), rgba(255, 255, 255, 0.045)),
-        rgba(255, 255, 255, 0.04);
-    }
-
-    .demo-card small {
-      color: var(--cyan);
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .demo-card h4 {
-      margin: 10px 0 6px;
-      color: #ffffff;
-      font-size: 1.05rem;
-    }
-
-    .demo-card p {
-      flex: 1;
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .demo-card span {
-      color: var(--cyan);
-      font-weight: 900;
-    }
-        .project-stack {
-      display: grid;
-      gap: 22px;
-    }
-
-    .project-card {
-      padding: 28px;
-    }
-
-    .project-card.featured {
-      border-color: rgba(94, 234, 212, 0.24);
-      background:
-        linear-gradient(135deg, rgba(94, 234, 212, 0.105), transparent 34%),
-        linear-gradient(315deg, rgba(129, 140, 248, 0.1), transparent 36%),
-        rgba(255, 255, 255, 0.045);
-    }
-
-    .project-topline {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .project-topline > span {
-      color: var(--cyan);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-      max-width: 820px;
-    }
-
-    .tag-row span {
-      color: #c7e7ff;
-      border-color: rgba(56, 189, 248, 0.18);
-      background: rgba(56, 189, 248, 0.075);
-    }
-
-    .tag-row .soft-pink,
-    .soft-pink {
-      color: #ffe4ef;
-      border-color: rgba(251, 113, 133, 0.28);
-      background: rgba(251, 113, 133, 0.1);
-    }
-
-    .project-body {
-      display: grid;
-      gap: 18px;
-      min-width: 0;
-    }
-
-    .project-body h3 {
-      font-size: clamp(1.42rem, 2.6vw, 2.1rem);
-      letter-spacing: -0.032em;
-    }
-
-    .project-subtitle {
-      margin: 7px 0 10px;
-      color: var(--cyan);
-      font-weight: 900;
-    }
-
-    .project-body p,
-    .timeline-card p,
-    .data-note,
-    .contact-list dd {
-      color: var(--muted);
-      overflow-wrap: anywhere;
-    }
-
-    .project-detail-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .detail-block {
-      min-width: 0;
-      padding: 17px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.045);
-    }
-
-    .detail-block h4 {
-      margin: 0 0 10px;
-      color: #ffffff;
-      font-size: 1rem;
-    }
-
-    .project-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 0 13px;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 999px;
-      color: #dbeafe;
-      background: rgba(255, 255, 255, 0.065);
-      font-size: 0.88rem;
-      font-weight: 900;
-      text-align: center;
-    }
-
-    .diagram-panel {
-      display: none;
-      padding: 12px;
-      border: 1px solid rgba(94, 234, 212, 0.2);
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.16);
-    }
-
-    .diagram-panel.open {
-      display: block;
-    }
-
-    .diagram-panel img {
-      width: 100%;
-      max-height: 72vh;
-      object-fit: contain;
-      border-radius: 12px;
-      background: #07111f;
-    }
-
-    .data-note {
-      margin-top: 22px;
-      padding: 18px 20px;
-    }
-
-    .data-note strong {
-      color: #ffffff;
-    }
-
-    .education-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 24px 26px;
-    }
-
-    .education-card p {
-      margin: 7px 0 0;
-      color: var(--muted);
-    }
-
-    .education-card span {
-      flex: 0 0 auto;
-      color: var(--cyan);
-      font-weight: 900;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.85fr) minmax(320px, 0.65fr);
-      gap: 34px;
-      align-items: start;
-    }
-
-    .contact-card {
-      padding: 24px;
-    }
-
-    .contact-card .actions {
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-    }
-
-    .contact-list div {
-      display: grid;
-      grid-template-columns: 90px minmax(0, 1fr);
-      gap: 14px;
-      align-items: center;
-      padding: 13px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.045);
-    }
-
-    .contact-list dt {
-      color: var(--muted2);
-      font-size: 0.78rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .contact-list dd {
-      margin: 0;
-      color: #ffffff;
-    }
-
-    .contact-list a {
-      color: var(--cyan);
-    }
-
-    .site-footer {
-      padding: 28px 0;
-      color: var(--muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(0, 0, 0, 0.12);
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .footer-inner p {
-      margin: 0;
-    }
-
-    .footer-inner a {
-      color: var(--cyan);
-      font-weight: 900;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 28px;
-      z-index: 200;
-      transform: translate(-50%, 18px);
-      padding: 11px 16px;
-      border-radius: 999px;
-      color: #04111f;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
-      font-weight: 900;
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.22s ease;
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-        @media (max-width: 1440px) {
-      .side-toc {
-        display: none;
-      }
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        max-width: 650px;
-      }
-
-      .cards-4,
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .demo-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .timeline-card {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 820px) {
-      :root {
-        --header: 64px;
-      }
-
-      html {
-        scroll-padding-top: 112px;
-      }
-
-      .container {
-        width: min(100% - 28px, 100%);
-      }
-
-      .site-header {
-        padding: 0 14px;
-      }
-
-      .brand {
-        gap: 8px;
-        font-size: 0.92rem;
-      }
-
-      .brand-mark {
-        width: 38px;
-        height: 38px;
-        border-radius: 13px;
-      }
-
-      .brand span:last-child {
-        max-width: 188px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .site-nav {
-        position: fixed;
-        top: var(--header);
-        left: 14px;
-        right: 14px;
-        display: grid;
-        gap: 8px;
-        padding: 14px;
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        background: rgba(8, 19, 33, 0.97);
-        box-shadow: var(--shadow);
-        opacity: 0;
-        transform: translateY(-10px);
-        pointer-events: none;
-        transition: 0.2s ease;
-      }
-
-      .site-nav.open {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-
-      .site-nav a {
-        display: block;
-        padding: 12px 13px;
-        border-radius: 13px;
-      }
-
-      .site-nav .language-link {
-        margin-left: 0;
-        text-align: center;
-      }
-
-      .mobile-toc {
-        display: block;
-      }
-
-      section {
-        padding: 58px 0;
-      }
-
-      .hero {
-        padding: 44px 0 56px;
-      }
-
-      .hero h1 {
-        font-size: clamp(3.05rem, 17vw, 5.1rem);
-        letter-spacing: -0.055em;
-      }
-
-      .hero h2 {
-        font-size: clamp(1.32rem, 6vw, 2rem);
-        letter-spacing: -0.035em;
-      }
-
-      .hero-intro,
-      .section-heading p {
-        font-size: 0.97rem;
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .actions .btn,
-      .project-actions .btn,
-      .project-actions .status-pill {
-        width: 100%;
-      }
-
-      .hero-card,
-      .project-card,
-      .timeline-card,
-      .contact-card,
-      .demo-preview {
-        padding: 21px;
-        border-radius: 20px;
-      }
-
-      .project-topline {
-        flex-direction: column;
-      }
-
-      .tag-row {
-        justify-content: flex-start;
-      }
-
-      .project-detail-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .demo-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .diagram-panel img {
-        max-height: 58vh;
-      }
-
-      .section-heading {
-        margin-bottom: 24px;
-      }
-
-      .section-heading h2 {
-        font-size: clamp(2rem, 10vw, 3rem);
-      }
-
-      .contact-list div {
-        grid-template-columns: 1fr;
-        gap: 4px;
-      }
-
-      .education-card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .container {
-        width: min(100% - 22px, 100%);
-      }
-
-      .brand span:last-child {
-        max-width: 152px;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-      }
-
-      .stats-grid,
-      .cards-4,
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-card {
-        padding: 18px;
-      }
-
-      .eyebrow-row span,
-      .tag-row span,
-      .status-pill {
-        font-size: 0.74rem;
-      }
-
-      .bullet-list {
-        padding-left: 1rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-        animation: none !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div class="page-bg"></div>
+
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="返回顶部">
-      <span class="brand-mark">WH</span>
-      <span>王鸿 · Portfolio</span>
-    </a>
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">WH</span>
+        <span class="brand-text">王鸿 · Portfolio</span>
+      </a>
 
-    <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
 
-    <nav class="site-nav" aria-label="主导航">
-      <a href="#highlights">亮点</a>
-      <a href="#experience">实习</a>
-      <a href="#projects">项目</a>
-      <a href="#skills">技能</a>
-      <a href="#contact">联系</a>
-      <a class="language-link" href="index-en.html">English</a>
+      <div class="nav-links">
+        <a href="#highlights">亮点</a>
+        <a href="#experience">实习</a>
+        <a href="#projects">项目</a>
+        <a href="#skills">技能</a>
+        <a href="#contact">联系</a>
+        <a class="language-link" href="index-en.html">English</a>
+      </div>
     </nav>
   </header>
 
-  <aside class="side-toc" aria-label="页面目录">
-    <div class="side-toc-title">Contents</div>
+  <aside class="side-index" aria-label="页面目录">
+    <span>Contents</span>
     <a href="#top">首页</a>
     <a href="#highlights">亮点</a>
     <a href="#experience">实习</a>
@@ -1212,198 +50,268 @@
     <a href="#contact">联系</a>
   </aside>
 
-  <nav class="mobile-toc" aria-label="移动端快速目录">
-    <div class="mobile-toc-inner">
-      <a href="#top">首页</a>
-      <a href="#projects">项目</a>
-      <a href="#skills">技能</a>
-      <a href="#contact">联系</a>
-    </div>
-  </nav>
-
-  <main>
-    <section id="top" class="hero">
+  <main id="top">
+    <section class="hero section">
       <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="eyebrow-row">
+        <div class="hero-copy">
+          <div class="eyebrow">
             <span>AI Agent</span>
-            <span>前端开发</span>
-            <span>Flutter / Java</span>
-            <span>2026 可实习</span>
+            <span>Front-end</span>
+            <span>Java / Flutter</span>
+            <span>2026.07 - 2026.12 可实习</span>
           </div>
 
           <h1>王鸿</h1>
-          <h2>计算机科学本科在读，正在找 AI 应用 / 前端 / 软件开发方向实习</h2>
-          <p class="hero-intro">
-            我更喜欢做能跑起来、能被别人点开看的项目。最近主要在做 AI Agent、前端交互和一些小型工具系统：有企业实习里的 AI 工作流，也有校园交通、医疗信息检索、Java 成绩管理和情侣互动官网这类自己完整做完的作品。
+
+          <p class="hero-title">
+            计算机科学本科在读，正在寻找 AI 应用开发、前端开发或软件开发方向实习。
           </p>
 
-          <div class="actions">
+          <p class="hero-text">
+            我现在最想展示的不是“我会多少名词”，而是我能不能把一个真实需求拆开，
+            做成可以打开、可以测试、也能讲清楚的东西。最近做过企业 AI Agent 工作流、
+            Java 成绩管理系统、Flutter 校园交通 Demo、医疗信息检索 Demo，也整理了一个
+            中英文作品集方便 HR 和面试官快速查看。
+          </p>
+
+          <div class="hero-actions">
             <a class="btn primary" href="#projects">看项目</a>
-            <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">简历 PDF</a>
-            <a class="btn ghost" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <button class="btn ghost copy-email" type="button" data-email="chriswangjob@163.com">复制邮箱</button>
+            <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener">简历 PDF</a>
+            <a class="btn secondary" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">GitHub</a>
+            <button class="btn ghost copy-email" type="button" data-email="chriswangjob@163.com">
+              复制邮箱
+            </button>
           </div>
 
-          <div class="stats-grid" aria-label="项目数据">
-            <div class="stat">
+          <div class="stats">
+            <div class="stat-card">
               <strong>60%+</strong>
               <span>销售查询效率提升</span>
             </div>
-            <div class="stat">
+
+            <div class="stat-card">
               <strong>200h+</strong>
               <span>累计节省人工查询时间</span>
             </div>
-            <div class="stat">
+
+            <div class="stat-card">
               <strong>6</strong>
               <span>重点项目整理</span>
             </div>
-            <div class="stat">
+
+            <div class="stat-card">
               <strong>95%</strong>
               <span>成绩计算测试准确率</span>
             </div>
           </div>
+
+          <p class="metric-note">
+            上面的数据来自实习项目中的典型任务耗时对比、内部反馈，或我自己整理的测试样例。
+            我没有把它包装成商业级结论，只是用来说明项目实际解决过什么问题。
+          </p>
         </div>
 
-        <aside class="hero-card reveal" aria-label="个人定位卡片">
-          <div class="avatar-frame">
-            <img src="avatar.jpg" alt="王鸿头像" />
+        <div class="hero-card">
+          <div class="portrait-wrap">
+            <img src="avatar.jpg" alt="王鸿头像" class="portrait" />
           </div>
-          <h3>Wang Hong</h3>
-          <p>AI Application · Front-end · CS Undergraduate</p>
-          <ul class="hero-points">
-            <li>做过 AI Agent 实习项目，参与过真实业务流程的拆解和落地。</li>
-            <li>能独立写前端页面、交互动画、响应式布局和 GitHub Pages 部署。</li>
-            <li>喜欢把生活里、学习里、实习里的需求做成可以展示的网页或 Demo。</li>
-          </ul>
-        </aside>
+
+          <div class="profile-card">
+            <p class="profile-label">Profile</p>
+            <h2>Wang Hong</h2>
+            <p>AI Application · Front-end · CS Undergraduate</p>
+
+            <ul>
+              <li>参与过真实业务里的 AI Agent 工作流项目。</li>
+              <li>能独立完成前端页面、交互、响应式布局和 GitHub Pages 部署。</li>
+              <li>更喜欢把项目做成别人能直接点开看的版本。</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section id="highlights" class="alt">
+        <section id="highlights" class="section">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Core Strengths</span>
-          <h2>我目前比较擅长的部分</h2>
-          <p>我不是只想把项目堆在页面上，更希望每个项目都能说明：我解决了什么问题、我具体做了什么、最后能不能打开看。</p>
+        <div class="section-heading">
+          <span>Core Strengths</span>
+          <h2>我目前比较能拿出来讲的部分</h2>
+          <p>
+            我还在继续补基础，但这几个方向已经在项目里真实做过，不只是写在技能栏里。
+          </p>
         </div>
 
-        <div class="cards-4">
-          <article class="info-card reveal">
-            <span class="card-icon">⚙️</span>
-            <h3>AI 工作流</h3>
-            <p>在实习里参与过 AI Agent 项目，做过信息查询、内容生成、GPA 换算、院校推荐等流程。</p>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <div class="card-icon">01</div>
+            <h3>AI 工作流整理</h3>
+            <p>
+              在实习里参与过教育业务 AI Agent 项目，接触过销售查询、文书辅助、
+              内容生成、GPA 换算和院校推荐这些高频流程。
+            </p>
           </article>
 
-          <article class="info-card reveal">
-            <span class="card-icon">🧩</span>
-            <h3>前端交互</h3>
-            <p>会用 HTML、CSS、JavaScript 做响应式页面、表单、动画、弹窗、流程图展示和在线 Demo。</p>
+          <article class="highlight-card">
+            <div class="card-icon">02</div>
+            <h3>前端交互落地</h3>
+            <p>
+              能用 HTML、CSS、JavaScript 做表单、结果卡片、弹窗、复制按钮、流程图展示、
+              移动端适配和在线 Demo。
+            </p>
           </article>
 
-          <article class="info-card reveal">
-            <span class="card-icon">📱</span>
-            <h3>跨端尝试</h3>
-            <p>用 Flutter 做过校园交通系统，重点练习过地图绘制、动画控制和复杂页面状态。</p>
+          <article class="highlight-card">
+            <div class="card-icon">03</div>
+            <h3>系统逻辑练习</h3>
+            <p>
+              用 Java 做过学生成绩管理系统，也把核心成绩计算逻辑拆出来做成 Web Demo，
+              方便别人不用下载项目也能测试。
+            </p>
           </article>
 
-          <article class="info-card reveal">
-            <span class="card-icon">🚀</span>
+          <article class="highlight-card">
+            <div class="card-icon">04</div>
             <h3>能上线展示</h3>
-            <p>项目不只停留在本地，尽量都整理成 GitHub 仓库或 GitHub Pages 页面，方便别人直接查看。</p>
+            <p>
+              我会尽量把项目整理成 GitHub 仓库或 GitHub Pages 页面。对实习申请来说，
+              能被打开比只写一句“做过项目”有用很多。
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="experience">
+    <section id="experience" class="section muted-section">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Experience</span>
+        <div class="section-heading">
+          <span>Experience</span>
           <h2>实习经历</h2>
         </div>
 
-        <article class="timeline-card reveal">
-          <div class="timeline-meta">
+        <article class="experience-card">
+          <div class="experience-time">
             <span>2025.01 - 2025.03</span>
-            <span>AI Agent · 教育业务</span>
+            <small>AI Agent · 教育业务</small>
           </div>
 
-          <div>
+          <div class="experience-content">
             <h3>AI 智能体开发实习生</h3>
             <p class="company">成都泓麒教育科技有限公司</p>
-            <ul class="bullet-list">
-              <li>参与公司内部 AI Agent 的搭建，主要围绕销售查询、文书辅助、内容生成和院校信息整理这些高频场景。</li>
-              <li>参与前端页面和交互流程整理，包括动态表单、查询结果展示、快捷复制、历史记录等功能。</li>
-              <li>参与 CGPA 换算、院校专业推荐、销售短视频脚本生成等模块的流程设计和测试。</li>
-              <li>协助接入微信客服、钉钉、飞书等入口，让内部同事可以少切换几个工具完成查询。</li>
-              <li>根据典型任务耗时对比，销售查询效率提升约 60%，累计节省人工查询时间 200+ 小时。</li>
+
+            <ul class="clean-list">
+              <li>
+                参与公司内部 AI Agent 提效工具的搭建，主要围绕销售查询、文书辅助、
+                内容生成和院校信息整理。
+              </li>
+              <li>
+                参与前端页面和交互流程整理，包括动态表单、结构化结果展示、
+                快捷复制、历史记录等功能。
+              </li>
+              <li>
+                参与 CGPA 换算、院校专业推荐、销售短视频脚本生成等模块的流程设计和测试。
+              </li>
+              <li>
+                协助测试微信客服、钉钉、飞书等入口，让内部同事可以少切换几个工具完成查询。
+              </li>
+              <li>
+                根据典型任务耗时对比，销售查询效率提升约 60%，累计节省人工查询时间 200+ 小时。
+              </li>
             </ul>
           </div>
         </article>
       </div>
     </section>
-        <section id="projects" class="alt">
+        <section id="projects" class="section">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Projects</span>
+        <div class="section-heading">
+          <span>Projects</span>
           <h2>项目</h2>
-          <p>这里放的是我目前最想给面试官看的几个作品。能放 Demo 的我都尽量放了，不能公开源码的也会说明原因。</p>
+          <p>
+            这里放的是我现在最想给 HR 和面试官看的项目。能公开 Demo 的我都放了；
+            不能公开源码的，我会直接说明原因，不硬装成完整开源项目。
+          </p>
         </div>
 
-        <div class="demo-preview reveal">
-          <h3>DEMO 预览</h3>
-          <p>想快速看效果的话，可以先从这里点开。项目细节在下面每张卡片里。</p>
+        <div class="demo-panel">
+          <div class="demo-panel-head">
+            <h3>DEMO 预览</h3>
+            <p>想快速判断我做过什么，可以先从这里点开。详细说明在下面每张项目卡里。</p>
+          </div>
 
           <div class="demo-grid">
-            <a class="demo-card" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">
-              <small>AI Agent</small>
-              <h4>留学申请工作流 Demo</h4>
-              <p>企业 AI Agent 项目的脱敏展示版，模拟院校推荐、文案生成和 GPA 换算。</p>
-              <span>打开 Demo →</span>
+            <a
+              class="demo-tile"
+              href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>AI Agent</span>
+              <strong>留学申请工作流 Demo</strong>
+              <small>脱敏展示版：院校推荐、GPA 换算、文案生成、结构化结果。</small>
+              <em>打开 Demo →</em>
             </a>
 
-            <a class="demo-card" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">
-              <small>Healthcare</small>
-              <h4>医疗信息检索 Demo</h4>
-              <p>输入症状描述，返回健康信息匹配、风险提示和就医提醒。</p>
-              <span>打开 Demo →</span>
+            <a
+              class="demo-tile"
+              href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Java</span>
+              <strong>成绩计算 Web Demo</strong>
+              <small>把 Java 成绩管理系统里的核心计算逻辑做成可在线测试页面。</small>
+              <em>打开 Demo →</em>
             </a>
 
-            <a class="demo-card" href="https://chrisbetheking.github.io/whwithyn/" target="_blank" rel="noopener noreferrer">
-              <small>Front-end</small>
-              <h4>情侣互动官网</h4>
-              <p>一个完整的原生前端互动页面，包含动画、留言、计时器和移动端适配。</p>
-              <span>打开 Demo →</span>
+            <a
+              class="demo-tile"
+              href="https://chrisbetheking.github.io/apu-transport-demo/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Flutter</span>
+              <strong>校园交通系统 Demo</strong>
+              <small>校车路线、停车预约、ETA 倒计时和状态可视化。</small>
+              <em>打开 Demo →</em>
             </a>
 
-            <a class="demo-card" href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener noreferrer">
-              <small>Java</small>
-              <h4>成绩计算 Web Demo</h4>
-              <p>把 Java 成绩管理系统里的核心计算逻辑做成了可在线测试的小页面。</p>
-              <span>打开 Demo →</span>
+            <a
+              class="demo-tile"
+              href="https://chrisbetheking.github.io/medical-qa-demo/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Healthcare</span>
+              <strong>医疗信息检索 Demo</strong>
+              <small>输入症状描述，返回健康信息匹配、风险提醒和就医提示。</small>
+              <em>打开 Demo →</em>
             </a>
 
-            <a class="demo-card" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener noreferrer">
-              <small>Flutter</small>
-              <h4>校园交通系统 Demo</h4>
-              <p>展示校园交通、车位预约、路线与状态可视化等功能。</p>
-              <span>打开 Demo →</span>
+            <a
+              class="demo-tile"
+              href="https://chrisbetheking.github.io/whwithyn/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Front-end</span>
+              <strong>情侣互动官网</strong>
+              <small>原生前端互动页面，包含动画、留言、计时器和移动端适配。</small>
+              <em>打开 Demo →</em>
             </a>
 
-            <a class="demo-card" href="resume.pdf" target="_blank" rel="noopener noreferrer">
-              <small>Resume</small>
-              <h4>PDF 简历</h4>
-              <p>如果只想快速看简历，可以直接打开 PDF 版本。</p>
-              <span>查看 PDF →</span>
+            <a class="demo-tile" href="resume.pdf" target="_blank" rel="noopener">
+              <span>Resume</span>
+              <strong>简历 PDF</strong>
+              <small>如果只想先快速看一页简历，可以直接打开 PDF。</small>
+              <em>查看 PDF →</em>
             </a>
           </div>
         </div>
 
-        <div class="project-stack">
-          <article class="project-card featured reveal">
+        <div class="project-list">
+          <article class="project-card featured">
             <div class="project-topline">
               <span>Project 01</span>
+
               <div class="tag-row">
                 <span>AI Agent</span>
                 <span>LLM 应用</span>
@@ -1413,195 +321,67 @@
               </div>
             </div>
 
-            <div class="project-body">
+            <h3>企业级 AI 智能体工作流系统</h3>
+            <p class="project-subtitle">实习期间参与的内部 AI 提效工具</p>
+
+            <p>
+              这个项目来自真实教育咨询业务。公司内部版本涉及业务数据、业务规则和具体接入方式，
+              所以不能公开源码。我另外整理了一个脱敏 Demo，用留学申请场景复现类似流程：
+              填写条件、生成推荐、换算 GPA、输出申请相关文案。
+            </p>
+
+            <div class="project-columns">
               <div>
-                <h3>企业级 AI 智能体工作流系统</h3>
-                <p class="project-subtitle">实习期间参与的内部 AI 提效工具</p>
-                <p>
-                  这个项目来自真实教育咨询业务。公司内部版本涉及业务数据和具体规则，所以不能直接公开源码。我另外整理了一个脱敏 Demo，用留学申请场景来展示类似的工作流：填写条件、生成推荐、换算 GPA、输出申请文案。
-                </p>
+                <h4>我做了什么</h4>
+                <ul>
+                  <li>参与把销售、运营、文书老师的高频问题整理成统一的查询和生成流程。</li>
+                  <li>参与前端交互，包括动态表单、任务切换、结构化结果展示、快捷复制和历史记录。</li>
+                  <li>参与 Prompt 流程、查询逻辑、多平台入口接入和上线前测试。</li>
+                </ul>
               </div>
 
-              <div class="project-detail-grid">
-                <div class="detail-block">
-                  <h4>我做了什么</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>参与把销售、运营、文书老师的高频问题整理成统一的查询和生成流程。</li>
-                    <li>参与前端交互，包括动态表单、任务切换、结构化结果展示、快捷复制和历史记录。</li>
-                    <li>参与 Prompt 流程、查询逻辑、多平台入口接入和上线前测试。</li>
-                  </ul>
-                </div>
-
-                <div class="detail-block">
-                  <h4>结果</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>把原本分散在多个工具里的查询、推荐、换算和内容生成集中到一个工作流里。</li>
-                    <li>根据典型任务耗时对比，销售查询效率提升约 60%，累计节省人工查询时间 200+ 小时。</li>
-                    <li>公开 Demo 去掉了公司内部数据，只保留工作流和交互方式。</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a class="btn small primary" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">查看脱敏 Demo</a>
-                <button class="btn small secondary diagram-toggle" type="button" data-target="ai-flow">展开流程图</button>
-                <span class="status-pill">内部项目，源码不公开</span>
-              </div>
-
-              <div class="diagram-panel" id="ai-flow" hidden>
-                <img src="ai-agent-enterprise-architecture.png" alt="企业级 AI 智能体工作流系统架构图" />
+              <div>
+                <h4>结果</h4>
+                <ul>
+                  <li>把原本分散在多个工具里的查询、推荐、换算和内容生成集中到一个工作流里。</li>
+                  <li>根据典型任务耗时对比，销售查询效率提升约 60%，累计节省人工查询时间 200+ 小时。</li>
+                  <li>公开 Demo 去掉了公司内部数据，只保留工作流、交互方式和展示逻辑。</li>
+                </ul>
               </div>
             </div>
-          </article>
 
-          <article class="project-card reveal">
+            <div class="note-box">
+              <strong>公开 Demo 说明：</strong>
+              线上 Demo 不是公司内部系统的原版，也没有放真实业务数据或后端 Key。
+              它主要展示我参与过的工作流拆解、前端交互和结构化结果展示。为了可以公开访问，
+              Demo 里使用的是模拟数据和简化规则。
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary"
+                href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/"
+                target="_blank"
+                rel="noopener"
+              >
+                查看脱敏 Demo
+              </a>
+
+              <button class="btn secondary toggle-panel" type="button" data-target="ai-diagram">
+                展开流程图
+              </button>
+
+              <span class="status-pill">内部项目 · 源码不公开</span>
+            </div>
+
+            <div class="diagram-panel" id="ai-diagram">
+              <img src="ai-agent-enterprise-architecture.png" alt="企业级 AI 智能体工作流系统架构图" />
+            </div>
+          </article>
+                    <article class="project-card">
             <div class="project-topline">
               <span>Project 02</span>
-              <div class="tag-row">
-                <span>Python</span>
-                <span>JavaScript</span>
-                <span>关键词匹配</span>
-                <span>信息检索</span>
-                <span>安全边界</span>
-              </div>
-            </div>
 
-            <div class="project-body">
-              <h3>医疗健康信息检索 Demo</h3>
-              <p class="project-subtitle">一个用来练习文本处理和信息检索的小型健康问答原型</p>
-              <p>
-                这个项目一开始是想做“症状问答”，后面我意识到医疗类项目不能随便写诊断和治疗建议，所以把它调整成了信息检索 Demo。现在它更像一个健康知识查询工具：根据用户输入提取关键词，再返回相关健康信息、匹配依据和风险提醒。
-              </p>
-
-              <div class="project-detail-grid">
-                <div class="detail-block">
-                  <h4>我做了什么</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>设计输入表单、任务切换、结果卡片和风险提示区域。</li>
-                    <li>做了基础文本清洗、关键词提取和症状词匹配。</li>
-                    <li>把原本容易误导的“诊断 / 治疗建议”改成“健康信息匹配 / 就医提醒”。</li>
-                  </ul>
-                </div>
-
-                <div class="detail-block">
-                  <h4>结果</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>可以根据症状描述返回结构化信息，而不是只输出一段文字。</li>
-                    <li>在我自己整理的测试样例里，关键词匹配准确率约 80%。</li>
-                    <li>页面里明确提示：这个 Demo 不能替代医生诊断。</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a class="btn small primary" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">在线演示</a>
-                <a class="btn small secondary" href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=drive_link" target="_blank" rel="noopener noreferrer">Colab 源码</a>
-                <button class="btn small secondary diagram-toggle" type="button" data-target="medical-flow">展开流程图</button>
-              </div>
-
-              <div class="diagram-panel" id="medical-flow" hidden>
-                <img src="medical-ai-workflow.png" alt="医疗健康信息检索流程图" />
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-topline">
-              <span>Project 03</span>
-              <div class="tag-row">
-                <span>Flutter</span>
-                <span>Dart</span>
-                <span>CustomPaint</span>
-                <span>Animation</span>
-                <span>校园场景</span>
-              </div>
-            </div>
-
-            <div class="project-body">
-              <h3>APU 智能校园交通系统</h3>
-              <p class="project-subtitle">围绕校园出行和停车场景做的 Flutter 项目</p>
-              <p>
-                这个项目主要是练习 Flutter 里比较复杂的界面和状态展示。我把校园交通拆成了几个常见场景：校车路线、车位预约、实时状态、ETA 倒计时和不同角色入口。
-              </p>
-
-              <div class="project-detail-grid">
-                <div class="detail-block">
-                  <h4>我做了什么</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>设计停车预约、校车状态、路线展示、ETA 倒计时等核心流程。</li>
-                    <li>用 CustomPaint 绘制校园路网，用 AnimationController 模拟公交移动。</li>
-                    <li>把页面拆成多个组件，方便后面继续扩展。</li>
-                  </ul>
-                </div>
-
-                <div class="detail-block">
-                  <h4>结果</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>完成了可交互的校园交通 Demo，而不是只停留在静态 UI。</li>
-                    <li>练习了 Flutter 动画、状态展示和响应式布局。</li>
-                    <li>项目结构比一开始更清晰，后续可以继续接真实地图或后端接口。</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a class="btn small primary" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener noreferrer">在线演示</a>
-                <a class="btn small secondary" href="https://github.com/Chrisbetheking/apu-smart-transport-flutter" target="_blank" rel="noopener noreferrer">源码仓库</a>
-              </div>
-            </div>
-          </article>
-                    <article class="project-card reveal">
-            <div class="project-topline">
-              <span>Project 04</span>
-              <div class="tag-row">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>EmailJS</span>
-                <span>移动端适配</span>
-                <span class="soft-pink">互动网页</span>
-              </div>
-            </div>
-
-            <div class="project-body">
-              <h3>情侣互动官网</h3>
-              <p class="project-subtitle">我给自己恋爱纪念场景做的一个互动网页</p>
-              <p>
-                这个项目是我自己从想法、设计、开发到上线完整做完的。页面里有纪念日计时、打字机文字、互动弹窗、留言表单、动画效果和移动端适配。它不是为了“凑项目”做的练习，而是一个真实会被打开、会被使用的网页。
-              </p>
-
-              <div class="project-detail-grid">
-                <div class="detail-block">
-                  <h4>我做了什么</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>独立完成页面结构、视觉风格、交互流程和响应式布局。</li>
-                    <li>实现实时计时器、打字机效果、弹窗、漂浮动画、点击反馈和互动留言表单。</li>
-                    <li>接入 EmailJS，让静态网页也能完成邮件发送。</li>
-                    <li>用 GitHub Pages 部署，保证链接可以直接打开。</li>
-                  </ul>
-                </div>
-
-                <div class="detail-block">
-                  <h4>为什么放进作品集</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>它能展示我对细节、动效和页面氛围的处理，而不只是写几个功能按钮。</li>
-                    <li>它来自真实需求，所以我会更在意访问体验、手机端效果和完成度。</li>
-                    <li>这个项目也说明我能把一个生活里的想法完整做成网页，而不是只写课程作业。</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="project-actions">
-                <a class="btn small primary" href="https://chrisbetheking.github.io/whwithyn/" target="_blank" rel="noopener noreferrer">在线演示</a>
-                <span class="status-pill">原生前端</span>
-                <span class="status-pill">GitHub Pages 部署</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-topline">
-              <span>Project 05</span>
               <div class="tag-row">
                 <span>Java</span>
                 <span>Java Swing</span>
@@ -1611,43 +391,240 @@
               </div>
             </div>
 
-            <div class="project-body">
-              <h3>Java 学生成绩管理系统</h3>
-              <p class="project-subtitle">用 Java 做的桌面端成绩管理系统，并额外做了 Web Demo</p>
-              <p>
-                这个项目主要练习 Java 面向对象和基础系统设计。我做了登录、学生信息管理、成绩录入、总评计算、补考名单筛选和报告导出。为了让别人不用下载 Java 项目也能看核心逻辑，我又把成绩计算部分单独做成了一个网页 Demo。
-              </p>
+            <h3>Java 学生成绩管理系统</h3>
+            <p class="project-subtitle">Java 桌面端系统，并额外整理了一个 Web Demo</p>
 
-              <div class="project-detail-grid">
-                <div class="detail-block">
-                  <h4>我做了什么</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>设计学生、课程、成绩、用户等基础对象和模块边界。</li>
-                    <li>完成登录认证、成绩统计、补考筛选、总评计算和报告导出。</li>
-                    <li>修复异常输入和边界情况，保证计算结果更稳定。</li>
-                  </ul>
-                </div>
+            <p>
+              这个项目主要练习 Java 面向对象和基础系统设计。我做了登录、学生信息管理、
+              成绩录入、总评计算、补考名单筛选和报告导出。为了让别人不用下载 Java 项目也能看核心逻辑，
+              我又把成绩计算部分单独做成了网页 Demo。
+            </p>
 
-                <div class="detail-block">
-                  <h4>结果</h4>
-                  <ul class="bullet-list compact-list">
-                    <li>基于测试数据集校验后，成绩计算准确率约 95%。</li>
-                    <li>核心计算逻辑被整理成 Web Demo，可以直接在线测试。</li>
-                    <li>项目让我更熟悉 Java OOP、数据读写和基础系统拆分。</li>
-                  </ul>
-                </div>
+            <div class="project-columns">
+              <div>
+                <h4>我做了什么</h4>
+                <ul>
+                  <li>设计学生、课程、成绩、用户等基础对象和模块边界。</li>
+                  <li>完成登录认证、成绩统计、补考筛选、总评计算和报告导出。</li>
+                  <li>处理异常输入和边界情况，让计算结果更稳定。</li>
+                </ul>
               </div>
 
-              <div class="project-actions">
-                <a class="btn small primary" href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener noreferrer">Web Demo</a>
-                <a class="btn small secondary" href="https://github.com/Chrisbetheking/java-student-management-system" target="_blank" rel="noopener noreferrer">源码仓库</a>
+              <div>
+                <h4>结果</h4>
+                <ul>
+                  <li>基于自建测试数据集校验后，成绩计算准确率约 95%。</li>
+                  <li>核心计算逻辑被整理成 Web Demo，可以直接在线测试。</li>
+                  <li>这个项目让我更熟悉 Java OOP、文件读写和基础系统拆分。</li>
+                </ul>
               </div>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary"
+                href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html"
+                target="_blank"
+                rel="noopener"
+              >
+                Web Demo
+              </a>
+
+              <a
+                class="btn secondary"
+                href="https://github.com/Chrisbetheking/java-student-management-system"
+                target="_blank"
+                rel="noopener"
+              >
+                源码仓库
+              </a>
             </div>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card">
+            <div class="project-topline">
+              <span>Project 03</span>
+
+              <div class="tag-row">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>CustomPaint</span>
+                <span>Animation</span>
+                <span>校园场景</span>
+              </div>
+            </div>
+
+            <h3>APU 智能校园交通系统</h3>
+            <p class="project-subtitle">围绕校园出行和停车场景做的 Flutter 项目</p>
+
+            <p>
+              这个项目主要是练习 Flutter 里比较复杂的界面和状态展示。我把校园交通拆成了几个常见场景：
+              校车路线、车位预约、实时状态、ETA 倒计时和不同角色入口。
+            </p>
+
+            <div class="project-columns">
+              <div>
+                <h4>我做了什么</h4>
+                <ul>
+                  <li>设计停车预约、校车状态、路线展示、ETA 倒计时等核心流程。</li>
+                  <li>用 CustomPaint 绘制校园路网，用 AnimationController 模拟校车移动。</li>
+                  <li>把页面拆成多个组件，方便后续继续扩展。</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>结果</h4>
+                <ul>
+                  <li>完成了可交互的校园交通 Demo，而不是只停留在静态 UI。</li>
+                  <li>练习了 Flutter 动画、状态展示和响应式布局。</li>
+                  <li>后续可以继续接真实地图、车辆状态或后端接口。</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary"
+                href="https://chrisbetheking.github.io/apu-transport-demo/"
+                target="_blank"
+                rel="noopener"
+              >
+                在线演示
+              </a>
+
+              <a
+                class="btn secondary"
+                href="https://github.com/Chrisbetheking/apu-transport-demo"
+                target="_blank"
+                rel="noopener"
+              >
+                源码仓库
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span>Project 04</span>
+
+              <div class="tag-row">
+                <span>Python</span>
+                <span>JavaScript</span>
+                <span>关键词匹配</span>
+                <span>信息检索</span>
+                <span>安全边界</span>
+              </div>
+            </div>
+
+            <h3>医疗健康信息检索 Demo</h3>
+            <p class="project-subtitle">一个用来练习文本处理和信息检索的小型健康问答原型</p>
+
+            <p>
+              这个项目一开始是想做“症状问答”。后面我意识到医疗类项目不能随便写诊断和治疗建议，
+              所以把它调整成了信息检索 Demo。现在它更像一个健康知识查询工具：
+              根据用户输入提取关键词，再返回相关健康信息、匹配依据和风险提醒。
+            </p>
+
+            <div class="project-columns">
+              <div>
+                <h4>我做了什么</h4>
+                <ul>
+                  <li>设计输入表单、任务切换、结果卡片和风险提示区域。</li>
+                  <li>做了基础文本清洗、关键词提取和症状词匹配。</li>
+                  <li>把容易误导的“诊断 / 治疗建议”改成“健康信息匹配 / 就医提醒”。</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>结果</h4>
+                <ul>
+                  <li>可以根据症状描述返回结构化信息，而不是只输出一段文字。</li>
+                  <li>在我自己整理的测试样例里，关键词匹配准确率约 80%。</li>
+                  <li>页面里明确提示：这个 Demo 不能替代医生诊断。</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary"
+                href="https://chrisbetheking.github.io/medical-qa-demo/"
+                target="_blank"
+                rel="noopener"
+              >
+                在线演示
+              </a>
+
+              <button class="btn secondary toggle-panel" type="button" data-target="medical-diagram">
+                展开流程图
+              </button>
+            </div>
+
+            <div class="diagram-panel" id="medical-diagram">
+              <img src="medical-ai-workflow.png" alt="医疗健康信息检索流程图" />
+            </div>
+          </article>
+                    <article class="project-card">
+            <div class="project-topline">
+              <span>Project 05</span>
+
+              <div class="tag-row">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>EmailJS</span>
+                <span>移动端适配</span>
+              </div>
+            </div>
+
+            <h3>情侣互动官网</h3>
+            <p class="project-subtitle">我给自己恋爱纪念场景做的一个互动网页</p>
+
+            <p>
+              这个项目是我自己从想法、设计、开发到上线完整做完的。页面里有纪念日计时、
+              打字机文字、互动弹窗、留言表单、动画效果和移动端适配。它不是为了“凑项目”做的练习，
+              而是一个真实会被打开、会被使用的网页。
+            </p>
+
+            <div class="project-columns">
+              <div>
+                <h4>我做了什么</h4>
+                <ul>
+                  <li>独立完成页面结构、视觉风格、交互流程和响应式布局。</li>
+                  <li>实现实时计时器、打字机效果、弹窗、漂浮动画、点击反馈和互动留言表单。</li>
+                  <li>接入 EmailJS，让静态网页也能完成邮件发送。</li>
+                  <li>用 GitHub Pages 部署，保证链接可以直接打开。</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4>为什么放进作品集</h4>
+                <ul>
+                  <li>它能展示我对细节、动效和页面氛围的处理，而不只是写几个功能按钮。</li>
+                  <li>它来自真实需求，所以我更在意访问体验、手机端效果和完成度。</li>
+                  <li>它也说明我能把一个生活里的想法完整做成网页。</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a
+                class="btn primary"
+                href="https://chrisbetheking.github.io/whwithyn/"
+                target="_blank"
+                rel="noopener"
+              >
+                在线演示
+              </a>
+
+              <span class="status-pill">原生前端 · GitHub Pages</span>
+            </div>
+          </article>
+
+          <article class="project-card">
             <div class="project-topline">
               <span>Project 06</span>
+
               <div class="tag-row">
                 <span>Portfolio</span>
                 <span>Responsive Design</span>
@@ -1656,275 +633,164 @@
               </div>
             </div>
 
-            <div class="project-body">
-              <h3>个人作品集网站</h3>
-              <p class="project-subtitle">把项目重新整理成一个更适合投递和面试查看的网站</p>
-              <p>
-                这个网站本身也是一个项目。我的目标不是做一个特别花哨的个人主页，而是让面试官能快速看到我做过什么、哪些能点开、我在里面负责了什么，以及每个项目大概解决了什么问题。
-              </p>
+            <h3>个人作品集网站</h3>
+            <p class="project-subtitle">把项目重新整理成一个更适合投递和面试查看的网站</p>
 
-              <ul class="bullet-list compact-list">
-                <li>把项目按 Demo 预览、项目背景、我的工作、结果几个部分重新整理。</li>
-                <li>加入中英文页面、PDF 简历、GitHub、邮箱复制和页面目录。</li>
-                <li>优化手机端布局，保证项目卡片和按钮不会挤出屏幕。</li>
-              </ul>
+            <p>
+              这个网站本身也是一个项目。我的目标不是做一个特别花哨的个人主页，
+              而是让面试官能快速看到我做过什么、哪些项目能点开、我在里面负责了什么，
+              以及每个项目大概解决了什么问题。
+            </p>
 
-              <div class="project-actions">
-                <a class="btn small primary" href="https://chrisbetheking.github.io/WANGHONG-s-Resume-Website/index.html" target="_blank" rel="noopener noreferrer">在线作品集</a>
-                <a class="btn small secondary" href="https://github.com/Chrisbetheking/WANGHONG-s-Resume-Website" target="_blank" rel="noopener noreferrer">源码仓库</a>
-              </div>
+            <ul>
+              <li>把项目按 Demo 预览、项目背景、我的工作、结果几个部分重新整理。</li>
+              <li>加入中英文页面、PDF 简历、GitHub、邮箱复制和页面目录。</li>
+              <li>优化手机端布局，保证项目卡片和按钮不会挤出屏幕。</li>
+            </ul>
+
+            <div class="project-actions">
+              <a
+                class="btn primary"
+                href="https://chrisbetheking.github.io/WANGHONG-s-Resume-Website/"
+                target="_blank"
+                rel="noopener"
+              >
+                在线作品集
+              </a>
+
+              <a
+                class="btn secondary"
+                href="https://github.com/Chrisbetheking/WANGHONG-s-Resume-Website"
+                target="_blank"
+                rel="noopener"
+              >
+                源码仓库
+              </a>
             </div>
           </article>
         </div>
 
-        <div class="data-note reveal">
-          <strong>说明：</strong>企业 AI Agent 项目涉及公司内部数据和业务规则，所以只展示脱敏 Demo 和流程图。医疗健康 Demo 只做信息检索展示，不提供诊断、处方或治疗方案。项目里的效率、准确率数据来自典型任务对比、内部反馈或我自己整理的测试样例。
+        <div class="global-note">
+          <strong>说明：</strong>
+          企业 AI Agent 项目涉及公司内部数据和业务规则，所以只展示脱敏 Demo 和流程图。
+          医疗健康 Demo 只做信息检索展示，不提供诊断、处方或治疗方案。
+          项目里的效率、准确率数据来自典型任务对比、内部反馈或我自己整理的测试样例。
         </div>
       </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="section muted-section">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Skills</span>
+        <div class="section-heading">
+          <span>Skills</span>
           <h2>技能</h2>
-          <p>目前还在继续补基础，但这些是我已经在项目里实际用过或正在系统学习的内容。</p>
+          <p>下面这些是我已经在项目里实际用过，或者正在系统补基础的内容。</p>
         </div>
 
-        <div class="skills-grid">
-          <article class="skill-card reveal">
+        <div class="skill-grid">
+          <div class="skill-card">
             <h3>前端</h3>
             <p>HTML · CSS · JavaScript · 响应式布局 · 表单交互 · 动画效果 · GitHub Pages</p>
-          </article>
+          </div>
 
-          <article class="skill-card reveal">
+          <div class="skill-card">
             <h3>AI 应用</h3>
             <p>AI Agent · Prompt 设计 · Python · 基础 NLP · 信息检索 · 工作流整理</p>
-          </article>
+          </div>
 
-          <article class="skill-card reveal">
+          <div class="skill-card">
             <h3>编程与系统</h3>
             <p>Java · Java Swing · OOP · CSV 数据读写 · SQL 基础 · 基础数据处理</p>
-          </article>
+          </div>
 
-          <article class="skill-card reveal">
+          <div class="skill-card">
             <h3>工具</h3>
             <p>Git · GitHub · Cursor · VS Code · Colab · WSL / Linux 基础 · AI 辅助开发</p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="education" class="alt">
+    <section id="education" class="section">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="kicker">Education</span>
+        <div class="section-heading">
+          <span>Education</span>
           <h2>教育背景</h2>
         </div>
 
-        <article class="education-card reveal">
+        <article class="education-card">
           <div>
             <h3>Asia Pacific University of Technology & Innovation</h3>
             <p>计算机科学学士学位 · Bachelor of Computer Science</p>
           </div>
+
           <span>2024.09 - 2027.09</span>
         </article>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section contact-section">
       <div class="container contact-grid">
-        <div class="section-heading reveal">
-          <span class="kicker">Contact</span>
-          <h2>联系我</h2>
-          <p>正在寻找 AI 应用开发、前端开发、AI Agent、软件开发相关实习机会。可实习时间：2026 年 7 月 - 12 月。</p>
-        </div>
-
-        <div class="contact-card reveal">
-          <div class="actions">
-            <a class="btn primary" href="mailto:chriswangjob@163.com">发送邮件</a>
-            <button class="btn secondary copy-email" type="button" data-email="chriswangjob@163.com">复制邮箱</button>
-            <a class="btn ghost" href="tel:+8618081299137">电话联系</a>
+        <div>
+          <div class="section-heading align-left">
+            <span>Contact</span>
+            <h2>联系我</h2>
+            <p>
+              正在寻找 AI 应用开发、前端开发、AI Agent、软件开发相关实习机会。
+              可实习时间：2026 年 7 月 - 12 月。
+            </p>
           </div>
 
-          <dl class="contact-list">
-            <div>
-              <dt>邮箱</dt>
-              <dd>chriswangjob@163.com</dd>
-            </div>
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:chriswangjob@163.com">发送邮件</a>
 
-            <div>
-              <dt>电话</dt>
-              <dd>+86 18081299137</dd>
-            </div>
+            <button class="btn secondary copy-email" type="button" data-email="chriswangjob@163.com">
+              复制邮箱
+            </button>
 
-            <div>
-              <dt>GitHub</dt>
-              <dd><a href="https://github.com/Chrisbetheking" target="_blank" rel="noopener noreferrer">github.com/Chrisbetheking</a></dd>
-            </div>
+            <a class="btn secondary" href="tel:+60134454019">电话联系</a>
+          </div>
+        </div>
 
-            <div>
-              <dt>Resume</dt>
-              <dd><a href="resume.pdf" target="_blank" rel="noopener noreferrer">查看 PDF</a></dd>
-            </div>
-          </dl>
+        <div class="contact-card">
+          <div>
+            <span>邮箱</span>
+            <a href="mailto:chriswangjob@163.com">chriswangjob@163.com</a>
+          </div>
+
+          <div>
+            <span>电话 / WhatsApp</span>
+            <a href="tel:+60134454019">+60 13 445 4019</a>
+          </div>
+
+          <div>
+            <span>中国手机号</span>
+            <a href="tel:+8618081299137">+86 180 8129 9137</a>
+          </div>
+
+          <div>
+            <span>GitHub</span>
+            <a href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">
+              github.com/Chrisbetheking
+            </a>
+          </div>
+
+          <div>
+            <span>Resume</span>
+            <a href="resume.pdf" target="_blank" rel="noopener">查看 PDF</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© <span id="current-year">2026</span> 王鸿 · Built with HTML / CSS / JavaScript</p>
-      <a href="#top">返回顶部 ↑</a>
-    </div>
+  <footer class="footer">
+    <p>© 2026 王鸿 · Built with HTML / CSS / JavaScript</p>
+    <a href="#top">返回顶部 ↑</a>
   </footer>
 
   <div class="toast" role="status" aria-live="polite">邮箱已复制</div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const body = document.body;
-      const navToggle = document.querySelector(".nav-toggle");
-      const siteNav = document.querySelector(".site-nav");
-      const navLinks = document.querySelectorAll(".site-nav a");
-      const toast = document.querySelector(".toast");
-      const year = document.querySelector("#current-year");
-
-      if (year) {
-        year.textContent = new Date().getFullYear();
-      }
-
-      if (navToggle && siteNav) {
-        navToggle.addEventListener("click", () => {
-          const isOpen = siteNav.classList.toggle("open");
-          navToggle.classList.toggle("active", isOpen);
-          navToggle.setAttribute("aria-expanded", String(isOpen));
-          body.classList.toggle("nav-open", isOpen);
-        });
-
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            siteNav.classList.remove("open");
-            navToggle.classList.remove("active");
-            navToggle.setAttribute("aria-expanded", "false");
-            body.classList.remove("nav-open");
-          });
-        });
-      }
-
-      const showToast = (message) => {
-        if (!toast) return;
-
-        toast.textContent = message;
-        toast.classList.add("show");
-
-        window.clearTimeout(showToast.timer);
-        showToast.timer = window.setTimeout(() => {
-          toast.classList.remove("show");
-        }, 1700);
-      };
-
-      document.querySelectorAll(".copy-email").forEach((button) => {
-        button.addEventListener("click", async () => {
-          const email = button.getAttribute("data-email") || "chriswangjob@163.com";
-
-          try {
-            if (navigator.clipboard && window.isSecureContext) {
-              await navigator.clipboard.writeText(email);
-            } else {
-              const textarea = document.createElement("textarea");
-              textarea.value = email;
-              textarea.setAttribute("readonly", "");
-              textarea.style.position = "fixed";
-              textarea.style.left = "-9999px";
-              document.body.appendChild(textarea);
-              textarea.select();
-              document.execCommand("copy");
-              document.body.removeChild(textarea);
-            }
-
-            showToast("邮箱已复制");
-          } catch (error) {
-            showToast("复制失败，请手动复制");
-          }
-        });
-      });
-
-      document.querySelectorAll(".diagram-panel").forEach((panel) => {
-        panel.classList.remove("open");
-        panel.hidden = true;
-      });
-
-      document.querySelectorAll(".diagram-toggle").forEach((button) => {
-        const targetId = button.getAttribute("data-target");
-        const panel = targetId ? document.getElementById(targetId) : null;
-
-        if (!panel) return;
-
-        const openText = button.textContent.trim() || "展开流程图";
-        const closeText = "收起流程图";
-
-        button.setAttribute("aria-expanded", "false");
-        button.setAttribute("aria-controls", targetId);
-
-        button.addEventListener("click", () => {
-          const shouldOpen = !panel.classList.contains("open");
-
-          panel.classList.toggle("open", shouldOpen);
-          panel.hidden = !shouldOpen;
-          button.textContent = shouldOpen ? closeText : openText;
-          button.setAttribute("aria-expanded", String(shouldOpen));
-        });
-      });
-
-      const revealElements = document.querySelectorAll(".reveal");
-
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.08,
-            rootMargin: "0px 0px -40px 0px"
-          }
-        );
-
-        revealElements.forEach((element) => observer.observe(element));
-      } else {
-        revealElements.forEach((element) => element.classList.add("visible"));
-      }
-
-      const sections = document.querySelectorAll("main section[id]");
-      const allTocLinks = document.querySelectorAll(".site-nav a[href^='#'], .side-toc a[href^='#'], .mobile-toc a[href^='#']");
-
-      if ("IntersectionObserver" in window && sections.length > 0) {
-        const sectionObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (!entry.isIntersecting) return;
-
-              const id = entry.target.getAttribute("id");
-
-              allTocLinks.forEach((link) => {
-                link.classList.toggle("active", link.getAttribute("href") === "#" + id);
-              });
-            });
-          },
-          {
-            threshold: 0.28
-          }
-        );
-
-        sections.forEach((section) => sectionObserver.observe(section));
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
