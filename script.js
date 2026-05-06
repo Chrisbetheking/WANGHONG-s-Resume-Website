@@ -32,21 +32,23 @@ if (navToggle && navLinks) {
 document.querySelectorAll(".copy-email").forEach((button) => {
   button.addEventListener("click", async () => {
     const email = button.dataset.email || "chriswangjob@163.com";
+    const isEnglishPage = document.documentElement.lang.startsWith("en");
 
     try {
       await navigator.clipboard.writeText(email);
-
-      const isEnglishPage = document.documentElement.lang.startsWith("en");
       showToast(isEnglishPage ? "Email copied" : "邮箱已复制");
     } catch (error) {
       const tempInput = document.createElement("input");
       tempInput.value = email;
+      tempInput.setAttribute("readonly", "");
+      tempInput.style.position = "absolute";
+      tempInput.style.left = "-9999px";
+
       document.body.appendChild(tempInput);
       tempInput.select();
       document.execCommand("copy");
       tempInput.remove();
 
-      const isEnglishPage = document.documentElement.lang.startsWith("en");
       showToast(isEnglishPage ? "Email copied" : "邮箱已复制");
     }
   });
@@ -62,16 +64,18 @@ document.querySelectorAll(".toggle-panel").forEach((button) => {
     const isOpen = panel.classList.toggle("open");
     const isEnglishPage = document.documentElement.lang.startsWith("en");
 
-    if (isEnglishPage) {
-      button.textContent = isOpen ? "Hide Diagram" : "Show Diagram";
-    } else {
-      button.textContent = isOpen ? "收起流程图" : "展开流程图";
-    }
+    button.textContent = isEnglishPage
+      ? isOpen
+        ? "Hide Diagram"
+        : "Show Diagram"
+      : isOpen
+        ? "收起流程图"
+        : "展开流程图";
   });
 });
 
 const revealItems = document.querySelectorAll(
-  ".highlight-card, .experience-card, .demo-panel, .project-card, .skill-card, .education-card, .contact-card"
+  ".highlight-card, .experience-card, .demo-panel, .project-card, .skill-card, .education-card, .map-card, .contact-card"
 );
 
 revealItems.forEach((item) => item.classList.add("reveal"));
@@ -79,10 +83,10 @@ revealItems.forEach((item) => item.classList.add("reveal"));
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealObserver.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
     });
   },
   {
@@ -119,11 +123,11 @@ const activeObserver = new IntersectionObserver(
 sections.forEach((section) => activeObserver.observe(section));
 
 window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    body.classList.remove("nav-open");
+  if (event.key !== "Escape") return;
 
-    if (navToggle) {
-      navToggle.setAttribute("aria-expanded", "false");
-    }
+  body.classList.remove("nav-open");
+
+  if (navToggle) {
+    navToggle.setAttribute("aria-expanded", "false");
   }
 });
