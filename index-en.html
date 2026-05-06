@@ -3,19 +3,1182 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Wang Hong's portfolio for AI applications, AI Agent workflows, front-end engineering, and software development projects." />
-  <meta name="keywords" content="Wang Hong, AI Agent, Front-end Engineer, Software Developer Intern, Portfolio, Java, Flutter, JavaScript" />
+
+  <title>Wang Hong | AI Application & Front-end Portfolio</title>
+  <meta name="description" content="Wang Hong's portfolio for AI Agent workflows, front-end development, Flutter, Java, healthcare information retrieval, and interactive web projects." />
+  <meta name="keywords" content="Wang Hong, AI Agent, Front-end Developer, Software Developer Intern, JavaScript, Flutter, Java" />
   <meta name="author" content="Wang Hong" />
-  <meta property="og:title" content="Wang Hong | AI Application & Front-end Engineering Portfolio" />
-  <meta property="og:description" content="A portfolio focused on AI Agent workflows, front-end engineering, business automation, and verifiable project demos." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="avatar.jpg" />
-  <title>Wang Hong | AI Application & Front-end Engineering Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(255, 255, 255, 0.075);
+      --panel-strong: rgba(255, 255, 255, 0.11);
+      --line: rgba(255, 255, 255, 0.14);
+      --text: #eef6ff;
+      --muted: #aab9cd;
+      --muted2: #7e90a7;
+      --cyan: #5eead4;
+      --blue: #38bdf8;
+      --pink: #fb7185;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+      --radius: 24px;
+      --header: 72px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 96px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Noto Sans SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 5%, rgba(56, 189, 248, 0.2), transparent 30%),
+        radial-gradient(circle at 88% 8%, rgba(129, 140, 248, 0.16), transparent 34%),
+        linear-gradient(180deg, #06101d 0%, #081321 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body.nav-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 max(22px, calc((100vw - var(--max)) / 2));
+      background: rgba(7, 17, 31, 0.84);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      color: #06111e;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 16px 36px rgba(56, 189, 248, 0.24);
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .site-nav a {
+      padding: 9px 13px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .site-nav .language-link {
+      margin-left: 6px;
+      color: #04111f;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+    }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      margin: 5px auto;
+      background: #ffffff;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .side-toc {
+      position: fixed;
+      left: 22px;
+      top: 50%;
+      z-index: 50;
+      transform: translateY(-50%);
+      display: grid;
+      gap: 8px;
+      width: 148px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(7, 17, 31, 0.76);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .side-toc-title {
+      margin-bottom: 4px;
+      color: var(--cyan);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .side-toc a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 9px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .side-toc a::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .side-toc a:hover,
+    .side-toc a.active {
+      color: #ffffff;
+      background: rgba(94, 234, 212, 0.1);
+    }
+
+    .side-toc a.active::before {
+      background: var(--cyan);
+    }
+
+    .mobile-toc {
+      display: none;
+      position: sticky;
+      top: var(--header);
+      z-index: 80;
+      padding: 10px 14px;
+      overflow-x: auto;
+      background: rgba(7, 17, 31, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .mobile-toc-inner {
+      display: flex;
+      gap: 8px;
+      min-width: max-content;
+    }
+
+    .mobile-toc a {
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .hero {
+      padding: 82px 0 74px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-row span,
+    .tag-row span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 11px;
+      border: 1px solid rgba(94, 234, 212, 0.24);
+      border-radius: 999px;
+      color: #c9fff7;
+      background: rgba(94, 234, 212, 0.08);
+      font-size: 0.8rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(3.7rem, 8vw, 7rem);
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+    }
+
+    .hero h2 {
+      margin: 20px 0 0;
+      max-width: 960px;
+      color: #edf8ff;
+      font-size: clamp(1.45rem, 3vw, 2.45rem);
+      line-height: 1.18;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-intro {
+      max-width: 870px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+        .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
+      color: #04111f;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 16px 36px rgba(56, 189, 248, 0.22);
+    }
+
+    .btn.secondary {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.095);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .btn.ghost {
+      color: var(--text);
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .btn.small {
+      min-height: 40px;
+      padding: 0 15px;
+      font-size: 0.9rem;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .stat {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #ffffff;
+      font-size: 1.48rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .hero-card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06)),
+        rgba(255, 255, 255, 0.045);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .avatar-frame {
+      width: 156px;
+      height: 156px;
+      padding: 5px;
+      margin: 0 auto 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue), #818cf8);
+    }
+
+    .avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 5px solid rgba(7, 17, 31, 0.9);
+      border-radius: 999px;
+    }
+
+    .hero-card h3 {
+      margin: 0;
+      text-align: center;
+      color: #ffffff;
+      font-size: 1.25rem;
+    }
+
+    .hero-card p {
+      margin: 7px 0 18px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .hero-points {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      padding: 12px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.055);
+      font-size: 0.92rem;
+    }
+
+    .alt {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+        rgba(255, 255, 255, 0.015);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-heading {
+      max-width: 850px;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: #ffffff;
+      font-size: clamp(2.05rem, 4.2vw, 3.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.052em;
+    }
+
+    .section-heading p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .cards-4,
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .info-card,
+    .skill-card,
+    .timeline-card,
+    .project-card,
+    .education-card,
+    .contact-card,
+    .data-note,
+    .demo-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.082), rgba(255, 255, 255, 0.045)),
+        rgba(255, 255, 255, 0.035);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+      overflow: hidden;
+    }
+
+    .info-card,
+    .skill-card {
+      padding: 22px;
+    }
+
+    .card-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: 16px;
+      background: rgba(94, 234, 212, 0.12);
+      font-size: 1.35rem;
+    }
+
+    .info-card h3,
+    .skill-card h3,
+    .timeline-card h3,
+    .project-card h3,
+    .education-card h3,
+    .demo-card h3 {
+      margin: 0;
+      color: #ffffff;
+      line-height: 1.22;
+    }
+
+    .info-card h3,
+    .skill-card h3 {
+      font-size: 1.12rem;
+    }
+
+    .info-card p,
+    .skill-card p,
+    .demo-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .timeline-card {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 28px;
+      padding: 28px;
+    }
+
+    .timeline-meta {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+    }
+
+    .timeline-meta span {
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 999px;
+      color: #d8fbff;
+      background: rgba(56, 189, 248, 0.1);
+      font-size: 0.86rem;
+      font-weight: 900;
+    }
+
+    .company {
+      margin: 7px 0 14px;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .bullet-list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .bullet-list li::marker {
+      color: var(--cyan);
+    }
+
+    .compact-list {
+      gap: 7px;
+      font-size: 0.94rem;
+    }
+
+    .demo-preview {
+      margin-bottom: 28px;
+      padding: 24px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(94, 234, 212, 0.08), transparent 38%),
+        rgba(255, 255, 255, 0.045);
+    }
+
+    .demo-preview h3 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 1.35rem;
+    }
+
+    .demo-preview p {
+      margin: 8px 0 20px;
+      color: var(--muted);
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .demo-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 164px;
+      padding: 18px;
+      transition: 0.2s ease;
+    }
+
+    .demo-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(94, 234, 212, 0.38);
+      background:
+        linear-gradient(180deg, rgba(94, 234, 212, 0.1), rgba(255, 255, 255, 0.045)),
+        rgba(255, 255, 255, 0.04);
+    }
+
+    .demo-card small {
+      color: var(--cyan);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .demo-card h4 {
+      margin: 10px 0 6px;
+      color: #ffffff;
+      font-size: 1.05rem;
+    }
+
+    .demo-card p {
+      flex: 1;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .demo-card span {
+      color: var(--cyan);
+      font-weight: 900;
+    }
+        .project-stack {
+      display: grid;
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 28px;
+    }
+
+    .project-card.featured {
+      border-color: rgba(94, 234, 212, 0.24);
+      background:
+        linear-gradient(135deg, rgba(94, 234, 212, 0.105), transparent 34%),
+        linear-gradient(315deg, rgba(129, 140, 248, 0.1), transparent 36%),
+        rgba(255, 255, 255, 0.045);
+    }
+
+    .project-topline {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .project-topline > span {
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: 820px;
+    }
+
+    .tag-row span {
+      color: #c7e7ff;
+      border-color: rgba(56, 189, 248, 0.18);
+      background: rgba(56, 189, 248, 0.075);
+    }
+
+    .tag-row .soft-pink,
+    .soft-pink {
+      color: #ffe4ef;
+      border-color: rgba(251, 113, 133, 0.28);
+      background: rgba(251, 113, 133, 0.1);
+    }
+
+    .project-body {
+      display: grid;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .project-body h3 {
+      font-size: clamp(1.42rem, 2.6vw, 2.1rem);
+      letter-spacing: -0.032em;
+    }
+
+    .project-subtitle {
+      margin: 7px 0 10px;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .project-body p,
+    .timeline-card p,
+    .data-note,
+    .contact-list dd {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .project-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .detail-block {
+      min-width: 0;
+      padding: 17px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .detail-block h4 {
+      margin: 0 0 10px;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 13px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      color: #dbeafe;
+      background: rgba(255, 255, 255, 0.065);
+      font-size: 0.88rem;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .diagram-panel {
+      display: none;
+      padding: 12px;
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.16);
+    }
+
+    .diagram-panel.open {
+      display: block;
+    }
+
+    .diagram-panel img {
+      width: 100%;
+      max-height: 72vh;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #07111f;
+    }
+
+    .data-note {
+      margin-top: 22px;
+      padding: 18px 20px;
+    }
+
+    .data-note strong {
+      color: #ffffff;
+    }
+
+    .education-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 26px;
+    }
+
+    .education-card p {
+      margin: 7px 0 0;
+      color: var(--muted);
+    }
+
+    .education-card span {
+      flex: 0 0 auto;
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(320px, 0.65fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-card {
+      padding: 24px;
+    }
+
+    .contact-card .actions {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-list div {
+      display: grid;
+      grid-template-columns: 90px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.045);
+    }
+
+    .contact-list dt {
+      color: var(--muted2);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-list dd {
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .contact-list a {
+      color: var(--cyan);
+    }
+
+    .site-footer {
+      padding: 28px 0;
+      color: var(--muted);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .footer-inner a {
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 28px;
+      z-index: 200;
+      transform: translate(-50%, 18px);
+      padding: 11px 16px;
+      border-radius: 999px;
+      color: #04111f;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      font-weight: 900;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.22s ease;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+        @media (max-width: 1440px) {
+      .side-toc {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        max-width: 650px;
+      }
+
+      .cards-4,
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      :root {
+        --header: 64px;
+      }
+
+      html {
+        scroll-padding-top: 112px;
+      }
+
+      .container {
+        width: min(100% - 28px, 100%);
+      }
+
+      .site-header {
+        padding: 0 14px;
+      }
+
+      .brand {
+        gap: 8px;
+        font-size: 0.92rem;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 13px;
+      }
+
+      .brand span:last-child {
+        max-width: 188px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .site-nav {
+        position: fixed;
+        top: var(--header);
+        left: 14px;
+        right: 14px;
+        display: grid;
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(8, 19, 33, 0.97);
+        box-shadow: var(--shadow);
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: 0.2s ease;
+      }
+
+      .site-nav.open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .site-nav a {
+        display: block;
+        padding: 12px 13px;
+        border-radius: 13px;
+      }
+
+      .site-nav .language-link {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .mobile-toc {
+        display: block;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .hero {
+        padding: 44px 0 56px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.05rem, 17vw, 5.1rem);
+        letter-spacing: -0.055em;
+      }
+
+      .hero h2 {
+        font-size: clamp(1.32rem, 6vw, 2rem);
+        letter-spacing: -0.035em;
+      }
+
+      .hero-intro,
+      .section-heading p {
+        font-size: 0.97rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .actions .btn,
+      .project-actions .btn,
+      .project-actions .status-pill {
+        width: 100%;
+      }
+
+      .hero-card,
+      .project-card,
+      .timeline-card,
+      .contact-card,
+      .demo-preview {
+        padding: 21px;
+        border-radius: 20px;
+      }
+
+      .project-topline {
+        flex-direction: column;
+      }
+
+      .tag-row {
+        justify-content: flex-start;
+      }
+
+      .project-detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .diagram-panel img {
+        max-height: 58vh;
+      }
+
+      .section-heading {
+        margin-bottom: 24px;
+      }
+
+      .section-heading h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+      }
+
+      .contact-list div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .education-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        width: min(100% - 22px, 100%);
+      }
+
+      .brand span:last-child {
+        max-width: 152px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .stats-grid,
+      .cards-4,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        padding: 18px;
+      }
+
+      .eyebrow-row span,
+      .tag-row span,
+      .status-pill {
+        font-size: 0.74rem;
+      }
+
+      .bullet-list {
+        padding-left: 1rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Back to top">
@@ -39,44 +1202,63 @@
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero section-pad">
+  <aside class="side-toc" aria-label="Page contents">
+    <div class="side-toc-title">Contents</div>
+    <a href="#top">Home</a>
+    <a href="#highlights">Highlights</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </aside>
+
+  <nav class="mobile-toc" aria-label="Mobile quick navigation">
+    <div class="mobile-toc-inner">
+      <a href="#top">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="top" class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <div class="eyebrow-row">
-            <span>AI Agent Delivery</span>
-            <span>Front-end Engineering</span>
-            <span>Business Workflow Tools</span>
+            <span>AI Agent</span>
+            <span>Front-end</span>
+            <span>Flutter / Java</span>
             <span>Available in 2026</span>
           </div>
 
           <h1>Wang Hong</h1>
-          <h2>AI Application Developer / Front-end Engineer / Software Developer Intern</h2>
+          <h2>Computer Science undergraduate looking for AI application, front-end, or software development internships</h2>
           <p class="hero-intro">
-            Computer Science undergraduate focused on AI Agent workflows, front-end interaction, and practical business tools. I participated in building an education-focused AI Agent from 0 to 1, covering information retrieval, content generation, CGPA conversion, school/program recommendation, and multi-platform integration, saving 200+ hours of manual query work.
+            I like building projects that can actually be opened, tested, and shown to others. Recently I have been working on AI Agent workflows, front-end interaction, and small tool-based systems, including an internal AI workflow from my internship, a campus transport demo, a healthcare information retrieval demo, a Java grade management system, and an interactive personal website.
           </p>
 
-          <div class="hero-actions">
+          <div class="actions">
             <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume PDF</a>
+            <a class="btn secondary" href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume PDF</a>
             <a class="btn ghost" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener noreferrer">GitHub</a>
             <button class="btn ghost copy-email" type="button" data-email="chriswangjob@163.com">Copy Email</button>
           </div>
 
-          <div class="stats-grid" aria-label="Key project metrics">
-            <div>
+          <div class="stats-grid" aria-label="Project metrics">
+            <div class="stat">
               <strong>60%+</strong>
               <span>Sales query efficiency improved</span>
             </div>
-            <div>
+            <div class="stat">
               <strong>200h+</strong>
               <span>Manual query time saved</span>
             </div>
-            <div>
-              <strong>0→1</strong>
-              <span>AI Agent delivery experience</span>
+            <div class="stat">
+              <strong>6</strong>
+              <span>Selected projects</span>
             </div>
-            <div>
+            <div class="stat">
               <strong>95%</strong>
               <span>Grade calculation test accuracy</span>
             </div>
@@ -87,107 +1269,135 @@
           <div class="avatar-frame">
             <img src="avatar.jpg" alt="Portrait of Wang Hong" />
           </div>
-          <h3>AI Application Developer</h3>
-          <p>Front-end Engineer · CS Undergraduate</p>
+          <h3>Wang Hong</h3>
+          <p>AI Application · Front-end · CS Undergraduate</p>
           <ul class="hero-points">
-            <li>AI Agent: workflow breakdown, prompt design, multi-platform integration, business efficiency improvement</li>
-            <li>Front-end: responsive websites, interactive UI, online demos, GitHub Pages deployment</li>
-            <li>Result-oriented: project value supported by efficiency gains, accuracy, stability, and explainable workflows</li>
+            <li>I participated in an AI Agent internship project based on real business workflows.</li>
+            <li>I can build responsive pages, interactive UI, animations, forms, and GitHub Pages demos.</li>
+            <li>I enjoy turning study, work, and daily-life ideas into web projects that people can actually use.</li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section class="quick-links section-pad compact" aria-labelledby="quick-title">
-      <div class="container reveal">
-        <div class="section-heading inline-heading">
-          <div>
-            <span class="section-kicker">For Interviewers</span>
-            <h2 id="quick-title">Quick Access</h2>
-          </div>
-          <p>Key links for fast review: live demos, architecture diagrams, resume, and source code.</p>
-        </div>
-
-        <div class="quick-grid">
-          <a href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">AI Agent Public Demo</a>
-          <a href="ai-agent-enterprise-architecture.png" target="_blank" rel="noopener noreferrer">Enterprise AI Agent Diagram</a>
-          <a href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">Healthcare Info Retrieval Demo</a>
-          <a href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener noreferrer">Java Grade Demo</a>
-          <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume PDF</a>
-          <a href="https://github.com/Chrisbetheking/WANGHONG-s-Resume-Website" target="_blank" rel="noopener noreferrer">Website Source Code</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="highlights" class="section-pad">
+    <section id="highlights" class="alt">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="section-kicker">Core Strengths</span>
-          <h2>Technical Highlights</h2>
-          <p>
-            My portfolio focuses on AI Agent workflows, front-end interaction, and practical business tool delivery, showing the full process from requirement breakdown and workflow design to implementation, deployment, and validation.
-          </p>
+          <span class="kicker">Core Strengths</span>
+          <h2>What I am currently good at</h2>
+          <p>I do not want my portfolio to be just a list of projects. I want each project to show what problem I worked on, what I actually built, and whether the result can be opened or tested.</p>
         </div>
 
-        <div class="cards four-cols">
+        <div class="cards-4">
           <article class="info-card reveal">
             <span class="card-icon">⚙️</span>
-            <h3>AI Agent Delivery</h3>
-            <p>Break down workflows for operations, sales, and content teams, then turn them into unified AI-assisted task flows.</p>
+            <h3>AI workflows</h3>
+            <p>I have worked on AI Agent features such as information search, content generation, GPA conversion, and school/program recommendation.</p>
           </article>
-          <article class="info-card reveal">
-            <span class="card-icon">📈</span>
-            <h3>Result-oriented Thinking</h3>
-            <p>Present projects through efficiency gains, saved manual work, accuracy, stability, and verifiable demos instead of only listing tech stacks.</p>
-          </article>
+
           <article class="info-card reveal">
             <span class="card-icon">🧩</span>
-            <h3>Front-end Interaction</h3>
-            <p>Build responsive pages, interactive demos, visual workflows, and complex UI behavior with HTML, CSS, JavaScript, and Flutter.</p>
+            <h3>Front-end interaction</h3>
+            <p>I use HTML, CSS, and JavaScript to build responsive pages, forms, animations, modals, workflow displays, and online demos.</p>
           </article>
+
+          <article class="info-card reveal">
+            <span class="card-icon">📱</span>
+            <h3>Cross-platform practice</h3>
+            <p>I built a Flutter campus transport project to practice map drawing, animation control, and more complex UI states.</p>
+          </article>
+
           <article class="info-card reveal">
             <span class="card-icon">🚀</span>
-            <h3>Fast Iteration</h3>
-            <p>Use GitHub Pages, Git, and AI-assisted development tools to quickly build, deploy, test, and improve working demos.</p>
+            <h3>Deployable projects</h3>
+            <p>I try to make my projects accessible through GitHub repositories or GitHub Pages instead of keeping them only on my local machine.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="section-pad alt-bg">
+    <section id="experience">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="section-kicker">Experience</span>
+          <span class="kicker">Experience</span>
           <h2>Internship Experience</h2>
         </div>
 
         <article class="timeline-card reveal">
           <div class="timeline-meta">
             <span>Jan 2025 - Mar 2025</span>
-            <span>AI Agent · LLM Application · Business Workflow Optimization</span>
+            <span>AI Agent · Education Business</span>
           </div>
-          <div class="timeline-content">
+
+          <div>
             <h3>AI Agent Development Intern</h3>
             <p class="company">Chengdu Hongqi Education Technology Co., Ltd.</p>
             <ul class="bullet-list">
-              <li>Participated in building an AI Agent system from 0 to 1, covering front-end interfaces, business logic, data processing, and multi-platform integration for sales queries, writing support, and content generation.</li>
-              <li>Built a sales short-video script generation module to help sales staff quickly generate basic promotional copy based on product type and student needs.</li>
-              <li>Developed real-time information search, conditional filtering, structured data display, quick-copy features, CGPA conversion, and school/program recommendation workflows.</li>
-              <li>Integrated the internal query system with WeChat customer service, DingTalk, and Feishu, reducing tool switching and improving information access efficiency.</li>
+              <li>Participated in building an internal AI Agent system for common education consulting tasks such as sales queries, writing support, content generation, and school information collection.</li>
+              <li>Worked on front-end interaction and workflow organization, including dynamic forms, query result display, quick-copy actions, and history records.</li>
+              <li>Participated in the workflow design and testing of CGPA conversion, school/program recommendation, and short-video script generation modules.</li>
+              <li>Helped test entry-point integrations with WeChat customer service, DingTalk, and Feishu so internal users could complete queries with fewer tool switches.</li>
+              <li>Based on typical task-time comparison, sales query efficiency improved by about 60%, saving 200+ hours of manual query work.</li>
             </ul>
           </div>
         </article>
       </div>
     </section>
-
-    <section id="projects" class="section-pad">
+        <section id="projects" class="alt">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="section-kicker">Selected Projects</span>
-          <h2>Featured Projects</h2>
-          <p>
-            Projects are organized by business problem, my contribution, technical solution, and measurable output. The focus is on real scenarios, explainable workflows, and live demos.
-          </p>
+          <span class="kicker">Projects</span>
+          <h2>Projects</h2>
+          <p>These are the projects I currently want recruiters and interviewers to see first. When a live demo is available, I put it at the top. When the source code cannot be public, I explain why.</p>
+        </div>
+
+        <div class="demo-preview reveal">
+          <h3>Demo Preview</h3>
+          <p>If you want to quickly check what I have built, these links are the fastest starting point. More details are listed in the project cards below.</p>
+
+          <div class="demo-grid">
+            <a class="demo-card" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">
+              <small>AI Agent</small>
+              <h4>Study Abroad Workflow Demo</h4>
+              <p>A public, desensitized version of the internship AI Agent workflow, showing recommendation, copy generation, and GPA conversion.</p>
+              <span>Open Demo →</span>
+            </a>
+
+            <a class="demo-card" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">
+              <small>Healthcare</small>
+              <h4>Health Info Retrieval Demo</h4>
+              <p>Enter a symptom description and get matched health information, risk reminders, and guidance to seek medical attention.</p>
+              <span>Open Demo →</span>
+            </a>
+
+            <a class="demo-card" href="https://chrisbetheking.github.io/whwithyn/" target="_blank" rel="noopener noreferrer">
+              <small>Front-end</small>
+              <h4>Interactive Personal Website</h4>
+              <p>A native front-end interactive page with animations, a message form, counters, and mobile adaptation.</p>
+              <span>Open Demo →</span>
+            </a>
+
+            <a class="demo-card" href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener noreferrer">
+              <small>Java</small>
+              <h4>Grade Calculation Web Demo</h4>
+              <p>A web version of the core grade calculation logic from my Java student grade management system.</p>
+              <span>Open Demo →</span>
+            </a>
+
+            <a class="demo-card" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener noreferrer">
+              <small>Flutter</small>
+              <h4>Campus Transport Demo</h4>
+              <p>A demo for campus transport, parking reservation, routes, and status visualization.</p>
+              <span>Open Demo →</span>
+            </a>
+
+            <a class="demo-card" href="resume.pdf" target="_blank" rel="noopener noreferrer">
+              <small>Resume</small>
+              <h4>Resume PDF</h4>
+              <p>Open the PDF version if you want a quick one-document view of my background and projects.</p>
+              <span>View PDF →</span>
+            </a>
+          </div>
         </div>
 
         <div class="project-stack">
@@ -197,47 +1407,49 @@
               <div class="tag-row">
                 <span>AI Agent</span>
                 <span>LLM Application</span>
-                <span>Prompt Engineering</span>
-                <span>Dynamic Forms</span>
-                <span>Rule Matching</span>
+                <span>Prompt</span>
+                <span>Business Workflow</span>
+                <span>Front-end UI</span>
               </div>
             </div>
+
             <div class="project-body">
               <div>
                 <h3>Enterprise AI Agent Workflow System</h3>
-                <p class="project-subtitle">An AI productivity tool for education operations, sales, and writing-support teams</p>
+                <p class="project-subtitle">An internal productivity tool I worked on during my internship</p>
                 <p>
-                  This project came from a real education consulting workflow. The internal version involves company data and business rules, so the source code is not public. The public demo uses a desensitized study-abroad application workflow to demonstrate school recommendation, application copy generation, and GPA conversion.
+                  This project came from a real education consulting workflow. The internal version contains company data and business rules, so the source code cannot be public. I created a separate public demo using a study-abroad application scenario to show a similar workflow: filling in conditions, generating recommendations, converting GPA, and producing application-related copy.
                 </p>
               </div>
 
               <div class="project-detail-grid">
                 <div class="detail-block">
-                  <h4>My Contribution</h4>
+                  <h4>What I worked on</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Participated in requirement breakdown and transformed high-frequency sales, operations, and writing-support tasks into a unified workflow.</li>
-                    <li>Worked on front-end pages and interactions, including dynamic forms, task switching, structured output display, history records, and quick-copy actions.</li>
-                    <li>Contributed to prompt workflow design, information query logic, multi-platform integration testing, and pre-launch validation.</li>
+                    <li>Helped organize common questions from sales, operations, and writing-support roles into a unified query and generation workflow.</li>
+                    <li>Worked on front-end interaction, including dynamic forms, task switching, structured result display, quick-copy actions, and history records.</li>
+                    <li>Participated in prompt flow design, query logic organization, multi-platform entry testing, and pre-launch validation.</li>
                   </ul>
                 </div>
+
                 <div class="detail-block">
-                  <h4>Output & Impact</h4>
+                  <h4>Result</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Turned multi-role queries, content generation, school matching, and application support into a unified front-end workflow.</li>
-                    <li>Improved sales query efficiency by about 60% and saved 200+ hours of manual query work based on typical task-time comparison.</li>
-                    <li>The public demo preserves the core workflow while removing internal data and sensitive business rules.</li>
+                    <li>Combined scattered query, recommendation, conversion, and content-generation tasks into a more centralized workflow.</li>
+                    <li>Based on typical task-time comparison, sales query efficiency improved by about 60%, saving 200+ hours of manual query work.</li>
+                    <li>The public demo removes internal data and keeps only the workflow and interaction pattern.</li>
                   </ul>
                 </div>
               </div>
 
               <div class="project-actions">
                 <a class="btn small primary" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener noreferrer">View Public Demo</a>
-                <button class="btn small secondary diagram-toggle" type="button" data-target="ai-flow-en">Show System Diagram</button>
-                <span class="status-pill">Internal project · Source not public</span>
+                <button class="btn small secondary diagram-toggle" type="button" data-target="ai-flow-en">Show Diagram</button>
+                <span class="status-pill">Internal project, source not public</span>
               </div>
 
-              <div class="diagram-panel" id="ai-flow-en">
-                <img src="ai-agent-enterprise-architecture.png" alt="Enterprise AI Agent workflow architecture diagram" />
+              <div class="diagram-panel" id="ai-flow-en" hidden>
+                <img src="ai-agent-enterprise-architecture-en.svg" alt="Enterprise AI Agent workflow architecture diagram" />
               </div>
             </div>
           </article>
@@ -248,44 +1460,47 @@
               <div class="tag-row">
                 <span>Python</span>
                 <span>JavaScript</span>
-                <span>Basic NLP</span>
                 <span>Keyword Matching</span>
-                <span>Safety Notice</span>
+                <span>Information Retrieval</span>
+                <span>Safety Boundary</span>
               </div>
             </div>
+
             <div class="project-body">
               <h3>Healthcare Information Retrieval Demo</h3>
-              <p class="project-subtitle">Symptom input, keyword matching, health information retrieval, and risk-signal reminders</p>
+              <p class="project-subtitle">A small health-question prototype for practicing text processing and information retrieval</p>
               <p>
-                A front-end information retrieval prototype for health-related questions. It supports symptom-description matching, health knowledge retrieval, and risk-signal reminders. This project only demonstrates information retrieval and structured result display. It does not provide medical diagnosis, prescriptions, or treatment plans.
+                This project started as a symptom Q&A idea. Later, I realized that medical projects should not casually claim diagnosis or treatment advice, so I adjusted it into an information retrieval demo. It now works more like a health information lookup tool: it extracts keywords from user input and returns related health information, matching evidence, and risk reminders.
               </p>
 
               <div class="project-detail-grid">
                 <div class="detail-block">
-                  <h4>My Contribution</h4>
+                  <h4>What I worked on</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Designed the input form, task switching, result cards, and risk reminder section to make the retrieval process explainable.</li>
-                    <li>Used text cleaning, keyword extraction, and symptom normalization to convert free-text input into matchable information.</li>
-                    <li>Reframed unsafe claims such as “diagnosis” and “treatment advice” into “health information matching” and “medical attention reminders”.</li>
+                    <li>Designed the input form, task switching, result cards, and risk reminder area.</li>
+                    <li>Implemented basic text cleaning, keyword extraction, and symptom-term matching.</li>
+                    <li>Replaced misleading “diagnosis / treatment advice” wording with “health information matching / seek medical attention reminders”.</li>
                   </ul>
                 </div>
+
                 <div class="detail-block">
-                  <h4>Output & Impact</h4>
+                  <h4>Result</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Matches symptom keywords against a local health knowledge base and returns structured information, matching evidence, and risk reminders.</li>
-                    <li>Reached about 80% keyword-matching accuracy on self-built symptom test cases.</li>
+                    <li>The demo returns structured information based on symptom descriptions instead of only showing plain text.</li>
+                    <li>On my own small test set, keyword matching accuracy was around 80%.</li>
+                    <li>The page clearly states that it cannot replace a doctor’s diagnosis.</li>
                   </ul>
                 </div>
               </div>
 
               <div class="project-actions">
                 <a class="btn small primary" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener noreferrer">Live Demo</a>
-                <a class="btn small secondary" href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=drive_link" target="_blank" rel="noopener noreferrer">Source Colab</a>
-                <button class="btn small secondary diagram-toggle" type="button" data-target="medical-flow-en">Show Workflow Diagram</button>
+                <a class="btn small secondary" href="https://colab.research.google.com/drive/1Wd7LnhYon_byAwUA_8r1V4-bhy46LuRH?usp=drive_link" target="_blank" rel="noopener noreferrer">Colab Source</a>
+                <button class="btn small secondary diagram-toggle" type="button" data-target="medical-flow-en">Show Diagram</button>
               </div>
 
-              <div class="diagram-panel" id="medical-flow-en">
-                <img src="medical-ai-workflow.png" alt="Healthcare information retrieval workflow diagram" />
+              <div class="diagram-panel" id="medical-flow-en" hidden>
+                <img src="medical-ai-workflow-en.svg" alt="Healthcare information retrieval workflow diagram" />
               </div>
             </div>
           </article>
@@ -298,29 +1513,33 @@
                 <span>Dart</span>
                 <span>CustomPaint</span>
                 <span>Animation</span>
-                <span>Responsive UI</span>
+                <span>Campus Scenario</span>
               </div>
             </div>
+
             <div class="project-body">
               <h3>APU Smart Campus Transport System</h3>
-              <p class="project-subtitle">Campus traffic, parking management, and real-time status visualization</p>
+              <p class="project-subtitle">A Flutter project built around campus transport and parking scenarios</p>
               <p>
-                A smart campus transport prototype designed for complex campus traffic scenarios. It focuses on dynamic route display, parking reservation, bus status visualization, ETA countdown, and responsive multi-role interaction.
+                This project was mainly for practicing more complex Flutter UI and state display. I broke the campus transport scenario into several common parts: shuttle routes, parking reservation, real-time status, ETA countdown, and role-based entry points.
               </p>
 
               <div class="project-detail-grid">
                 <div class="detail-block">
-                  <h4>My Contribution</h4>
+                  <h4>What I worked on</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Designed core campus transport flows, including parking reservation, shuttle status display, ETA countdown, and multi-role entry points.</li>
-                    <li>Used Flutter CustomPaint to draw the campus road network and AnimationController to simulate bus movement.</li>
+                    <li>Designed the core flows for parking reservation, shuttle status, route display, and ETA countdown.</li>
+                    <li>Used CustomPaint to draw the campus road network and AnimationController to simulate shuttle movement.</li>
+                    <li>Split the UI into reusable components so the project can be extended more easily later.</li>
                   </ul>
                 </div>
+
                 <div class="detail-block">
-                  <h4>Output & Impact</h4>
+                  <h4>Result</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Implemented dynamic parking reservation, real-time status updates, floating interaction controls, and responsive UI.</li>
-                    <li>Improved maintainability through componentized page structure while keeping complex animation interactions smooth.</li>
+                    <li>Completed an interactive campus transport demo instead of only a static UI mockup.</li>
+                    <li>Practiced Flutter animation, state display, and responsive layout.</li>
+                    <li>The structure is clearer than my first version, and it could later connect to real maps or backend APIs.</li>
                   </ul>
                 </div>
               </div>
@@ -331,8 +1550,7 @@
               </div>
             </div>
           </article>
-
-          <article class="project-card reveal">
+                    <article class="project-card reveal">
             <div class="project-topline">
               <span>Project 04</span>
               <div class="tag-row">
@@ -340,37 +1558,43 @@
                 <span>CSS</span>
                 <span>JavaScript</span>
                 <span>EmailJS</span>
-                <span>Responsive UI</span>
+                <span>Mobile Responsive</span>
+                <span class="soft-pink">Interactive Website</span>
               </div>
             </div>
+
             <div class="project-body">
-              <h3>Interactive Campaign Landing Page Demo</h3>
-              <p class="project-subtitle">Native front-end interaction, form validation, serverless email sending, and mobile adaptation</p>
+              <h3>Interactive Personal Website</h3>
+              <p class="project-subtitle">A personal interactive page I built for a real relationship anniversary scenario</p>
               <p>
-                This item is refactored from a personal interactive webpage into a more professional and neutral landing page case. It highlights animated UI, form flow, EmailJS-based serverless email sending, distance visualization, and GitHub Pages deployment. The original private page is no longer used as a main recruiting showcase.
+                I built this project from idea, design, development, to deployment. The page includes an anniversary counter, typewriter text, interactive modals, a message form, animation effects, and mobile adaptation. It was not made just to fill a portfolio slot; it is a real page that can be opened and used.
               </p>
 
               <div class="project-detail-grid">
                 <div class="detail-block">
-                  <h4>My Contribution</h4>
+                  <h4>What I worked on</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Implemented real-time counters, typewriter effects, modals, floating animations, mood selection, and an interactive message form.</li>
-                    <li>Integrated EmailJS so a static website can send emails without a self-hosted backend.</li>
-                    <li>Completed mobile layout adaptation and GitHub Pages deployment.</li>
+                    <li>Designed and built the page structure, visual style, interaction flow, and responsive layout independently.</li>
+                    <li>Implemented a real-time counter, typewriter effect, modals, floating animations, click feedback, and an interactive message form.</li>
+                    <li>Integrated EmailJS so the static page can send emails without a self-hosted backend.</li>
+                    <li>Deployed the page with GitHub Pages so it can be opened directly through a public link.</li>
                   </ul>
                 </div>
+
                 <div class="detail-block">
-                  <h4>Next Improvement</h4>
+                  <h4>Why I include it</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Replace private content with a fictional brand campaign while keeping the interaction features.</li>
-                    <li>Add README, screenshots, and feature documentation before using it as an official public portfolio item.</li>
+                    <li>It shows how I handle page atmosphere, interaction details, and visual feedback, not just functional buttons.</li>
+                    <li>Because it came from a real need, I cared more about the actual visit experience and mobile layout.</li>
+                    <li>It also shows that I can turn a personal idea into a complete web page, not just finish coursework-style projects.</li>
                   </ul>
                 </div>
               </div>
 
               <div class="project-actions">
-                <span class="status-pill warning">Neutral demo in progress</span>
-                <span class="status-pill">Private content not used for recruitment</span>
+                <a class="btn small primary" href="https://chrisbetheking.github.io/whwithyn/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <span class="status-pill">Native front-end</span>
+                <span class="status-pill">GitHub Pages</span>
               </div>
             </div>
           </article>
@@ -382,30 +1606,34 @@
                 <span>Java</span>
                 <span>Java Swing</span>
                 <span>OOP</span>
-                <span>CSV Storage</span>
-                <span>SHA-256</span>
+                <span>CSV</span>
+                <span>Grade Calculation</span>
               </div>
             </div>
+
             <div class="project-body">
               <h3>Java Student Grade Management System</h3>
-              <p class="project-subtitle">Object-oriented design, grade calculation, system refactoring, and web demo showcase</p>
+              <p class="project-subtitle">A Java desktop grade management system with an extra web demo for the core calculation logic</p>
               <p>
-                An independently designed and developed grade management system that covers business logic modeling, data processing, testing, bug fixing, and a web demo for recruiters to directly verify the core calculation logic.
+                This project was mainly for practicing Java object-oriented programming and basic system design. I built login, student information management, grade entry, final-score calculation, resit-list filtering, and report export. To make the core logic easier to review without downloading the Java project, I also created a small web demo for grade calculation.
               </p>
 
               <div class="project-detail-grid">
                 <div class="detail-block">
-                  <h4>My Contribution</h4>
+                  <h4>What I worked on</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Developed login authentication, user management, grade statistics, resit filtering, final-score calculation, and report export modules.</li>
-                    <li>Optimized class structure and module boundaries to improve readability and maintainability.</li>
+                    <li>Designed basic objects and module boundaries for students, courses, grades, and users.</li>
+                    <li>Built login authentication, grade statistics, resit filtering, final-score calculation, and report export.</li>
+                    <li>Fixed invalid input and edge cases to make the calculation process more stable.</li>
                   </ul>
                 </div>
+
                 <div class="detail-block">
-                  <h4>Output & Impact</h4>
+                  <h4>Result</h4>
                   <ul class="bullet-list compact-list">
-                    <li>Reached about 95% grade-calculation accuracy based on a test dataset.</li>
-                    <li>Reduced system failure cases and improved calculation workflow stability by fixing exception scenarios.</li>
+                    <li>Reached around 95% grade-calculation accuracy on my test dataset.</li>
+                    <li>Moved the core calculation logic into a web demo that can be tested online.</li>
+                    <li>The project helped me better understand Java OOP, file-based data handling, and basic system decomposition.</li>
                   </ul>
                 </div>
               </div>
@@ -423,22 +1651,22 @@
               <div class="tag-row">
                 <span>Portfolio</span>
                 <span>Responsive Design</span>
-                <span>UI Writing</span>
                 <span>GitHub Pages</span>
-                <span>SEO Basics</span>
+                <span>Project Writing</span>
               </div>
             </div>
+
             <div class="project-body">
-              <h3>AI Application & Front-end Engineering Portfolio Website</h3>
-              <p class="project-subtitle">Personal branding, project packaging, resume conversion, and responsive portfolio design</p>
+              <h3>Personal Portfolio Website</h3>
+              <p class="project-subtitle">A portfolio website rebuilt for internship applications and project review</p>
               <p>
-                A portfolio website rebuilt around job-search conversion. It organizes projects into business problem, my contribution, technical solution, measurable result, and verifiable demo.
+                This website itself is also a project. My goal was not to make a flashy personal homepage, but to help recruiters quickly understand what I have built, which projects can be opened, what I worked on, and what problem each project is trying to solve.
               </p>
 
               <ul class="bullet-list compact-list">
-                <li>Unified project card structure to highlight role, tech stack, key features, result metrics, and live demo links.</li>
-                <li>Added resume PDF, GitHub, email copy, bilingual pages, and quick access links for interviewers.</li>
-                <li>Used a professional dark visual style, responsive layout, and clear CTAs to improve recruiter browsing efficiency.</li>
+                <li>Reorganized projects into demo preview, project background, my work, and result sections.</li>
+                <li>Added bilingual pages, resume PDF, GitHub links, email copy, and page navigation.</li>
+                <li>Improved the mobile layout so project cards and buttons do not overflow on small screens.</li>
               </ul>
 
               <div class="project-actions">
@@ -450,43 +1678,47 @@
         </div>
 
         <div class="data-note reveal">
-          <strong>Data note:</strong> Project results are based on typical task-time comparisons, internal feedback, and self-built test cases. Enterprise internal projects only show desensitized workflows and public demos. The healthcare demo is for information retrieval only and does not provide medical diagnosis, treatment advice, or prescriptions.
+          <strong>Note:</strong> The enterprise AI Agent project contains internal company data and business rules, so I only show a desensitized demo and workflow diagram. The healthcare demo is for information retrieval only and does not provide diagnosis, prescriptions, or treatment plans. Efficiency and accuracy numbers are based on task-time comparison, internal feedback, or my own test cases.
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section-pad alt-bg">
+    <section id="skills">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="section-kicker">Skills</span>
-          <h2>Technical Skills</h2>
+          <span class="kicker">Skills</span>
+          <h2>Skills</h2>
+          <p>These are the skills I have already used in projects or am currently learning more systematically.</p>
         </div>
 
         <div class="skills-grid">
           <article class="skill-card reveal">
-            <h3>Front-end & Cross-platform</h3>
-            <p>HTML · CSS · JavaScript · TypeScript Basics · Flutter · Dart · Responsive UI</p>
+            <h3>Front-end</h3>
+            <p>HTML · CSS · JavaScript · Responsive Layout · Forms · Animation Effects · GitHub Pages</p>
           </article>
+
           <article class="skill-card reveal">
-            <h3>AI Application Development</h3>
-            <p>LLM Applications · AI Agent · Prompt Engineering · Python · Basic NLP · Workflow Design</p>
+            <h3>AI Application</h3>
+            <p>AI Agent · Prompt Design · Python · Basic NLP · Information Retrieval · Workflow Organization</p>
           </article>
+
           <article class="skill-card reveal">
-            <h3>Backend & Data Processing</h3>
-            <p>Java · Java Swing · OOP · SQL Basics · CSV Storage · Data Statistics · REST API Learning</p>
+            <h3>Programming & Systems</h3>
+            <p>Java · Java Swing · OOP · CSV File Handling · SQL Basics · Basic Data Processing</p>
           </article>
+
           <article class="skill-card reveal">
-            <h3>Engineering Tools</h3>
-            <p>Git · GitHub · GitHub Pages · Cursor · WSL/Linux Basics · AI-assisted Development</p>
+            <h3>Tools</h3>
+            <p>Git · GitHub · Cursor · VS Code · Colab · WSL / Linux Basics · AI-assisted Development</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="education" class="section-pad">
+    <section id="education" class="alt">
       <div class="container">
         <div class="section-heading reveal">
-          <span class="section-kicker">Education</span>
+          <span class="kicker">Education</span>
           <h2>Education</h2>
         </div>
 
@@ -500,18 +1732,16 @@
       </div>
     </section>
 
-    <section id="contact" class="section-pad contact-section">
+    <section id="contact">
       <div class="container contact-grid">
         <div class="section-heading reveal">
-          <span class="section-kicker">Contact</span>
-          <h2>Let’s Connect</h2>
-          <p>
-            Target roles: AI Application Developer Intern, Front-end Developer Intern, AI Agent Intern, and Software Developer Intern. Available for internship from July to December 2026.
-          </p>
+          <span class="kicker">Contact</span>
+          <h2>Contact Me</h2>
+          <p>I am looking for internship opportunities related to AI application development, front-end development, AI Agent workflows, or software development. Available from July to December 2026.</p>
         </div>
 
         <div class="contact-card reveal">
-          <div class="contact-actions">
+          <div class="actions">
             <a class="btn primary" href="mailto:chriswangjob@163.com">Send Email</a>
             <button class="btn secondary copy-email" type="button" data-email="chriswangjob@163.com">Copy Email</button>
             <a class="btn ghost" href="tel:+8618081299137">Call</a>
@@ -522,14 +1752,17 @@
               <dt>Email</dt>
               <dd>chriswangjob@163.com</dd>
             </div>
+
             <div>
               <dt>Phone</dt>
               <dd>+86 18081299137</dd>
             </div>
+
             <div>
               <dt>GitHub</dt>
               <dd><a href="https://github.com/Chrisbetheking" target="_blank" rel="noopener noreferrer">github.com/Chrisbetheking</a></dd>
             </div>
+
             <div>
               <dt>Resume</dt>
               <dd><a href="resume.pdf" target="_blank" rel="noopener noreferrer">View PDF</a></dd>
@@ -548,6 +1781,150 @@
   </footer>
 
   <div class="toast" role="status" aria-live="polite">Email copied</div>
-  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const body = document.body;
+      const navToggle = document.querySelector(".nav-toggle");
+      const siteNav = document.querySelector(".site-nav");
+      const navLinks = document.querySelectorAll(".site-nav a");
+      const toast = document.querySelector(".toast");
+      const year = document.querySelector("#current-year");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      if (navToggle && siteNav) {
+        navToggle.addEventListener("click", () => {
+          const isOpen = siteNav.classList.toggle("open");
+          navToggle.classList.toggle("active", isOpen);
+          navToggle.setAttribute("aria-expanded", String(isOpen));
+          body.classList.toggle("nav-open", isOpen);
+        });
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            siteNav.classList.remove("open");
+            navToggle.classList.remove("active");
+            navToggle.setAttribute("aria-expanded", "false");
+            body.classList.remove("nav-open");
+          });
+        });
+      }
+
+      const showToast = (message) => {
+        if (!toast) return;
+
+        toast.textContent = message;
+        toast.classList.add("show");
+
+        window.clearTimeout(showToast.timer);
+        showToast.timer = window.setTimeout(() => {
+          toast.classList.remove("show");
+        }, 1700);
+      };
+
+      document.querySelectorAll(".copy-email").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const email = button.getAttribute("data-email") || "chriswangjob@163.com";
+
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(email);
+            } else {
+              const textarea = document.createElement("textarea");
+              textarea.value = email;
+              textarea.setAttribute("readonly", "");
+              textarea.style.position = "fixed";
+              textarea.style.left = "-9999px";
+              document.body.appendChild(textarea);
+              textarea.select();
+              document.execCommand("copy");
+              document.body.removeChild(textarea);
+            }
+
+            showToast("Email copied");
+          } catch (error) {
+            showToast("Copy failed. Please copy manually.");
+          }
+        });
+      });
+
+      document.querySelectorAll(".diagram-panel").forEach((panel) => {
+        panel.classList.remove("open");
+        panel.hidden = true;
+      });
+
+      document.querySelectorAll(".diagram-toggle").forEach((button) => {
+        const targetId = button.getAttribute("data-target");
+        const panel = targetId ? document.getElementById(targetId) : null;
+
+        if (!panel) return;
+
+        const openText = button.textContent.trim() || "Show Diagram";
+        const closeText = "Hide Diagram";
+
+        button.setAttribute("aria-expanded", "false");
+        button.setAttribute("aria-controls", targetId);
+
+        button.addEventListener("click", () => {
+          const shouldOpen = !panel.classList.contains("open");
+
+          panel.classList.toggle("open", shouldOpen);
+          panel.hidden = !shouldOpen;
+          button.textContent = shouldOpen ? closeText : openText;
+          button.setAttribute("aria-expanded", String(shouldOpen));
+        });
+      });
+
+      const revealElements = document.querySelectorAll(".reveal");
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.08,
+            rootMargin: "0px 0px -40px 0px"
+          }
+        );
+
+        revealElements.forEach((element) => observer.observe(element));
+      } else {
+        revealElements.forEach((element) => element.classList.add("visible"));
+      }
+
+      const sections = document.querySelectorAll("main section[id]");
+      const allTocLinks = document.querySelectorAll(".site-nav a[href^='#'], .side-toc a[href^='#'], .mobile-toc a[href^='#']");
+
+      if ("IntersectionObserver" in window && sections.length > 0) {
+        const sectionObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+
+              const id = entry.target.getAttribute("id");
+
+              allTocLinks.forEach((link) => {
+                link.classList.toggle("active", link.getAttribute("href") === "#" + id);
+              });
+            });
+          },
+          {
+            threshold: 0.28
+          }
+        );
+
+        sections.forEach((section) => sectionObserver.observe(section));
+      }
+    });
+  </script>
 </body>
 </html>
