@@ -1,135 +1,129 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const navToggle = document.querySelector(".nav-toggle");
-  const siteNav = document.querySelector(".site-nav");
-  const navLinks = document.querySelectorAll(".site-nav a");
-  const body = document.body;
-  const toast = document.querySelector(".toast");
-  const year = document.querySelector("#current-year");
+const body = document.body;
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks = document.querySelector(".nav-links");
+const toast = document.querySelector(".toast");
 
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+function showToast(message) {
+  if (!toast) return;
 
-  if (navToggle && siteNav) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = siteNav.classList.toggle("open");
-      navToggle.classList.toggle("active", isOpen);
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-      body.classList.toggle("nav-open", isOpen);
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  window.clearTimeout(showToast.timer);
+  showToast.timer = window.setTimeout(() => {
+    toast.classList.remove("show");
+  }, 1800);
+}
+
+if (navToggle && navLinks) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = body.classList.toggle("nav-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      body.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
     });
+  });
+}
 
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        siteNav.classList.remove("open");
-        navToggle.classList.remove("active");
-        navToggle.setAttribute("aria-expanded", "false");
-        body.classList.remove("nav-open");
+document.querySelectorAll(".copy-email").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const email = button.dataset.email || "chriswangjob@163.com";
+
+    try {
+      await navigator.clipboard.writeText(email);
+
+      const isEnglishPage = document.documentElement.lang.startsWith("en");
+      showToast(isEnglishPage ? "Email copied" : "邮箱已复制");
+    } catch (error) {
+      const tempInput = document.createElement("input");
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      tempInput.remove();
+
+      const isEnglishPage = document.documentElement.lang.startsWith("en");
+      showToast(isEnglishPage ? "Email copied" : "邮箱已复制");
+    }
+  });
+});
+
+document.querySelectorAll(".toggle-panel").forEach((button) => {
+  button.addEventListener("click", () => {
+    const targetId = button.dataset.target;
+    const panel = document.getElementById(targetId);
+
+    if (!panel) return;
+
+    const isOpen = panel.classList.toggle("open");
+    const isEnglishPage = document.documentElement.lang.startsWith("en");
+
+    if (isEnglishPage) {
+      button.textContent = isOpen ? "Hide Diagram" : "Show Diagram";
+    } else {
+      button.textContent = isOpen ? "收起流程图" : "展开流程图";
+    }
+  });
+});
+
+const revealItems = document.querySelectorAll(
+  ".highlight-card, .experience-card, .demo-panel, .project-card, .skill-card, .education-card, .contact-card"
+);
+
+revealItems.forEach((item) => item.classList.add("reveal"));
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.12,
+    rootMargin: "0px 0px -40px 0px",
+  }
+);
+
+revealItems.forEach((item) => revealObserver.observe(item));
+
+const sections = document.querySelectorAll("section[id]");
+const menuLinks = document.querySelectorAll(
+  ".nav-links a[href^='#'], .side-index a[href^='#']"
+);
+
+const activeObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const id = entry.target.getAttribute("id");
+
+      menuLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        link.classList.toggle("active", href === `#${id}`);
       });
     });
+  },
+  {
+    threshold: 0.35,
   }
+);
 
-  const showToast = (message) => {
-    if (!toast) return;
+sections.forEach((section) => activeObserver.observe(section));
 
-    toast.textContent = message;
-    toast.classList.add("show");
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    body.classList.remove("nav-open");
 
-    window.clearTimeout(showToast.timer);
-    showToast.timer = window.setTimeout(() => {
-      toast.classList.remove("show");
-    }, 1800);
-  };
-
-  document.querySelectorAll(".copy-email").forEach((button) => {
-    button.addEventListener("click", async () => {
-      const email = button.getAttribute("data-email") || "chriswangjob@163.com";
-
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(email);
-        } else {
-          const textarea = document.createElement("textarea");
-          textarea.value = email;
-          textarea.setAttribute("readonly", "");
-          textarea.style.position = "fixed";
-          textarea.style.left = "-9999px";
-          document.body.appendChild(textarea);
-          textarea.select();
-          document.execCommand("copy");
-          document.body.removeChild(textarea);
-        }
-
-        const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
-        showToast(isEnglish ? "Email copied" : "邮箱已复制");
-      } catch (error) {
-        const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
-        showToast(isEnglish ? "Copy failed" : "复制失败");
-      }
-    });
-  });
-
-  document.querySelectorAll(".diagram-toggle").forEach((button) => {
-    button.addEventListener("click", () => {
-      const targetId = button.getAttribute("data-target");
-      const panel = targetId ? document.getElementById(targetId) : null;
-
-      if (!panel) return;
-
-      const isOpen = panel.classList.toggle("open");
-      const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
-
-      if (isEnglish) {
-        button.textContent = isOpen ? "Hide Diagram" : "Show Diagram";
-      } else {
-        button.textContent = isOpen ? "收起流程图" : "展开流程图";
-      }
-    });
-  });
-
-  const revealElements = document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -60px 0px",
-      }
-    );
-
-    revealElements.forEach((element) => observer.observe(element));
-  } else {
-    revealElements.forEach((element) => element.classList.add("visible"));
-  }
-
-  const sections = document.querySelectorAll("main section[id]");
-  const menuLinks = document.querySelectorAll(".site-nav a[href^='#']");
-
-  if ("IntersectionObserver" in window && sections.length > 0) {
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          const id = entry.target.getAttribute("id");
-
-          menuLinks.forEach((link) => {
-            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
-          });
-        });
-      },
-      {
-        threshold: 0.35,
-      }
-    );
-
-    sections.forEach((section) => sectionObserver.observe(section));
+    if (navToggle) {
+      navToggle.setAttribute("aria-expanded", "false");
+    }
   }
 });
