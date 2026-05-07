@@ -239,10 +239,10 @@
               <em>打开 Demo →</em>
             </a>
 
-            <a class="demo-tile" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener">
+            <a class="demo-tile" href="https://chrisbetheking.github.io/Flutter-Campus-Shuttle-App/" target="_blank" rel="noopener">
               <span>Flutter</span>
-              <strong>校园交通系统 Demo</strong>
-              <small>校车路线、停车预约、ETA 倒计时和状态可视化。</small>
+              <strong>校园交通 App Demo</strong>
+              <small>三角色入口、OpenStreetMap 路线回放、校车预约和停车位管理。</small>
               <em>打开 Demo →</em>
             </a>
 
@@ -394,46 +394,51 @@
               <div class="tag-row">
                 <span>Flutter</span>
                 <span>Dart</span>
-                <span>CustomPaint</span>
-                <span>Animation</span>
-                <span>校园场景</span>
+                <span>Material 3</span>
+                <span>OpenStreetMap</span>
+                <span>Local State</span>
               </div>
             </div>
 
-            <h3>APU 智能校园交通系统</h3>
-            <p class="project-subtitle">围绕校园出行和停车场景设计的 Flutter Demo</p>
+            <h3>Flutter 校园交通移动端原型</h3>
+            <p class="project-subtitle">包含学生端、司机端和管理员端的校园交通 App Demo</p>
 
             <p>
-              项目围绕校园交通场景设计，包含校车路线、停车预约、实时状态、ETA 倒计时和角色入口。
-              重点在于移动端界面、状态展示和交互动效，而不是静态页面展示。
+              项目围绕校园出行场景设计，包含校车路线浏览、OpenStreetMap 路线回放、停车位预约、乘客签到和预约状态管理。
+              公开版本使用本地示例数据和基于真实地点坐标的路线回放，不接入真实 GPS、真实后端或 APU 官方交通数据。
             </p>
 
             <div class="project-columns">
               <div>
                 <h4>实现内容</h4>
                 <ul>
-                  <li>设计停车预约、校车状态、路线展示、ETA 倒计时等核心流程。</li>
-                  <li>使用 CustomPaint 绘制校园路网，使用 AnimationController 模拟校车移动。</li>
-                  <li>拆分页面组件，方便后续继续扩展地图、车辆状态或后端接口。</li>
+                  <li>设计学生端、司机端和管理员端三角色入口，展示不同用户视角下的交通流程。</li>
+                  <li>实现校车预约、停车位选择、预约取消、乘客签到和完成状态等本地流程。</li>
+                  <li>接入 OpenStreetMap 展示路线，并使用本地路线点位和平均车速进行校车路线回放。</li>
                 </ul>
               </div>
 
               <div>
                 <h4>技术重点</h4>
                 <ul>
-                  <li>Flutter 页面结构、组件拆分和响应式布局。</li>
-                  <li>动画控制、倒计时状态和界面状态变化展示。</li>
-                  <li>面向真实校园场景的移动端交互流程设计。</li>
+                  <li>使用 Flutter、Dart 和 Material 3 搭建移动端界面、页面导航和统一组件。</li>
+                  <li>通过共享本地状态让学生预约后，司机端和管理端能同步看到对应记录。</li>
+                  <li>整理 README、GitHub Pages 部署和在线 Demo，方便在作品集网站中展示。</li>
                 </ul>
               </div>
             </div>
 
+            <div class="note-box">
+              <strong>说明：</strong>
+              该项目是作品集 Demo。地图轨迹为本地路线回放，不是真实 GPS 追踪；数据来自本地示例，不代表官方校园交通系统。
+            </div>
+
             <div class="project-actions">
-              <a class="btn primary" href="https://chrisbetheking.github.io/apu-transport-demo/" target="_blank" rel="noopener">
+              <a class="btn primary" href="https://chrisbetheking.github.io/Flutter-Campus-Shuttle-App/" target="_blank" rel="noopener">
                 在线演示
               </a>
 
-              <a class="btn secondary" href="https://github.com/Chrisbetheking/apu-transport-demo" target="_blank" rel="noopener">
+              <a class="btn secondary" href="https://github.com/Chrisbetheking/Flutter-Campus-Shuttle-App" target="_blank" rel="noopener">
                 源码仓库
               </a>
             </div>
