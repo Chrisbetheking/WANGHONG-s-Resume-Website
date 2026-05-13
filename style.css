@@ -1089,3 +1089,43 @@ body.nav-open .nav-toggle span:last-child {
     font-size: 0.96rem;
   }
 }
+
+/* EduAgent project update */
+.project-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.project-metric-grid > div {
+  padding: 16px;
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.project-metric-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-size: 0.98rem;
+}
+
+.project-metric-grid span {
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 1040px) {
+  .project-metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .project-metric-grid {
+    grid-template-columns: 1fr;
+  }
+}

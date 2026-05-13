@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="920" viewBox="0 0 1500 920">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#101a3d"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff" stop-opacity=".11"/><stop offset="1" stop-color="#ffffff" stop-opacity=".05"/></linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7dd3fc"/></marker>
+    <style>
+      .title{font:800 42px Arial,Helvetica,sans-serif;fill:#fff}.sub{font:500 20px Arial,Helvetica,sans-serif;fill:#b9c6dc}.box{fill:url(#card);stroke:#334155;stroke-width:2;rx:22}.h{font:800 22px Arial,Helvetica,sans-serif;fill:#f8fafc}.t{font:500 17px Arial,Helvetica,sans-serif;fill:#cbd5e1}.chip{fill:#0ea5e9;fill-opacity:.18;stroke:#38bdf8;stroke-opacity:.55;rx:18}.chiptext{font:800 15px Arial,Helvetica,sans-serif;fill:#bfdbfe}.line{stroke:#7dd3fc;stroke-width:2.5;fill:none;marker-end:url(#arrow);opacity:.85}.small{font-size:15px}.num{font:900 34px Arial,Helvetica,sans-serif;fill:#7dd3fc}.mono{font:700 16px Arial,Helvetica,sans-serif;fill:#93c5fd}
+    </style>
+  </defs>
+  <rect width="1500" height="920" rx="34" fill="url(#bg)"/>
+  <text x="70" y="80" class="title">EduAgent | AI + RAG Consulting Workspace</text>
+  <text x="70" y="118" class="sub">React UI · NestJS Backend · Supabase/PostgreSQL · DeepSeek API · RAG · Agent Workflow · Observability</text>
+
+  <rect x="70" y="170" width="270" height="150" class="box"/>
+  <text x="95" y="215" class="h">1. User Entry</text>
+  <text x="95" y="250" class="t">Admin login / Guest mode</text>
+  <text x="95" y="280" class="t">Student profile, budget, language, projects</text>
+
+  <rect x="420" y="170" width="300" height="150" class="box"/>
+  <text x="445" y="215" class="h">2. API Service</text>
+  <text x="445" y="250" class="t">NestJS REST API</text>
+  <text x="445" y="280" class="t">JWT auth, quota, error fallback</text>
+
+  <rect x="800" y="170" width="290" height="150" class="box"/>
+  <text x="825" y="215" class="h">3. Data & Knowledge Base</text>
+  <text x="825" y="250" class="t">Supabase/PostgreSQL</text>
+  <text x="825" y="280" class="t">documents / chunks / messages / logs</text>
+
+  <rect x="1170" y="170" width="260" height="150" class="box"/>
+  <text x="1195" y="215" class="h">4. Model Calls</text>
+  <text x="1195" y="250" class="t">DeepSeek API</text>
+  <text x="1195" y="280" class="t">Prompt templates, timeout, fallback</text>
+
+  <path d="M340 245 H420" class="line"/><path d="M720 245 H800" class="line"/><path d="M1090 245 H1170" class="line"/>
+
+  <rect x="70" y="410" width="300" height="180" class="box"/>
+  <text x="95" y="455" class="h">Explainable Scoring</text>
+  <text x="95" y="490" class="t">weighted-fit-v2</text>
+  <text x="95" y="520" class="t">GPA, major fit, project experience</text>
+  <text x="95" y="550" class="t">Language, budget → reach/match/safe</text>
+
+  <rect x="430" y="410" width="300" height="180" class="box"/>
+  <text x="455" y="455" class="h">RAG Retrieval</text>
+  <text x="455" y="490" class="t">Document import and chunking</text>
+  <text x="455" y="520" class="t">Retrieve context by student profile</text>
+  <text x="455" y="550" class="t">Source reference + generation context</text>
+
+  <rect x="790" y="410" width="300" height="180" class="box"/>
+  <text x="815" y="455" class="h">Agent Workflow</text>
+  <text x="815" y="490" class="t">School tiers and writing direction</text>
+  <text x="815" y="520" class="t">Sales follow-up and material checklist</text>
+  <text x="815" y="550" class="t">Markdown / JSON export</text>
+
+  <rect x="1150" y="410" width="280" height="180" class="box"/>
+  <text x="1175" y="455" class="h">Logs & Observability</text>
+  <text x="1175" y="490" class="t">Model, latency, RAG hits</text>
+  <text x="1175" y="520" class="t">Tool chain, status, error details</text>
+  <text x="1175" y="550" class="t">Debug slow requests and bad cases</text>
+
+  <path d="M570 320 C530 350 420 372 280 410" class="line"/>
+  <path d="M865 320 C810 350 690 374 590 410" class="line"/>
+  <path d="M1300 320 C1230 350 1080 370 940 410" class="line"/>
+  <path d="M1300 320 V410" class="line"/>
+
+  <rect x="70" y="680" width="1360" height="120" class="box"/>
+  <text x="95" y="725" class="h">Outputs</text>
+  <text x="95" y="765" class="t">AI consultation · lead content · application dossier · school tiers · draft writing · material checklist · logs</text>
+  <rect x="95" y="825" width="140" height="36" class="chip"/><text x="165" y="848" class="chiptext" text-anchor="middle">Auth</text>
+  <rect x="250" y="825" width="140" height="36" class="chip"/><text x="320" y="848" class="chiptext" text-anchor="middle">RAG</text>
+  <rect x="405" y="825" width="140" height="36" class="chip"/><text x="475" y="848" class="chiptext" text-anchor="middle">Agent</text>
+  <rect x="560" y="825" width="140" height="36" class="chip"/><text x="630" y="848" class="chiptext" text-anchor="middle">Logs</text>
+  <rect x="715" y="825" width="170" height="36" class="chip"/><text x="800" y="848" class="chiptext" text-anchor="middle">Export</text>
+</svg>
