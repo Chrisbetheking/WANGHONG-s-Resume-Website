@@ -9,17 +9,17 @@
   </defs>
   <rect width="1500" height="920" rx="34" fill="url(#bg)"/>
   <text x="70" y="80" class="title">EduAgent | AI + RAG Consulting Workspace</text>
-  <text x="70" y="118" class="sub">React UI · NestJS Backend · Supabase/PostgreSQL · DeepSeek API · RAG · Agent Workflow · Observability</text>
+  <text x="70" y="118" class="sub">React UI · EdgeOne Entry · Render/NestJS Backend · Supabase pgvector · DeepSeek · RAG · Agent · Observability</text>
 
   <rect x="70" y="170" width="270" height="150" class="box"/>
   <text x="95" y="215" class="h">1. User Entry</text>
-  <text x="95" y="250" class="t">Admin login / Guest mode</text>
-  <text x="95" y="280" class="t">Student profile, budget, language, projects</text>
+  <text x="95" y="250" class="t">EdgeOne Pages / React workspace</text>
+  <text x="95" y="280" class="t">Admin login / Guest mode / business forms</text>
 
   <rect x="420" y="170" width="300" height="150" class="box"/>
   <text x="445" y="215" class="h">2. API Service</text>
-  <text x="445" y="250" class="t">NestJS REST API</text>
-  <text x="445" y="280" class="t">JWT auth, quota, error fallback</text>
+  <text x="445" y="250" class="t">Render + NestJS REST API</text>
+  <text x="445" y="280" class="t">JWT auth, quota, timeout protection</text>
 
   <rect x="800" y="170" width="290" height="150" class="box"/>
   <text x="825" y="215" class="h">3. Data & Knowledge Base</text>
@@ -29,7 +29,7 @@
   <rect x="1170" y="170" width="260" height="150" class="box"/>
   <text x="1195" y="215" class="h">4. Model Calls</text>
   <text x="1195" y="250" class="t">DeepSeek API</text>
-  <text x="1195" y="280" class="t">Prompt templates, timeout, fallback</text>
+  <text x="1195" y="280" class="t">Prompt templates, timeout, backup result</text>
 
   <path d="M340 245 H420" class="line"/><path d="M720 245 H800" class="line"/><path d="M1090 245 H1170" class="line"/>
 

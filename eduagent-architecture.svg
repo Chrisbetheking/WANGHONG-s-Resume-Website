@@ -9,17 +9,17 @@
   </defs>
   <rect width="1500" height="920" rx="34" fill="url(#bg)"/>
   <text x="70" y="80" class="title">EduAgent｜AI + RAG 留学咨询工作台</text>
-  <text x="70" y="118" class="sub">React 前端 · NestJS 后端 · Supabase/PostgreSQL · DeepSeek API · RAG · Agent 工具链 · 日志观测</text>
+  <text x="70" y="118" class="sub">React 前端 · EdgeOne 入口 · Render/NestJS 后端 · Supabase pgvector · DeepSeek · RAG · Agent · 日志观测</text>
 
   <rect x="70" y="170" width="270" height="150" class="box"/>
   <text x="95" y="215" class="h">1. 用户与入口</text>
-  <text x="95" y="250" class="t">管理员登录 / 访客体验</text>
-  <text x="95" y="280" class="t">学生背景、预算、语言、项目经历</text>
+  <text x="95" y="250" class="t">EdgeOne Pages / React 工作台</text>
+  <text x="95" y="280" class="t">管理员登录 / 访客体验 / 业务表单</text>
 
   <rect x="420" y="170" width="300" height="150" class="box"/>
   <text x="445" y="215" class="h">2. API 服务层</text>
-  <text x="445" y="250" class="t">NestJS REST API</text>
-  <text x="445" y="280" class="t">JWT 鉴权、额度、异常 fallback</text>
+  <text x="445" y="250" class="t">Render + NestJS REST API</text>
+  <text x="445" y="280" class="t">JWT 鉴权、额度、超时保护</text>
 
   <rect x="800" y="170" width="290" height="150" class="box"/>
   <text x="825" y="215" class="h">3. 数据与知识库</text>
@@ -29,7 +29,7 @@
   <rect x="1170" y="170" width="260" height="150" class="box"/>
   <text x="1195" y="215" class="h">4. 模型调用</text>
   <text x="1195" y="250" class="t">DeepSeek API</text>
-  <text x="1195" y="280" class="t">Prompt 模板、超时、降级</text>
+  <text x="1195" y="280" class="t">Prompt 模板、超时、备用结果</text>
 
   <path d="M340 245 H420" class="line"/><path d="M720 245 H800" class="line"/><path d="M1090 245 H1170" class="line"/>
 
