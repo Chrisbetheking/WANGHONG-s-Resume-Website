@@ -60,8 +60,8 @@
 
           <div class="hero-actions">
             <a class="btn primary" href="https://eduagt.netlify.app" target="_blank" rel="noopener">打开 EduAgent</a>
-            <a class="btn secondary" href="resume.pdf?v=20260515" target="_blank" rel="noopener">简历 PDF</a>
-            <a class="btn secondary" href="resume-long.png?v=20260515" target="_blank" rel="noopener">简历长图</a>
+            <a class="btn secondary" href="resume.pdf?v=20260514" target="_blank" rel="noopener">简历 PDF</a>
+            <a class="btn secondary" href="resume.docx?v=20260514" target="_blank" rel="noopener">简历 DOCX</a>
             <a class="btn secondary" href="https://github.com/Chrisbetheking" target="_blank" rel="noopener">GitHub</a>
             <button class="btn ghost copy-email" type="button" data-email="chriswangjob@163.com">复制邮箱</button>
           </div>
@@ -103,7 +103,7 @@
           <article class="highlight-card"><div class="card-icon">01</div><h3>前端工程主线</h3><p>用 React + TypeScript 组织多页面工作台，处理复杂表单、折叠面板、结果导出、状态缓存、错误边界和移动端适配。</p></article>
           <article class="highlight-card"><div class="card-icon">02</div><h3>AI 应用落地</h3><p>把 LLM 调用、Prompt、RAG 检索、SSE 流式输出、来源引用和长耗时提示接入真实业务流程。</p></article>
           <article class="highlight-card"><div class="card-icon">03</div><h3>检索与评分</h3><p>围绕 RAG 做文档切片、Embedding、Top-K 召回、关键词 + 向量混合检索，并设计 weighted-fit 选校评分逻辑。</p></article>
-          <article class="highlight-card"><div class="card-icon">04</div><h3>可观测与部署</h3><p>记录模型、耗时、RAG 命中、工具链路径和错误信息；通过 Netlify + Render 保证项目可公开访问和演示。</p></article>
+          <article class="highlight-card"><div class="card-icon">04</div><h3>可观测与部署</h3><p>记录模型、耗时、RAG 命中、工具链路径和错误信息；通过 Netlify + Render 保证项目能稳定在线访问和演示。</p></article>
         </div>
       </div>
     </section>
@@ -141,8 +141,12 @@
           <div class="demo-grid">
             <a class="demo-tile" href="https://eduagt.netlify.app" target="_blank" rel="noopener"><span>Core Demo</span><strong>EduAgent 在线工作台</strong><small>React + TypeScript 多页面工作台，接入 RAG、工具调用、日志和评测。</small><em>打开 Demo →</em></a>
             <a class="demo-tile" href="https://github.com/Chrisbetheking/edu-agent-rag-workspace" target="_blank" rel="noopener"><span>Source</span><strong>EduAgent GitHub 源码</strong><small>前端、后端、Netlify / Render 部署与接口逻辑。</small><em>查看源码 →</em></a>
-            <a class="demo-tile" href="resume.pdf?v=20260515" target="_blank" rel="noopener"><span>Resume</span><strong>超 S 投递版简历</strong><small>前端开发 / AI 应用开发实习生一页版 PDF。</small><em>查看 PDF →</em></a>
+            <a class="demo-tile" href="resume.pdf?v=20260514" target="_blank" rel="noopener"><span>Resume</span><strong>超 S 投递版简历</strong><small>前端开发 / AI 应用开发实习生一页版 PDF。</small><em>查看 PDF →</em></a>
             <a class="demo-tile" href="https://chrisbetheking.github.io/ai-agent-workflow-platform-/" target="_blank" rel="noopener"><span>Intern Demo</span><strong>企业级 AI 工作流脱敏演示</strong><small>展示实习项目中的工作流结构和前端交互。</small><em>打开演示 →</em></a>
+            <a class="demo-tile" href="https://chrisbetheking.github.io/medical-qa-demo/" target="_blank" rel="noopener"><span>Medical AI</span><strong>AI 医疗健康信息检索 Demo</strong><small>文本处理、规则检索、安全边界和流程图演示。</small><em>打开 →</em></a>
+            <a class="demo-tile" href="https://chrisbetheking.github.io/java-student-management-system/java-grade-demo.html" target="_blank" rel="noopener"><span>Java</span><strong>学生成绩管理系统</strong><small>成绩录入、统计、补考筛选和总评计算。</small><em>打开 →</em></a>
+            <a class="demo-tile" href="https://chrisbetheking.github.io/Flutter-Campus-Shuttle-App/" target="_blank" rel="noopener"><span>Flutter</span><strong>校园交通 App Demo</strong><small>学生端、司机端、管理员端三角色流程。</small><em>打开 →</em></a>
+            <a class="demo-tile" href="https://chrisbetheking.github.io/whwithyn/" target="_blank" rel="noopener"><span>Front-end</span><strong>原生前端交互网站</strong><small>HTML / CSS / JavaScript 动效、弹窗和表单校验。</small><em>打开 →</em></a>
           </div>
         </div>
 
@@ -176,7 +180,7 @@
                   <li>接入 DeepSeek 与 Embedding 服务，实现文档切片、向量化存储、Top-K 召回、来源引用和检索评测。</li>
                   <li>设计 weighted-fit 选校评分逻辑，将 GPA、专业匹配、语言成绩、项目经历和预算转为可解释分数，用于冲刺 / 匹配 / 保底分层。</li>
                   <li>后端封装 JWT、访客额度、SSE、DTO 校验、限流、日志和 Markdown / JSON 导出，避免前端直接暴露模型 Key。</li>
-                  <li>用 Netlify 承载前端、Render 承载后端，并为海外后端冷启动和长 AI 请求设计等待提示与备用结果。</li>
+                  <li>用 Netlify 承载前端入口、Render 承载后端，并为海外后端冷启动和长 AI 请求设计等待提示与备用结果。</li>
                 </ul>
               </div>
             </div>

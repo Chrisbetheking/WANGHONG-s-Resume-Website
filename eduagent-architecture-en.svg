@@ -3,7 +3,7 @@
   <rect width="1500" height="920" rx="34" fill="url(#bg)"/>
   <text x="70" y="78" class="title">EduAgent｜Front-end + AI Application Architecture</text>
   <text x="70" y="116" class="sub">React / TypeScript workspace · RAG retrieval · SSE streaming · observability · Netlify + Render</text>
-  <rect x="70" y="165" width="280" height="150" class="box"/><text x="95" y="210" class="h">1. Front-end Entry</text><text x="95" y="246" class="t">Netlify Pages</text><text x="95" y="276" class="t">React multi-page workspace</text>
+  <rect x="70" y="165" width="280" height="150" class="box"/><text x="95" y="210" class="h">1. Front-end Entry</text><text x="95" y="246" class="t">Netlify Frontend</text><text x="95" y="276" class="t">React multi-page workspace</text>
   <rect x="430" y="165" width="300" height="150" class="box"/><text x="455" y="210" class="h">2. Front-end Layer</text><text x="455" y="246" class="t">Routing / API wrapper</text><text x="455" y="276" class="t">Loading / Error / Export / SSE</text>
   <rect x="810" y="165" width="290" height="150" class="box"/><text x="835" y="210" class="h">3. Backend Service</text><text x="835" y="246" class="t">Render + NestJS API</text><text x="835" y="276" class="t">JWT / DTO / Rate limit / Logs</text>
   <rect x="1180" y="165" width="250" height="150" class="box"/><text x="1205" y="210" class="h">4. Model Layer</text><text x="1205" y="246" class="t">DeepSeek Chat</text><text x="1205" y="276" class="t">Prompt / Timeout / Fallback</text>
