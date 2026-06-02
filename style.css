@@ -863,11 +863,23 @@ body.nav-open .nav-toggle span:last-child {
   border-bottom: 0;
 }
 
-.contact-card span {
+.contact-card strong {
   display: block;
   color: var(--muted-2);
   font-size: 0.82rem;
-  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.contact-card span,
+.contact-card a {
+  display: block;
+}
+
+.contact-card span {
+  color: var(--text);
+  font-weight: 750;
+  overflow-wrap: anywhere;
 }
 
 .contact-card a {
